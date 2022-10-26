@@ -1,0 +1,66 @@
+label{
+    font-weight: 600;
+}
+
+small{
+    font-weight: 600;
+}
+
+input{
+    background-color: rgb(230, 230, 230);
+}
+
+h1{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #008B81;
+}
+
+.body{
+    width: 100%;
+	height: 100%;	
+	background-color: white;
+    border-radius: 5px;
+
+    box-shadow:
+        2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+        6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+        12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+        22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+        41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+        100px 100px 80px rgba(0, 0, 0, 0.07)
+    ;
+}
+
+.container{     
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+
+}
+.invalid {
+    color: red;
+}
+
+.boton{    
+    background-color: #008B81;
+    color: white;
+    font-weight: 600;
+
+    border-radius: 8px;
+    height: 40px;
+    border: none;
+}
+
+.boton:enabled:hover{
+    cursor: pointer;
+    background-color: #153A82;
+    color: white;
+    font-weight: 600;
+}
+
+.boton:disabled{
+    opacity: 85%;
+}

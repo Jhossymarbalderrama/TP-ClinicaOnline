@@ -1,0 +1,51 @@
+
+main{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100vh;
+    height: -webkit-fill-available;
+    max-height: 100vh;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.dropdown {
+    cursor: pointer;
+} 
+
+.dropdown-item{
+    cursor: pointer;
+}
+
+.dropdown-item:hover{
+    background-color: #008B81;
+}
+
+.menu-panel{
+    width: 20%;
+}
+
+.container{
+    width: 80%;  
+    height: 100%;  
+}
+
+.menu-item{
+    cursor: pointer;
+}
+
+.menu-item:hover{
+    background-color: #008B81;
+}
+
+.habilitado{
+    background-color: #008B81;
+}
+
+span{
+    font-weight: 600;
+}
+
+a{
+    font-weight: 600;
+}

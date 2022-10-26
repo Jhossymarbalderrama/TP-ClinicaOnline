@@ -1,0 +1,33 @@
+.header-form{
+    background-color: #008B81;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    font-weight: 600;
+    font-size: 20px;
+
+    width: 100%;
+}
+
+.test{
+    padding: 1.5rem !important;    
+     /*a chico formulario*/
+}
+
+.header-form > .btn-volver{
+    padding-top: 5px;
+    padding-left: 30px;
+    padding-bottom: 5px;
+
+    border-radius: 16px;
+
+    background-color: #153A82;
+    width: 180px;
+    color: white;
+}
+
+.header-form > .btn-volver:hover{
+    cursor: pointer;
+    background-color: black;    
+}

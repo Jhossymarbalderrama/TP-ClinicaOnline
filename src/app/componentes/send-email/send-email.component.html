@@ -1,0 +1,33 @@
+<app-menu></app-menu>
+
+<div class="body">
+    <div class="container">
+        <div class="card mt-5" *ngIf="user$ | async as user; else loading">
+            <div class="card-body">
+                <h3 class="card-title text-center">Gracias por su Registro!</h3>
+                <div class="form-group">
+                    <p class="text-center mt-2">
+                        Para poder ingresar al sistema tiene que confirmar su mail. 
+                    </p>
+                    <p>
+                        La confirmacion de mail se le envio al correo <strong>{{user?.email}}</strong>
+                    </p>
+
+                    <p class="text-center">
+                        Por favor verificar su mail. revisar la seccion SPAM
+                    </p>
+                </div>
+        
+                <div class="form-group text-center mt-5">
+                    <button class="btn btn-primary" (click)="onSendEmail()">
+                        Reenviar Email de veririfcacion
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <ng-template #loading>
+            Cargando...
+        </ng-template>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="d-flex align-items-center" *ngIf="this.spinner" style="color: #153A82;">
+    <strong>Cargando lista...</strong>
+    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+  </div>
+
+  <div *ngIf="!this.spinner">
+    <thead class="thead-dark" align="start">
+      <tr>
+        <th scope="col">DNI</th>
+        <th scope="col">Mail</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Nombre</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody align="start">
+      <tr *ngFor='let paciente of this.listadoPacientes'>
+        <td>{{paciente?.dni}}</td>
+        <td>{{paciente?.mail}}</td>
+        <td>{{paciente?.apellido}}</td>
+        <td>{{paciente?.nombre}}</td>
+        <td>
+          <button class="mt-2 btn btn-outline-dark" (click)='seleccionarPaciente(paciente)'>Ver informacion</button>
+        </td>
+      </tr>
+    </tbody>
+  </div>
+</div>

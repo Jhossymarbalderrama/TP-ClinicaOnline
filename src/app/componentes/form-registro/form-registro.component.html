@@ -1,0 +1,208 @@
+<div class="body">
+    <div class="header-form" *ngIf="!this.fromAdministracion">
+         <div class="btn-volver" (click)="volver()">
+            <svg width="46" height="46" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M2.25 12c0 5.384 4.365 9.75 9.75 9.75 5.384 0 9.75-4.366 9.75-9.75 0-5.385-4.366-9.75-9.75-9.75A9.75 9.75 0 0 0 2.25 12Zm9.968-4.282a.751.751 0 0 1 .004 1.06L9.77 11.25h6.261a.75.75 0 1 1 0 1.5H9.77l2.452 2.472a.75.75 0 1 1-1.066 1.056l-3.721-3.75a.75.75 0 0 1 0-1.056l3.721-3.75a.75.75 0 0 1 1.062-.005Z">
+                </path>
+            </svg>
+            <a style="margin-left: 10px;">volver</a>
+         </div>
+    </div>
+
+    <div class="container">
+        <div class="col-md-12 col-lg-12 p-4">
+            <h1 class="mb-3">Formulario de {{this.tipoForm}}</h1>
+            <form class="needs-validation" [formGroup]="formularioRegistro" (ngSubmit)="altaRegistro()">
+                <div class="row g-3">
+                    <hr class="mb-1">
+
+
+                    <div class="col-md-4">
+                        <label for="firstName">Nombre</label>
+                        <input type="text" class="form-control" formControlName='nombre'
+                            placeholder="Ingrese su nombre">
+
+                        <small class="invalid"
+                            *ngIf="this.formularioRegistro.get('nombre')?.errors?.['required'] && this.formularioRegistro.get('nombre')?.touched">
+                            *Nombre requerido
+                        </small>
+                    </div>
+
+
+                    <div class="col-md-5 ">
+                        <label for="firstName">Apellido</label>
+                        <input type="text" class="form-control" formControlName='apellido'
+                            placeholder="Ingrese sus apellidos">
+
+                        <small class="invalid"
+                            *ngIf="this.formularioRegistro.get('apellido')?.errors?.['required'] && this.formularioRegistro.get('apellido')?.touched">
+                            *Apellido requerido
+                        </small>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <label for="firstName">Edad</label>
+                        <input type="number" class="form-control" formControlName='edad' placeholder="Ingrese su edad">
+
+                        <small class="invalid"
+                            *ngIf="this.formularioRegistro.get('edad')?.errors?.['required'] && this.formularioRegistro.get('edad')?.touched">
+                            *Edad requerida
+                        </small>
+
+                        <small class="invalid"
+                            *ngIf="this.formularioRegistro.get('edad')?.errors?.['min'] || this.formularioRegistro.get('edad')?.errors?.['max']">
+                            *La edad tiene que estar entre 18 y 99
+                        </small>
+                    </div>
+
+
+
+                    <div class="col-md-6">
+                        <label for="firstName">DNI</label>
+                        <input type="number" class="form-control" formControlName='dni' placeholder="Ingrese su dni">
+
+                        <small class="invalid"
+                            *ngIf="this.formularioRegistro.get('dni')?.errors?.['required'] && this.formularioRegistro.get('dni')?.touched">
+                            *DNI requerido
+                        </small>
+                       
+                        <!-- <small class="invalid"
+                            *ngIf="this.formularioRegistro.get('dni')?.errors?.['minLength']">
+                            *DNI tiene 8 digitos
+                        </small> -->
+
+                        <small class="invalid"
+                        *ngIf="this.formularioRegistro.get('dni')?.errors?.['min'] || this.formularioRegistro.get('dni')?.errors?.['max']">
+                            *DNI Invalido
+                        </small>
+                    </div>
+
+
+                    <div class="col-md-6" *ngIf="this.tipoForm == this.formEspecialista">
+                        <label for="firstName">Especialidad</label>
+                        <input type="text" class="form-control" formControlName='especialidad'
+                            placeholder="Ingrese sus especialidades">
+
+                        <small class="invalid"
+                            *ngIf="this.formularioRegistro.get('especialidad')?.errors?.['required'] && this.formularioRegistro.get('especialidad')?.touched">
+                            *Especialidad requerido
+                        </small>
+                    </div>
+
+
+                    <div class="col-md-6" *ngIf="this.tipoForm == this.formPaciente">
+                        <label for="firstName">Obra Social</label>
+                        <input type="text" class="form-control" formControlName='obra_social'
+                            placeholder="Ingrese su obra social">
+
+                        <small class="invalid"
+                            *ngIf="this.formularioRegistro.get('obra_social')?.errors?.['required'] && this.formularioRegistro.get('obra_social')?.touched">
+                            *Obra social requerido
+                        </small>
+                    </div>
+
+
+
+                    <div class="col-md-12">
+                        <label for="firstName">Mail</label>
+                        <input type="email" class="form-control" formControlName='mail' placeholder="Ingrese su mail">
+
+                        <small class="invalid"
+                            *ngIf="this.formularioRegistro.get('mail')?.errors?.['required'] && this.formularioRegistro.get('mail')?.touched">
+                            *Mail requerido
+                        </small>
+                        <small class="invalid" *ngIf="this.formularioRegistro.get('mail')?.errors?.['email']">
+                            *Mail Invalido
+                        </small>
+                    </div>
+
+
+
+                    <div class="col-md-6">
+                        <label for="firstName">Password</label>
+                        <input type="password" class="form-control" formControlName='password'
+                            placeholder="Ingrese su password">
+
+                        <small class="invalid"
+                            *ngIf="this.formularioRegistro.get('password')?.errors?.['required'] && this.formularioRegistro.get('password')?.touched">
+                            *Password requerido
+                        </small>
+                    </div>
+
+
+
+                    <div class="col-md-6">
+                        <label for="firstName">Repetir Password</label>
+                        <input type="password" class="form-control" formControlName='repetir_password'
+                            placeholder="Repita su password">
+
+                        <small class="invalid"
+                            *ngIf="this.formularioRegistro.get('repetir_password')?.errors?.['required'] && this.formularioRegistro.get('repetir_password')?.touched">
+                            *Reingreso de Password requerido
+                        </small>
+
+                        <small class="invalid"
+                            *ngIf="this.formularioRegistro.get('repetir_password')?.value != this.formularioRegistro.get('password')?.value && this.formularioRegistro.get('repetir_password')?.value !=''">
+                            *Reingrese la password
+                        </small>
+
+                        <span class="invalid" *ngIf="this.passwordInvalid">
+                            *Reingrese la password
+                        </span>
+                    </div>
+
+
+
+                    <div class="col-md-12" *ngIf="this.tipoForm == this.formPaciente">
+                        <label for="firstName">Foto (2 fotos)</label>
+                        <input type="file" class="form-control" formControlName='fotosPaciente' multiple
+                            (change)="subirFotosPaciente($event)">
+
+                        <!-- <small class="invalid"
+                            *ngIf="this.formularioRegistro.get('fotosPaciente')?.errors?.['required'] && this.formularioRegistro.get('fotosPaciente')?.touched">
+                            *Foto requerida
+                        </small> -->
+
+                        <small class="invalid"
+                            *ngIf="this.formularioRegistro.get('fotosPaciente')?.value == ''">
+                            *Foto requerida
+                        </small>
+
+                        <span class="invalid" *ngIf="this.errorFotoPaciente">
+                            *Seleccione 2 Fotos a Subir ("Con la tecla Ctrl + click seleccionar las fotos")
+                        </span>
+
+                    </div>
+
+                    <div class="col-md-12" *ngIf="this.tipoForm == this.formEspecialista">
+                        <label for="firstName">Foto (1 foto) </label>
+                        <input type="file" class="form-control" formControlName='fotoEspecialista'
+                            (change)="subirFotoEspecialista($event)">
+
+                        <!-- <small class="invalid"
+                            *ngIf="this.formularioRegistro.get('fotoEspecialista')?.errors?.['required'] && this.formularioRegistro.get('fotoEspecialista')?.touched">
+                            *Foto requerida
+                        </small> -->
+
+                        <small class="invalid"
+                            *ngIf="this.formularioRegistro.get('fotosPaciente')?.value == ''">
+                            *Foto requerida
+                        </small>
+                    </div>
+
+
+                </div>
+                <hr class="mb-4">
+                <div class="d-flex justify-content-center" style="color: #008B81;margin-bottom: 10px;" *ngIf="this.spinner">
+                    <div class="spinner-border" role="status">
+                    </div>
+                  </div>
+
+                <button class="w-100 boton" type="submit" [disabled]="formularioRegistro.invalid">Registrarse</button>
+            </form>
+        </div>
+
+    </div>
+</div>

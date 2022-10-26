@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tp-clinicaonline-ef480": {
+      "hosting": {
+        "TP_Final_Clinica": [
+          "tp-clinicaonline-ef480"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tp-clinicaonline-ef480"
+  }
+}

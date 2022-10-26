@@ -1,0 +1,34 @@
+<app-menu></app-menu>
+
+<div class="body">
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2" *ngIf="!this.activateForm">
+
+            <div class="col" (click)="cargarFormulario('pacientes')">
+                <div class="paciente"  routerLink="/registro" align="center">
+                    <h1 style="padding-top: 80%;">
+                        Pacientes
+                    </h1>
+                </div>
+            </div>
+            
+            <div class="col registro" (click)="cargarFormulario('especialistas')">            
+                <div class="especialista"  routerLink="/registro" align="center">
+                    <h1 style="padding-top: 80%;">
+                        Especialistas
+                    </h1>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="margin-top: 8%;">
+            <app-form-registro 
+                *ngIf="this.activateForm" 
+                (volverEvent)='cambioFormulario($event)'
+                [formulario] = 'this.tipoFormulario'            
+            ></app-form-registro>
+        </div>
+    </div>
+</div>

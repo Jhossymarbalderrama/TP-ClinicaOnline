@@ -1,0 +1,141 @@
+.box{
+    min-height: 100vh;
+}
+
+.body{
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    min-width: 100vh;
+    min-height: 100vh;	 
+}
+
+.container-listados{
+    width: 100%;
+    height: 100%;
+
+    background-color:  #e2e2e2;
+	border-radius: 10px;
+	box-shadow:
+        0.6px 0.7px 0.2px -5px rgba(0, 0, 0, 0.017),
+        1.4px 1.6px 0.4px -5px rgba(0, 0, 0, 0.025),
+        2.4px 2.8px 0.6px -5px rgba(0, 0, 0, 0.031),
+        3.6px 4.2px 1px -5px rgba(0, 0, 0, 0.035),
+        5.1px 6px 1.4px -5px rgba(0, 0, 0, 0.04),
+        7.3px 8.5px 1.9px -5px rgba(0, 0, 0, 0.045),
+        10.3px 12.1px 2.8px -5px rgba(0, 0, 0, 0.049),
+        15px 17.5px 4px -5px rgba(0, 0, 0, 0.055),
+        23.1px 27px 6.2px -5px rgba(0, 0, 0, 0.063),
+        41px 48px 11px -5px rgba(0, 0, 0, 0.08)
+    ;
+    padding: 2em 2em 2em 2em;
+    margin-top: 3em;
+}
+
+.col{
+    transform: scale(1);
+	box-shadow:
+  0.9px 0.8px 0.4px -28px rgba(0, 0, 0, 0.127),
+  2.1px 1.9px 1.1px -28px rgba(0, 0, 0, 0.182),
+  4px 3.6px 2px -28px rgba(0, 0, 0, 0.225),
+  7.1px 6.5px 3.6px -28px rgba(0, 0, 0, 0.268),
+  13.4px 12.1px 6.7px -28px rgba(0, 0, 0, 0.323),
+  32px 29px 16px -28px rgba(0, 0, 0, 0.45)
+;
+
+}
+
+.col:hover{
+    cursor: pointer;
+    transform: scale(1.05);  
+    
+    opacity: 75%;
+}
+
+
+
+text{
+    font-weight: bold;
+    font-size: 28px;
+    text-shadow: white 1px 0 5px;	
+}
+
+h2{
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #008B81;
+}
+
+
+.admin-reg{
+    width: 100%;
+	height: 100%;
+	
+	background: url("../../../assets/imagenes/img/registro_adm.jpg")
+	 no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.espe-reg{
+    width: 100%;
+	height: 100%;
+	background: url("../../../assets/imagenes/img/registro_esp.jpg")
+	 no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	
+}
+
+.paci-reg{
+    width: 100%;
+	height: 100%;
+	
+	background: url("../../../assets/imagenes/img/registro_pac.jpg")
+	 no-repeat center center fixed !important;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.admin-list{
+    width: 100%;
+	height: 100%;
+	
+	background: url("../../../assets/imagenes/img/lista_adm.jpg")
+	 no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.espe-list{
+    width: 100%;
+	height: 100%;
+	background: url("../../../assets/imagenes/img/lista_esp.jpg")
+	 no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.paci-list{
+    width: 100%;
+	height: 100%;
+	
+	background: url("../../../assets/imagenes/img/lista_pac.jpg")
+	 no-repeat center center fixed !important;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}

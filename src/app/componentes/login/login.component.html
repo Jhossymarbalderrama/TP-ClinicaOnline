@@ -1,0 +1,98 @@
+<app-menu></app-menu>
+
+<div class="body">
+    <div class="container">
+        <div class="box">
+            <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2" style="width: 100%;margin-left: 10%;">
+                <div class="col" style="width: 70%;margin-top: 10%;">
+                    <div class="box-login right-panel-active">
+                        <div class="overlay-container">
+                            <div class="overlay">
+                                <div class="overlay-panel">
+                                    <h1>¡Bienvenido!</h1>
+                                    <p>Para sacar turnos iniciar sesion con su correo y contraseña.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-container sign-in-container">
+                            <form [formGroup]="formLogin" (submit)="onLogin()">
+                                <h1>Login</h1>
+                                <span class="invalid"
+                                    style="font-size: 18px;font-weight: 600;width: 100%;text-align: start;"
+                                    *ngIf="this.userExist && this.noEncontroUser">
+                                    *El usuario no existe
+                                </span>
+                                <span class="invalid"
+                                    style="font-size: 18px;font-weight: 600;width: 100%;text-align: start;"
+                                    *ngIf="this.noHabilitado">
+                                    *El usuario no fue Habilitado
+                                </span>
+
+                                <input type="email" placeholder="mail" formControlName='mail'>
+                                <small class="invalid"
+                                    *ngIf="this.formLogin.get('mail')?.errors?.['required'] && this.formLogin.get('mail')?.touched">
+                                    *Mail requerido
+                                </small>
+
+                                <small class="invalid"
+                                    *ngIf="this.formLogin.get('mail')?.errors?.['email']">
+                                    *Mail invalido
+                                </small>
+
+
+                                <input type="password" placeholder="password" formControlName='password'>
+                                <small class="invalid"
+                                    *ngIf="this.formLogin.get('password')?.errors?.['required'] && this.formLogin.get('password')?.touched">
+                                    *Password requerido
+                                </small>
+
+
+                                <div class="spinner-border text-success" role="status" *ngIf="this.spinner" 
+                                style="margin-top: 5px;margin-bottom: 10px;">                                 
+                                </div>
+                                
+                                <button class="w-100 boton" type="submit" [disabled]="formLogin.invalid"
+                                    (click)="onLogin()">
+                                    Iniciar sesion
+                                </button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="width: auto; padding-left: 110px;">
+                    <div class="box-access-fast-login" align="center" (click)="loginRapido(1)">
+                        <img [src]="this.fotoAdmin_1" height="60px" width="auto">
+                        <p>Administrador</p>
+                    </div>
+
+                    <div class="box-access-fast-login" align="center" (click)="loginRapido(2)">
+                        <img [src]="this.fotoEsp_1" height="60px" width="auto">
+                        <p>Especialista</p>
+                    </div>
+
+                    <div class="box-access-fast-login" align="center" (click)="loginRapido(3)">
+                        <img [src]="this.fotoEsp_2" height="60px" width="auto">
+                        <p>Especialista</p>
+                    </div>
+
+                    <div class="box-access-fast-login" align="center" (click)="loginRapido(4)">
+                        <img [src]="fotoPac_1" height="60px" width="auto">
+                        <p>Paciente</p>
+                    </div>
+
+                    <div class="box-access-fast-login" align="center" (click)="loginRapido(5)">
+                        <img [src]="this.fotoPac_2" height="60px" width="auto">
+                        <p>Paciente</p>
+                    </div>
+
+                    <div class="box-access-fast-login" align="center" (click)="loginRapido(6)">
+                        <img [src]="fotoPac_3" height="60px" width="auto">
+                        <p>Paciente</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

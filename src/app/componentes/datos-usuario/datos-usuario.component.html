@@ -1,0 +1,143 @@
+<div class="container">
+    <div class="mt-12 row">
+        <div class="col-md-12 order-md-1">
+            <hr class="mb-4">
+
+            <div *ngIf="this.spinner">
+                <div class="d-flex justify-content-center" style="color: #153A82;">
+                    <div class="spinner-border" role="status">
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="!this.spinner">
+
+                <!-- PACIENTE INFO -->
+                <div *ngIf="this.isPAC">
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">Nombre</label>
+                            <input type="text" class="form-control" value="{{this.paciente.nombre}}" readonly>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">Apellido</label>
+                            <input type="text" class="form-control" value="{{this.paciente.apellido}}" readonly>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">Edad</label>
+                            <input type="number" class="form-control" value="{{this.paciente.edad}}" readonly>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">DNI</label>
+                            <input type="text" class="form-control" value="{{this.paciente.dni}}" readonly>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">Obra Social</label>
+                            <input type="text" class="form-control" value="{{this.paciente.obra_social}}" readonly>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">Mail</label>
+                            <input type="text" class="form-control" value="{{this.paciente.mail}}" readonly>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">Fotos</label>
+                            <div class="row">
+                                <div class="col" *ngFor='let url of this.paciente.foto'>
+                                    <img src="{{url}}" height="150px" width="auto">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ESPECIALISTA INFO -->
+                <div *ngIf="this.isESP">
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">Nombre</label>
+                            <input type="text" class="form-control" value="{{this.especialista.nombre}}" readonly>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">Apellido</label>
+                            <input type="text" class="form-control" value="{{this.especialista.apellido}}" readonly>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">Edad</label>
+                            <input type="number" class="form-control" value="{{this.especialista.edad}}" readonly>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">DNI</label>
+                            <input type="text" class="form-control" value="{{this.especialista.dni}}" readonly>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">Especialidad</label>
+                            <input type="text" class="form-control" value="{{this.especialista.especialidad}}" readonly>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">Mail</label>
+                            <input type="text" class="form-control" value="{{this.especialista.mail}}" readonly>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">Foto</label>
+                            <div class="row">
+                                <div class="col">
+                                    <img src="{{this.especialista.foto}}" height="150px" width="auto">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ADMINISTRADOR INFO -->
+                <div *ngIf="this.isADM">
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">Nombre</label>
+                            <input type="text" class="form-control" value="{{this.administrador.nombre}}" readonly>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">Apellido</label>
+                            <input type="text" class="form-control" value="{{this.administrador.apellido}}" readonly>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">Edad</label>
+                            <input type="number" class="form-control" value="{{this.administrador.edad}}" readonly>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">DNI</label>
+                            <input type="text" class="form-control" value="{{this.administrador.dni}}" readonly>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">Mail</label>
+                            <input type="text" class="form-control" value="{{this.administrador.mail}}" readonly>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label for="firstName">Foto</label>
+                            <div class="row">
+                                <div class="col">
+                                    <img src="{{this.administrador.foto}}" height="150px" width="auto">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="mb-4">
+
+        </div>
+    </div>
+</div>
