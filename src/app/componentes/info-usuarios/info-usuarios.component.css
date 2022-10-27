@@ -20,12 +20,18 @@
     background-color: #153A82;
     width: 180px;
     color: white;
+    cursor: pointer;
 }
 
-.header-form > .btn-volver:hover{
-    cursor: pointer;
+.header-form > .btn-volver:hover{  
+    transform: scale(1.05);
     background-color: black;    
 }
+
+.header-form > .btn-volver:active{  
+    transform: scale(0.90);  
+}
+
 
 h3{
     text-transform: uppercase;

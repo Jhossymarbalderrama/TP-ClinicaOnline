@@ -18,6 +18,7 @@ td{
 }
 
 .deshabilitado{
+    width: 100%;
     color: white !important;
     align-items: center;
     /* width: 100%; */
@@ -29,13 +30,14 @@ td{
 }
 
 .habilitado{
+    width: 100%;
     color: white !important;
     align-items: center;
     /* width: 100%;     */
     background-color: rgb(9, 181, 9);
 }
 
-.habilitado:hover{
+.habilitado:hover{    
     background-color: rgb(243, 32, 32);
 }
 

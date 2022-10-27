@@ -33,6 +33,7 @@ import { InfoUsuariosComponent } from './componentes/info-usuarios/info-usuarios
 import { DatosUsuarioComponent } from './componentes/datos-usuario/datos-usuario.component';
 import { RegistroUsuariosAdministradorComponent } from './componentes/registro-usuarios-administrador/registro-usuarios-administrador.component';
 import { FormRegistroAdministradorComponent } from './componentes/form-registro-administrador/form-registro-administrador.component';
+import { PaginaErrorComponent } from './componentes/pagina-error/pagina-error.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { FormRegistroAdministradorComponent } from './componentes/form-registro-
     InfoUsuariosComponent,
     DatosUsuarioComponent,
     RegistroUsuariosAdministradorComponent,
-    FormRegistroAdministradorComponent
+    FormRegistroAdministradorComponent,
+    PaginaErrorComponent
   ],
   imports: [
     BrowserModule,

@@ -110,9 +110,28 @@ app-menu{
 	transform: scale(1.1);
 	opacity: 100%;
 }
-  .especialista:hover{
+
+.paciente:active {
+	transform: scale(0.95);
+}
+
+.paciente:focus {
+	outline: none;
+}
+
+
+.especialista:hover{
 	cursor: pointer;
 	transform: scale(1.1);
 	opacity: 100%;
 }
+
+.especialista:active {
+	transform: scale(0.95);
+}
+
+.especialista:focus {
+	outline: none;
+}
+
 

@@ -21,7 +21,7 @@
           <button class="btn-outline-dark" [ngClass]="{habilitado: especialista?.habilitado}"
             (click)="cambiarEstadoEspecialista(especialista)">
             <strong>
-              Si
+              habilitado
             </strong>
           </button>
         </td>
@@ -29,9 +29,9 @@
           <button class="btn-outline-dark" [ngClass]="{deshabilitado: !especialista?.habilitado}"
             (click)="cambiarEstadoEspecialista(especialista)">
             <strong>
-              No
+              deshabilitado
             </strong>
-          </button>
+          </button>           
         </td>
         <td>{{especialista?.dni}}</td>
         <td>{{especialista?.mail}}</td>

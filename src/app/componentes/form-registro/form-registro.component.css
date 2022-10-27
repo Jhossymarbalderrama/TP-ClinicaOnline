@@ -54,14 +54,21 @@ h1{
     border-radius: 8px;
     height: 40px;
     border: none;
+    cursor: pointer;
 }
 
 .boton:enabled:hover{
-    cursor: pointer;
     background-color: #153A82;
-    color: white;
-    font-weight: 600;
 }
+
+.boton:enabled:active {
+	transform: scale(0.95);
+}
+
+.boton:focus {
+	outline: none;
+}
+
 
 .boton:disabled{
     opacity: 85%;
@@ -92,6 +99,15 @@ h1{
 }
 
 .header-form > .btn-volver:hover{
+    transform: scale(1.05);
     cursor: pointer;
     background-color: black;    
+}
+
+.header-form > .btn-volver:active{
+    transform: scale(0.95);
+}
+
+.header-form > .btn-volver:focus{
+    outline: none;
 }

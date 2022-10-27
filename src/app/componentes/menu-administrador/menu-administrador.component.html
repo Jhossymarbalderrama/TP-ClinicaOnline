@@ -1,4 +1,4 @@
-<body cz-shortcut-listen="true">
+<body cz-shortcut-listen="true">    
     <main class="d-flex flex-nowrap" style="width: 100% !important;">
         <div class="menu-panel d-flex flex-column flex-shrink-0 p-1 text-bg-dark" style="width: 280px;">
             <div style="width: 100%;padding-left: 10px;" align="start">
@@ -102,10 +102,14 @@
 
         </div>
 
-        <div class="container  bg-light"> 
-            <!-- <app-home-administrador></app-home-administrador> -->
-            <app-seccion-usuarios *ngIf="this.AuthService.user.tipoUsuario == 'ADM'"></app-seccion-usuarios>
+        <div class="container " *ngIf="this.AuthService.user.tipoUsuario == 'ADM'"> 
+            <!-- <app-home-administrador></app-home-administrador> -->           
+            <app-seccion-usuarios></app-seccion-usuarios>
         </div>
 
+
+        <div class="container" *ngIf="this.AuthService.user.tipoUsuario != 'ADM'">     
+           <app-pagina-error></app-pagina-error>   
+        </div>
     </main>
 </body>

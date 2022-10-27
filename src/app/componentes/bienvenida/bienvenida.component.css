@@ -56,3 +56,10 @@ app-menu{
 }
 
 
+.btn:active {
+	transform: scale(0.90);
+}
+
+.btn:focus {
+	outline: none;
+}

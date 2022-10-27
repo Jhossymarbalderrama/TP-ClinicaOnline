@@ -7,7 +7,6 @@ app-menu{
 
 
 
-/* Celular */
 @media only screen and (max-width:767px){
 	.box-access-fast-login{
 		align-content: center;
@@ -23,7 +22,7 @@ app-menu{
 	}	
 }
 
-/* Tabled */
+
 @media only screen and (min-width:767px) and (max-width: 1023px){
 	.box-access-fast-login{
 		align-content: center;
@@ -39,7 +38,6 @@ app-menu{
 	}	
 }
 
-/* Large Screen */
 @media only screen and (min-width:1024px){
 	.box-access-fast-login{
 		align-content: center;
@@ -85,8 +83,6 @@ app-menu{
 .box-login{	
 	background-color: #fff;
 	border-radius: 10px;
-  	/* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22); */
 	box-shadow:
 		2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
 		6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
@@ -131,7 +127,7 @@ p {
 
 .btn:hover{
 	transform: scale(1.05);
-	background-color: black !important;	
+	background-color: black !important;		
 }
 
 
@@ -237,28 +233,53 @@ input {
 	font-weight: bold;
 }
 
-.box-access-fast-login:hover{
-	background-color: #153A82;
-	color: white;
+.box-access-fast-login{
+	color:black;
+	background-color: #008B81;
 	cursor: pointer;
+}
+
+.box-access-fast-login:hover{
+	color:white;
+    background-color: #153A82;
+} 
+
+.box-access-fast-login:active {
+	transform: scale(0.95);
+}
+
+.box-access-fast-login:focus {
+	outline: none;
 }
 
 
 .boton{    
-    background-color: #008B81;
-    color: white;
-    font-weight: 600;
+	width: 100%;
+	border-radius: 1em;
+	border: 1px solid #008B81;
+	background-color: #008B81;
+	color: #FFFFFF;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 12px 45px;
+	margin-top: 5px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
 
-    border-radius: 8px;
-    height: 40px;
-    border: none;
+	cursor: pointer;	
 }
 
 .boton:enabled:hover{
-    cursor: pointer;
     background-color: #153A82;
-    color: white;
-    font-weight: 600;
+} 
+
+.boton:enabled:active {
+	transform: scale(0.95);
+}
+
+.boton:focus {
+	outline: none;
 }
 
 .boton:disabled{
@@ -267,5 +288,4 @@ input {
 
 .invalid {
     color: red;
-}
-
+} 
