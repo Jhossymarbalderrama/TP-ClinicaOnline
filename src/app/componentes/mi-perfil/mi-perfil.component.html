@@ -1,0 +1,119 @@
+<section>
+    <h2 style="padding-left: 15px;">Mi Perfil</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center box-shadow">
+                        <ngb-carousel #carousel [interval]="10000" [pauseOnHover]="pauseOnHover"
+                            [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)" 
+                            *ngIf="this.AuthService.user.tipoUsuario =='PAC'">
+                            <ng-template ngbSlide *ngFor="let img of this.AuthService.user.foto; index as i">
+                                <div class="carousel-caption">
+                                </div>
+                                <a target="_blank" rel="nofollow noopener noreferrer">
+                                    <div class="picsum-img-wrapper">
+                                        <img [src]="img" class="d-block w-100"/>
+                                    </div>
+                                </a>
+                            </ng-template>                            
+                        </ngb-carousel>
+
+
+                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel"
+                            *ngIf="this.AuthService.user.tipoUsuario !='PAC'">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" [src]='this.AuthService.user.foto'>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="my-3 text-class" style="text-transform: uppercase;">{{this.AuthService.user.nombre +
+                            ' '+
+                            this.AuthService.user.apellido}}</h5>
+                        <p class="text-muted mb-1 text-class">{{this.tipoUsuario}}</p>
+                        <!-- <p class="text-muted mb-4">Bay Area, San Francisco, CA</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <h3 style="padding-left: 5px;">Datos Personales</h3>
+                <div class="card mb-4 box-shadow">
+                    <div class="card-body">                        
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 text-class">Nombre:</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{this.AuthService.user.nombre}}</p>
+                            </div>
+                            <hr>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 text-class">Apellido:</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{this.AuthService.user.apellido}}</p>
+                            </div>
+                            <hr>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 text-class">Edad:</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{this.AuthService.user.edad}}</p>
+                            </div>
+                            <hr>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 text-class">DNI:</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{this.AuthService.user.dni}}</p>
+                            </div>
+                            <hr>
+                        </div>
+
+                        <div class="row" *ngIf="this.AuthService.user.tipoUsuario == 'PAC'">
+                            <div class="col-sm-3">
+                                <p class="mb-0 text-class">Obra Social:</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{this.AuthService.user.obra_social}}</p>
+                            </div>
+                            <hr>
+                        </div>
+
+                        <div class="row" *ngIf="this.AuthService.user.tipoUsuario == 'ESP'">
+                            <div class="col-sm-3">
+                                <p class="mb-0 text-class">Especialidad:</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{this.AuthService.user.especialidad}}</p>
+                            </div>
+                            <hr>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 text-class">Mail:</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{this.AuthService.user.mail}}</p>
+                            </div>
+                            <hr>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

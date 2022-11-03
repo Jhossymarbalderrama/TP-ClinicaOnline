@@ -5,42 +5,45 @@
   </div>
 
   <div *ngIf="!this.spinner">
-    <thead class="thead-dark" align="start">
-      <tr>
-        <th scope="col">Habilitado</th>
-        <th scope="col">DNI</th>
-        <th scope="col">Mail</th>
-        <th scope="col">Apellido</th>
-        <th scope="col">Nombre</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody align="start">
-      <tr *ngFor='let especialista of this.listadoEspecialistas'>
-        <td *ngIf="especialista?.habilitado" align="center">
-          <button class="btn-outline-dark" [ngClass]="{habilitado: especialista?.habilitado}"
-            (click)="cambiarEstadoEspecialista(especialista)">
-            <strong>
-              habilitado
-            </strong>
-          </button>
-        </td>
-        <td *ngIf="!especialista?.habilitado" align="center">
-          <button class="btn-outline-dark" [ngClass]="{deshabilitado: !especialista?.habilitado}"
-            (click)="cambiarEstadoEspecialista(especialista)">
-            <strong>
-              deshabilitado
-            </strong>
-          </button>           
-        </td>
-        <td>{{especialista?.dni}}</td>
-        <td>{{especialista?.mail}}</td>
-        <td>{{especialista?.apellido}}</td>
-        <td>{{especialista?.nombre}}</td>
-        <td>
-          <button class="mt-2 btn btn-outline-dark" (click)='seleccionarPaciente(especialista)'>Ver informacion</button>
-        </td>
-      </tr>
-    </tbody>
+    <table class="table table-striped  table-hover">
+      <thead class="thead-dark" align="start">
+        <tr>
+          <th scope="col">Habilitado</th>
+          <th scope="col">DNI</th>
+          <th scope="col">Mail</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Nombre</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody align="start">
+        <tr *ngFor='let especialista of this.listadoEspecialistas'>
+          <td *ngIf="especialista?.habilitado" align="center">
+            <button class="btn-outline-dark" [ngClass]="{habilitado: especialista?.habilitado}"
+              (click)="cambiarEstadoEspecialista(especialista)">
+              <strong>
+                habilitado
+              </strong>
+            </button>
+          </td>
+          <td *ngIf="!especialista?.habilitado" align="center">
+            <button class="btn-outline-dark" [ngClass]="{deshabilitado: !especialista?.habilitado}"
+              (click)="cambiarEstadoEspecialista(especialista)">
+              <strong>
+                deshabilitado
+              </strong>
+            </button>
+          </td>
+          <td>{{especialista?.dni}}</td>
+          <td>{{especialista?.mail}}</td>
+          <td>{{especialista?.apellido}}</td>
+          <td>{{especialista?.nombre}}</td>
+          <td>
+            <button class="mt-2 btn btn-outline-dark" (click)='seleccionarPaciente(especialista)'>Ver
+              informacion</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

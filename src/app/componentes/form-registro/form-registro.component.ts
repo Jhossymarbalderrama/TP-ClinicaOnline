@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Especialista } from 'src/app/clases/especialista';
 import { Paciente } from 'src/app/clases/paciente';
 import { AuthService } from 'src/app/servicios/auth.service';
+import { CaptchaService } from 'src/app/servicios/captcha.service';
 
 import { FirestoreService } from 'src/app/servicios/firestore.service';
 import Swal from 'sweetalert2';
@@ -62,21 +63,28 @@ export class FormRegistroComponent implements OnInit {
   foto_1_paciente: any = '';
   foto_2_paciente: any = '';
 
-  errorFotoPaciente:boolean = false;
+  errorFotoPaciente: boolean = false;
 
   //Agregado Formulario para Especialista
   especialidad: string = '';
   fotoEspecialista: string = '';
   foto_especialista: string = '';
 
-  passwordInvalid: boolean = false;
+  // passwordInvalid: boolean = false;
   spinner: boolean = false;
+
+  arrayEspecialidades: any =[];
+  htmlEspecialidad: any = [];
+  especialidadtest: any = [];
+
+  captcha: string = "";
 
   constructor(
     private FormBuilder: FormBuilder,
     private FirestoreService: FirestoreService,
     private Router: Router,
-    private AuthService: AuthService
+    private AuthService: AuthService,
+    private Captcha: CaptchaService
   ) { }
 
   ngOnInit(): void {
@@ -90,7 +98,8 @@ export class FormRegistroComponent implements OnInit {
         'mail': ['', [Validators.required, Validators.email]],
         'password': ['', [Validators.required, Validators.minLength(6)]],
         'repetir_password': ['', [Validators.required, Validators.minLength(6)]],
-        'fotosPaciente': ['', [Validators.required]]
+        'fotosPaciente': ['', [Validators.required]],
+        'captcha': ['', [Validators.required]]
       });
     } else if (this.tipoForm == this.formEspecialista) {
       this.formularioRegistro = this.FormBuilder.group({
@@ -102,55 +111,84 @@ export class FormRegistroComponent implements OnInit {
         'mail': ['', [Validators.required, Validators.email]],
         'password': ['', [Validators.required, Validators.minLength(6)]],
         'repetir_password': ['', [Validators.required, Validators.minLength(6)]],
-        'fotoEspecialista': ['', [Validators.required]]
+        'fotoEspecialista': ['', [Validators.required]],
+        'captcha': ['', [Validators.required]]
       });
     }
 
+    this.captcha = this.Captcha.generarPalabra();
+    //console.log(this.captcha);
   }
 
   altaRegistro() {
-    if (this.formularioRegistro.get("password")?.value ==
-      this.formularioRegistro.get("repetir_password")?.value
-    ) {
-      if (this.tipoForm == this.formPaciente) {
-          this.paciente = {
-            nombre: this.formularioRegistro.get("nombre")?.value,
-            apellido: this.formularioRegistro.get("apellido")?.value,
-            edad: this.formularioRegistro.get("edad")?.value,
-            dni: this.formularioRegistro.get("dni")?.value,
-            obra_social: this.formularioRegistro.get("obra_social")?.value,
-            mail: this.formularioRegistro.get("mail")?.value,
-            password: this.formularioRegistro.get("password")?.value,
-            foto: this.formularioRegistro.get("fotosPaciente")?.value,
-            tipoUsuario: "PAC"
-          }
-          
-          let fotos: Array<string> = [];
-  
-          fotos.push(this.foto_1_paciente);
-          fotos.push(this.foto_2_paciente);
-  
-          this.paciente.foto = fotos;//Le adjunto link de sus fotos en firebase
+    // let passwordSuccess: boolean = false;
+    let captchaSuccess: boolean = false;
 
-          if(this.paciente.foto[1] != undefined){
-            // //console.log(this.paciente);
-    
-            this.FirestoreService.altaPaciente(this.paciente); //Doy de alta el Paciente en FB
-            this.AuthService.user = this.paciente;
-            this.AuthService.register(this.paciente.mail, this.paciente.password); //Doy de alta el registro en Autentication FB    
-            this.errorFotoPaciente = false;
-            this.loadingSession(); 
-          }else{          
-            this.errorFotoPaciente = true;
-          }
+
+    // if (this.formularioRegistro.get("password")?.value ==
+    //   this.formularioRegistro.get("repetir_password")?.value
+    // ) {
+    //   passwordSuccess = true;
+    // } else {
+    //   this.passwordInvalid = true;
+    // }
+
+    if (this.captcha == this.formularioRegistro.get('captcha')?.value) {
+      captchaSuccess = true;
+    } else {
+      captchaSuccess = false;
+    }
+
+    if (captchaSuccess) {
+      if (this.tipoForm == this.formPaciente) {
+        this.paciente = {
+          nombre: this.formularioRegistro.get("nombre")?.value,
+          apellido: this.formularioRegistro.get("apellido")?.value,
+          edad: this.formularioRegistro.get("edad")?.value,
+          dni: this.formularioRegistro.get("dni")?.value,
+          obra_social: this.formularioRegistro.get("obra_social")?.value,
+          mail: this.formularioRegistro.get("mail")?.value,
+          password: this.formularioRegistro.get("password")?.value,
+          foto: this.formularioRegistro.get("fotosPaciente")?.value,
+          tipoUsuario: "PAC"
+        }
+
+        let fotos: Array<string> = [];
+
+        fotos.push(this.foto_1_paciente);
+        fotos.push(this.foto_2_paciente);
+
+        this.paciente.foto = fotos;//Le adjunto link de sus fotos en firebase
+
+        if (this.paciente.foto[1] != undefined) {
+          // //console.log(this.paciente);
+
+          this.FirestoreService.altaPaciente(this.paciente); //Doy de alta el Paciente en FB
+          this.AuthService.user = this.paciente;
+          this.AuthService.register(this.paciente.mail, this.paciente.password); //Doy de alta el registro en Autentication FB    
+          this.errorFotoPaciente = false;
+          this.loadingSession();
+        } else {
+          this.errorFotoPaciente = true;
+        }
       } else if (this.tipoForm == this.formEspecialista) {
+
+        let especialidad: any =[];
+
+        if(this.especialidadtest.length > 0){          
+          this.especialidadtest.push(this.formularioRegistro.get("especialidad")?.value);          
+          especialidad = this.especialidadtest;        
+        }else{
+          this.especialidadtest.push(this.formularioRegistro.get("especialidad")?.value);    
+          especialidad = this.especialidadtest; 
+        }
 
         this.especialista = {
           nombre: this.formularioRegistro.get("nombre")?.value,
           apellido: this.formularioRegistro.get("apellido")?.value,
           edad: this.formularioRegistro.get("edad")?.value,
           dni: this.formularioRegistro.get("dni")?.value,
-          especialidad: this.formularioRegistro.get("especialidad")?.value,
+          especialidad: especialidad,
           mail: this.formularioRegistro.get("mail")?.value,
           password: this.formularioRegistro.get("password")?.value,
           foto: this.formularioRegistro.get("fotoEspecialista")?.value,
@@ -162,16 +200,15 @@ export class FormRegistroComponent implements OnInit {
 
         //console.log(this.especialista);
 
+
         this.FirestoreService.altaEspecialista(this.especialista); //Doy de alta el Paciente en FB
         this.AuthService.user = this.especialista;
         this.AuthService.register(this.especialista.mail, this.especialista.password);        
-        this.loadingSession();  
-      }          
-    } else {
-      this.passwordInvalid = true;
+        this.htmlEspecialidad = [];
+        this.especialidadtest = [];
+        this.loadingSession();
+      }        
     }
-
-
   }
 
   msjVerificacionMail() {
@@ -182,22 +219,15 @@ export class FormRegistroComponent implements OnInit {
       confirmButtonText: 'Aceptar'
     }).then((result) => {
       this.formularioRegistro.reset();
-      // if(result.value){
-      //   this.Router.navigateByUrl('/login');
-      // }
     });
   }
 
   subirFotosPaciente($event: any) {
     this.foto_1_paciente = $event?.target.files[0];
     this.foto_2_paciente = $event?.target.files[1];
-
-    // console.log(this.foto_1_paciente);
-    // console.log(this.foto_2_paciente);
   }
 
   subirFotoEspecialista($event: any) {
-    //console.log($event?.target.files[0]);
     this.foto_especialista = $event?.target.files[0];
   }
 
@@ -205,11 +235,36 @@ export class FormRegistroComponent implements OnInit {
     this.volverEvent.emit(false);
   }
 
-  loadingSession(){
+  loadingSession() {
     this.spinner = true;
     setTimeout(() => {
       this.spinner = false;
+      this.generarCaptcha();    
       this.msjVerificacionMail();
-    }, 2000);    
+    }, 2000);
+  }
+
+  generarCaptcha() {
+    this.captcha = this.Captcha.generarPalabra();
+  }
+
+
+  generarAddEspecialidad(){
+    this.htmlEspecialidad.push("");
+    this.especialidadtest.push("");;
+  }
+
+  borrarCampo(indice: any){
+    if(indice == 0 && this.htmlEspecialidad.length == 1){
+      this.htmlEspecialidad = [];
+      this.especialidadtest = [];
+    }else if(indice == 0){
+      this.htmlEspecialidad.splice(0,1);
+      this.especialidadtest.splice(0,1);
+    }    
+    else{
+      this.htmlEspecialidad.splice(indice,indice);
+      this.especialidadtest.splice(indice,indice);
+    }
   }
 }

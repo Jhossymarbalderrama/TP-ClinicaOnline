@@ -1,12 +1,17 @@
+/* body{
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    height: 100%;
+    width: 100%;
+} */
 
 main{
-    overflow-x: hidden;
-    overflow-y: hidden;
-    height: 100vh;
-    height: -webkit-fill-available;
-    max-height: 100vh;
-    min-height: 100vh;
+    min-height: 100vh !important;
+    max-height: auto !important;
+    height: 100%;
     width: 100%;
+
+    height: -webkit-fill-available;
 }
 
 .dropdown {
@@ -14,6 +19,7 @@ main{
 } 
 
 .dropdown-item{
+    width: 240px;
     cursor: pointer;
 }
 
@@ -23,11 +29,12 @@ main{
 
 .menu-panel{
     width: 20%;
+    display: block;
 }
 
 .container{
     width: 80%;  
-    height: 100%;        
+   
 }
 
 .menu-item{

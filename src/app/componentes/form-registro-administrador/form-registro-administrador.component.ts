@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Administrador } from 'src/app/clases/administrador';
 import { AuthService } from 'src/app/servicios/auth.service';
+import { CaptchaService } from 'src/app/servicios/captcha.service';
 
 import { FirestoreService } from 'src/app/servicios/firestore.service';
 import Swal from 'sweetalert2';
@@ -31,12 +32,14 @@ export class FormRegistroAdministradorComponent implements OnInit {
   fotoAdministradorFB: string = "";
 
   spinner: boolean = false;
+  captcha: string = "";
 
   constructor(
     private FormBuilder: FormBuilder,
     private FirestoreService:FirestoreService,
     private Router: Router,
-    private AuthService: AuthService
+    private AuthService: AuthService,
+    private Captcha: CaptchaService
   ) { }
 
   ngOnInit(): void {
@@ -48,32 +51,46 @@ export class FormRegistroAdministradorComponent implements OnInit {
       'mail' : ['',[Validators.required,Validators.email]],
       'password' : ['',[Validators.required,Validators.minLength(6)]],
       'repetir_password' : ['',[Validators.required,Validators.minLength(6)]],
-      'foto': ['', [Validators.required]]
+      'foto': ['', [Validators.required]],
+      'captcha': ['', [Validators.required]]
     });
+
+    this.captcha = this.Captcha.generarPalabra();
   }
 
   altaRegistro(){
-    this.administrador = {
-      nombre: this.formularioRegistro.get("nombre")?.value,
-      apellido: this.formularioRegistro.get("apellido")?.value,
-      edad: this.formularioRegistro.get("edad")?.value,
-      dni: this.formularioRegistro.get("dni")?.value,
-      mail: this.formularioRegistro.get("mail")?.value,
-      password: this.formularioRegistro.get("password")?.value,
-      foto: this.formularioRegistro.get("foto")?.value,  
-      tipoUsuario: "ADM"
+    let captchaSuccess: boolean = false;
+
+    if (this.captcha == this.formularioRegistro.get('captcha')?.value) {
+      captchaSuccess = true;
+    } else {
+      captchaSuccess = false;
     }
 
-    this.administrador.foto = this.fotoAdministradorFB;
-
-    //console.log(this.administrador);
-
-    this.FirestoreService.altaAdministradores(this.administrador);
-    this.AuthService.user = this.administrador;
-    this.AuthService.register(this.administrador.mail,this.administrador.password);
-
-
-    this.loadingSession();    
+    if (captchaSuccess) {
+      this.administrador = {
+        nombre: this.formularioRegistro.get("nombre")?.value,
+        apellido: this.formularioRegistro.get("apellido")?.value,
+        edad: this.formularioRegistro.get("edad")?.value,
+        dni: this.formularioRegistro.get("dni")?.value,
+        mail: this.formularioRegistro.get("mail")?.value,
+        password: this.formularioRegistro.get("password")?.value,
+        foto: this.formularioRegistro.get("foto")?.value,  
+        tipoUsuario: "ADM"
+      }
+  
+      this.administrador.foto = this.fotoAdministradorFB;
+  
+      //console.log(this.administrador);
+  
+      this.FirestoreService.altaAdministradores(this.administrador);
+      this.AuthService.user = this.administrador;
+      this.AuthService.register(this.administrador.mail,this.administrador.password);
+  
+  
+      this.loadingSession();    
+    }
+    
   }
 
   msjAltaSuccess(){
@@ -99,7 +116,12 @@ export class FormRegistroAdministradorComponent implements OnInit {
     this.spinner = true;
     setTimeout(() => {
       this.spinner = false;
+      this.generarCaptcha();
       this.msjAltaSuccess(); 
     }, 2000);    
+  }
+
+  generarCaptcha() {
+    this.captcha = this.Captcha.generarPalabra();
   }
 }

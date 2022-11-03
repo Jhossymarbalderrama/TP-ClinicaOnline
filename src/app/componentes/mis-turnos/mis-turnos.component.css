@@ -1,0 +1,51 @@
+th{
+    width: 200px;
+}
+
+label{
+    font-weight: 600;
+}
+
+hr{
+    color: black;
+}
+
+.background{
+    background-color: #008B81;
+    padding-top: 25px;
+}
+
+.estados{
+    width: 100%;
+    color: black;
+    font-weight: 600;
+    margin-bottom: 10px;
+    cursor: default;
+}
+
+.estados > a{
+    padding: 5px 5px 5px 5px;
+    margin-right: 10px;
+    border-radius: 6px;
+}
+
+button{
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #008B81 !important;
+}
+
+.pendiente{
+    color: rgb(255, 255, 61) !important;
+}
+
+.cancelado{
+    color: rgb(250, 22, 22) !important;
+}
+
+ngb-rating{
+    text-shadow: 1px 1px 2px black;
+}

@@ -3,7 +3,7 @@ export class Especialista {
     apellido:string;
     edad:number;
     dni:number;
-    especialidad:string;
+    especialidad:string | [];
     mail:string;
     password:string;
     foto:string;
@@ -15,7 +15,7 @@ export class Especialista {
         apellido:string,
         edad:number,
         dni:number,
-        especialidad:string,
+        especialidad:string | [],
         mail:string,
         password:string,
         foto:string

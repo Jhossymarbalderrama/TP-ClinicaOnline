@@ -7,6 +7,7 @@ import { ListadoAdministradoresComponent } from 'src/app/componentes/listado-adm
 import { ListadoEspecialistasComponent } from 'src/app/componentes/listado-especialistas/listado-especialistas.component';
 import { ListadoPacientesComponent } from 'src/app/componentes/listado-pacientes/listado-pacientes.component';
 import { MenuAdministradorComponent } from 'src/app/componentes/menu-administrador/menu-administrador.component';
+import { MiPerfilComponent } from 'src/app/componentes/mi-perfil/mi-perfil.component';
 import { RegistroUsuariosAdministradorComponent } from 'src/app/componentes/registro-usuarios-administrador/registro-usuarios-administrador.component';
 
 import { GuardGuard } from 'src/app/guards/guard.guard';
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'datos-usuario', component: DatosUsuarioComponent},//infoUsuarios
   {path: 'info-usuario', component: InfoUsuariosComponent},//Modulo?
   {path: 'registro-usuarios-administrador', component: RegistroUsuariosAdministradorComponent},  
+  {path: 'mi-perfil', component: MiPerfilComponent}
 ];
 
 @NgModule({

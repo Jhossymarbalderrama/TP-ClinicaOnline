@@ -1,0 +1,140 @@
+.text-class{
+    font-weight: bold;    
+}
+
+p{
+    font-size: 18px;
+}
+
+
+h3, h4{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #008B81;
+}
+
+h2{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+}
+
+
+
+section{
+    width: 100%;
+    height: 100%;
+
+    background-color:  #008B81;
+	border-radius: 10px;
+	box-shadow:
+        0.6px 0.7px 0.2px -5px rgba(0, 0, 0, 0.017),
+        1.4px 1.6px 0.4px -5px rgba(0, 0, 0, 0.025),
+        2.4px 2.8px 0.6px -5px rgba(0, 0, 0, 0.031),
+        3.6px 4.2px 1px -5px rgba(0, 0, 0, 0.035),
+        5.1px 6px 1.4px -5px rgba(0, 0, 0, 0.04),
+        7.3px 8.5px 1.9px -5px rgba(0, 0, 0, 0.045),
+        10.3px 12.1px 2.8px -5px rgba(0, 0, 0, 0.049),
+        15px 17.5px 4px -5px rgba(0, 0, 0, 0.055),
+        23.1px 27px 6.2px -5px rgba(0, 0, 0, 0.063),
+        41px 48px 11px -5px rgba(0, 0, 0, 0.08)
+    ;
+    padding: 2em 2em 2em 2em;
+    margin-bottom: 2em;    
+}
+
+
+.fechas{
+    background-color: #03aca1;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    /* padding: 1em 2em 1em 2em ; */
+    cursor: pointer;
+    border: 1px solid black;
+    font-weight: 600;
+    color: black;
+}
+
+.fechas:hover{
+    background-color: #2151b1;  
+    color: white;  
+}
+
+.especialistas-celda{
+    background-color: #008B81;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;    
+    height: 40px !important;
+    width: auto !important;
+
+    border-radius: 20px;
+    padding: 0.5em 1.5em 0.5em 1.5em ;
+    margin: 1em;
+    padding-bottom: 30px;
+    cursor: pointer;
+}
+
+.especialistas-celda:hover{
+    background-color: #2151b1;
+}
+
+.select{
+    background-color: #2151b1;
+}
+
+.select-pac{
+    background-color: #01a096;
+}
+
+p{
+    font-weight: bold;
+}
+
+.boton{    
+    background-color: #153A82;
+    color: white;
+    font-weight: 600;
+
+    border-radius: 8px;
+    height: 40px;
+    border: none;
+    text-transform: uppercase;
+}
+
+.boton:enabled:hover{
+    cursor: pointer;
+    background-color: #008B81;
+    color: white;
+    font-weight: 600;
+}
+
+.boton:disabled{
+    opacity: 85%;
+}
+
+.invalid{   
+    color: rgb(186, 19, 19);
+}
+
+th{
+    width: 140px;
+}
+
+td{
+    width: 140px;
+    font-weight: 600;
+    padding-right: 30px;
+}
+
+.btn{
+    font-weight: 600;
+    color: white !important;
+    background-color: #153A82 !important;
+}
+
+.btn:hover{    
+    background-color: #008B81 !important;
+}

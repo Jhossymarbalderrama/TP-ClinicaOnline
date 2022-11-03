@@ -34,6 +34,20 @@ import { DatosUsuarioComponent } from './componentes/datos-usuario/datos-usuario
 import { RegistroUsuariosAdministradorComponent } from './componentes/registro-usuarios-administrador/registro-usuarios-administrador.component';
 import { FormRegistroAdministradorComponent } from './componentes/form-registro-administrador/form-registro-administrador.component';
 import { PaginaErrorComponent } from './componentes/pagina-error/pagina-error.component';
+import { MiPerfilComponent } from './componentes/mi-perfil/mi-perfil.component';
+import { SolicitarTurnoComponent } from './componentes/solicitar-turno/solicitar-turno.component';
+
+
+import { FilterEspecialistaEspecialidadPipe } from './pipes/filter-especialista-especialidad.pipe';
+import { MisHorariosComponent } from './componentes/mis-horarios/mis-horarios.component';
+import { TurnosComponent } from './componentes/turnos/turnos.component';
+import { FiltroTurnosXEspecialidadPipe } from './pipes/filtro-turnos-xespecialidad.pipe';
+import { FiltroTurnosXNameEspecialistaPipe } from './pipes/filtro-turnos-xname-especialista.pipe';
+import { FiltroTurnosXLastnameEspecialistaPipe } from './pipes/filtro-turnos-xlastname-especialista.pipe';
+import { MisTurnosComponent } from './componentes/mis-turnos/mis-turnos.component';
+import { FiltroTurnosXLastnamePacientePipe } from './pipes/filtro-turnos-xlastname-paciente.pipe';
+import { FiltroTurnosXNamePacientePipe } from './pipes/filtro-turnos-xname-paciente.pipe';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +68,18 @@ import { PaginaErrorComponent } from './componentes/pagina-error/pagina-error.co
     DatosUsuarioComponent,
     RegistroUsuariosAdministradorComponent,
     FormRegistroAdministradorComponent,
-    PaginaErrorComponent
+    PaginaErrorComponent,
+    MiPerfilComponent,
+    SolicitarTurnoComponent,    
+    FilterEspecialistaEspecialidadPipe,
+    MisHorariosComponent,
+    TurnosComponent,
+    FiltroTurnosXEspecialidadPipe,
+    FiltroTurnosXNameEspecialistaPipe,
+    FiltroTurnosXLastnameEspecialistaPipe,
+    MisTurnosComponent,
+    FiltroTurnosXLastnamePacientePipe,
+    FiltroTurnosXNamePacientePipe    
   ],
   imports: [
     BrowserModule,

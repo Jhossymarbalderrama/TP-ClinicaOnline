@@ -1,14 +1,3 @@
-.box{
-    min-height: 100vh;
-}
-
-.body{
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    min-width: 100vh;
-    min-height: 100vh;	 
-}
 
 .container-listados{
     width: 100%;

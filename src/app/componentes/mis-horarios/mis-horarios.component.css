@@ -1,0 +1,28 @@
+section{
+    min-height: 100vh;
+    overflow: auto !important;
+}
+
+.select{
+    background-color: #2151b1 !important;
+}
+
+.especialistas-celda{
+    background-color: #008B81;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;    
+    height: 40px !important;
+    width: auto !important;
+
+    border-radius: 20px;
+    padding: 0.5em 1.5em 0.5em 1.5em ;
+    margin: 1em;
+    padding-bottom: 30px;
+    cursor: pointer;
+}
+
+.especialistas-celda:hover{
+    background-color: #2151b1;
+}
