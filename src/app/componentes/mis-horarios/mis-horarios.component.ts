@@ -242,9 +242,28 @@ export class MisHorariosComponent implements OnInit {
   subirHorarios(){
     let especialista = this.AuthService.user;
 
+    if(this.horaDesdeLV == ''){
+      this.horaDesdeLV = this.horaDesdeView;
+    }
+
+    if(this.horaHastaLV == ''){
+      this.horaHastaLV = this.horaHastaView;
+    }
+
+    if(this.horaDesdeS == ''){
+      this.horaDesdeS = this.horaDesdeViewS;
+    }
+
+    if(this.horaHastaS == ''){
+      this.horaHastaS = this.horaHastaViewS;
+    }
+
     especialista.horarioLV = [this.horaDesdeLV, this.horaHastaLV];
     especialista.horarioS = [this.horaDesdeS, this.horaHastaS];
 
+    
+    // console.log(especialista.horarioLV);
+    // console.log(especialista.horarioS);
     this.FirestoreService.modificarEspecialista(especialista,especialista.id);
     this.msjTurnoSuccess();
   }
