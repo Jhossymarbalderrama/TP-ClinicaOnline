@@ -1,5 +1,5 @@
 #  🖥️ TP Final Clinica Online 
-<p align="center"><img width=50% height=45% src="./src/assets/imagenes/Logo.png"></p>
+<p align="center"><img width=65% height=45% src="./src/assets/imagenes/Logo.png"></p>
 
 >  ©️ Desarrollado por Balderrama Rocha Jhossymar 🚀
 
@@ -56,7 +56,7 @@ Clinica Online es una pagina web de turnos para una clinica. El sistema de turno
  - [ Pantalla donde encontraremos todos nuestros datos personales ]
 
 ## 📌Especialista
-🟢 - Pantalla principal de un `Especialista` al loguearse en nuestro sistema
+🟢 - Pantalla principal de un `Especialista` al loguearse en nuestro sistema.
 <p align="center"><img width=95% src="./src/assets/imagenes/img-readme/pantalla_principal_especialista.png"></p>
 
 ### 🔶 Opciones Especialista
@@ -72,11 +72,10 @@ Clinica Online es una pagina web de turnos para una clinica. El sistema de turno
 ### 🔸 Mis Turnos:
  - [ Vemos un listado de todos los turnos que tiene el `Especialista` logueado ]
  
- 
 ### 🔸 Turnos:
  - [ Ver el listado general de todos los turnos que tiene la Clinica Online ]
  - [ Tambien podresmos hacer las siguientes `Acciones sobre un turno`: `Aceptarlo`, `Finalizarlo` ,`Cancelarlo` o `Rechazarlo`]
- - 
+ 
 ### 🔸 Mis Horarios:
  - [ En esta pantalla el especialista logueado podra definir su horario laboral de Lunes a Viernes y Sabados ]
 
@@ -84,4 +83,25 @@ Clinica Online es una pagina web de turnos para una clinica. El sistema de turno
  - [ Pantalla donde encontraremos todos nuestros datos personales ]
  
 ## 📌Paciente
+🟢 - Pantalla principal de un `Paciente` al loguearse en nuestro sistema.
+<p align="center"><img width=95% src="./src/assets/imagenes/img-readme/pantalla_principal_paciente.png"></p>
 
+### 🔳 Opciones Paciente
+<p>Los siguientes datos son las funciones posibles y habilitadas que puede hacer un usuario del tipo Paciente</p>
+
+| Opciones | Description |
+| --- | --- |
+| `Mi Home` | Pantalla de inicio que se encuentra en desarrollo |
+| `Mis Turnos` | Listado de todos los turnos que tiene ese paciente |
+| `Solicitar Turno` | Formulario o solicitud de un `turno`   |
+| `Mi Perfil` | Perfil de especialista Logueado |
+
+### ◻️ Mis Turnos:
+ - [ Vemos un listado de todos los turnos que tiene el `Paciente` logueado ]
+
+### ◻️ Solicitar Turno:
+ - [ Podremos solicitar un turno ]
+
+### ◻️ Mi Perfil:
+ - [ Pantalla donde encontraremos todos nuestros datos personales ]
+ 
