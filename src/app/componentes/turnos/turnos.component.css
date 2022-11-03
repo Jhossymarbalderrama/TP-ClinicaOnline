@@ -45,3 +45,14 @@ button:hover{
 .cancelado{
     color: rgb(250, 22, 22) !important;
 }
+.finalizado{
+    color: rgb(247, 93, 37) !important;
+}
+
+.aceptado{
+    color: rgb(2, 208, 2) !important;
+}
+
+.rechazado{
+    color: rgb(163, 13, 163) !important;
+}

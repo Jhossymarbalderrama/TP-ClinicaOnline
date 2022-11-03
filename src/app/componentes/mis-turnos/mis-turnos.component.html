@@ -44,11 +44,17 @@
                                 <div class="estados" align="center">
                                     <a style="background-color: rgb(255, 255, 61);">Pendiente</a>
                                     <a style="background-color: rgb(2, 208, 2);">Aceptado</a>
-                                    <a style="background-color: rgb(247, 93, 37);">Finalizado</a>
+                                    <a style="background-color: rgb(247, 93, 37);">Realizado</a>
                                     <a style="background-color: rgb(250, 22, 22);">Cancelado</a>
                                     <a style="background-color: rgb(163, 13, 163);">Rechazado</a>
                                 </div>
-                                <table class="table table-striped  table-hover">
+
+                                <div class="d-flex align-items-center" *ngIf="this.spinner" style="color: #153A82;">
+                                    <strong>Cargando lista...</strong>
+                                    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                                </div>
+
+                                <table class="table table-striped  table-hover" *ngIf="!this.spinner">
                                     <thead class="thead-dark" align="start">
                                         <tr>
                                             <th scope="col">Estado</th>

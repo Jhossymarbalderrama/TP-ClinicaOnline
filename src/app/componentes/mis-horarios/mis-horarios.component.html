@@ -22,17 +22,32 @@
                             <div class="row row-cols-12">
 
                                 <h4>Desde: {{this.horaDesdeView}}</h4>
+                                <div class="d-flex align-items-center" *ngIf="this.spinner" style="color: #153A82;">
+                                    <strong>Cargando horarios...</strong>
+                                    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                                </div>
+
                                 <div class="especialistas-celda" (click)="selectHoraDesdeLV(hora,i)"
                                     *ngFor="let hora of this.horariosLunesViernes_1; let i = index" data-index="i"
                                     [ngClass]="{'select': this.horaDesdeSelect && this.horaDesdeView == hora}">
-                                    {{hora}}
+                                    <div *ngIf="!this.spinner">
+                                        {{hora}}
+                                    </div>
                                 </div>
 
+
                                 <h4>Hasta: {{this.horaHastaView}}</h4>
+                                <div class="d-flex align-items-center" *ngIf="this.spinner" style="color: #153A82;">
+                                    <strong>Cargando horarios...</strong>
+                                    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                                </div>
+
                                 <div class="especialistas-celda" (click)="selectHoraHastaLV(hora,i)"
                                     *ngFor="let hora of this.horariosLunesViernes_2; let i = index" data-index="i"
                                     [ngClass]="{'select': this.horaHastaSelect && this.horaHastaView == hora}">
-                                    {{hora}}
+                                    <div *ngIf="!this.spinner">
+                                        {{hora}}
+                                    </div>
                                 </div>
 
                             </div>
@@ -44,18 +59,34 @@
                             <div class="row row-cols-12">
 
                                 <h4>Desde: {{this.horaDesdeViewS}}</h4>
+                                <div class="d-flex align-items-center" *ngIf="this.spinner" style="color: #153A82;">
+                                    <strong>Cargando horarios...</strong>
+                                    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                                </div>
+
                                 <div class="especialistas-celda" (click)="selectHoraDesdeS(hora,i)"
                                     *ngFor="let hora of this.horariosSabado_1; let i = index" data-index="i"
                                     [ngClass]="{'select': this.horaDesdeSelectS && this.horaDesdeViewS == hora}">
-                                    {{hora}}
+                                    <div *ngIf="!this.spinner">
+                                        {{hora}}
+                                    </div>
                                 </div>
 
+
                                 <h4>Hasta: {{this.horaHastaViewS}}</h4>
+                                <div class="d-flex align-items-center" *ngIf="this.spinner" style="color: #153A82;">
+                                    <strong>Cargando horarios...</strong>
+                                    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                                </div>
+
                                 <div class="especialistas-celda" (click)="selectHoraHastaS(hora,i)"
                                     *ngFor="let hora of this.horariosSabado_2; let i = index" data-index="i"
                                     [ngClass]="{'select': this.horaHastaSelectS && this.horaHastaViewS == hora}">
-                                    {{hora}}
+                                    <div *ngIf="!this.spinner">
+                                        {{hora}}
+                                    </div>
                                 </div>
+
 
                             </div>
                             <hr>

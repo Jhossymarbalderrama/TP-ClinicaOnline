@@ -28,6 +28,7 @@ export class MisTurnosComponent implements OnInit {
 
   reseneaTurno: string = "";
 
+  spinner: boolean = true;
 
   constructor(
     public AuthService: AuthService,
@@ -45,6 +46,9 @@ export class MisTurnosComponent implements OnInit {
       }
     });
 
+    setTimeout(() => {
+      this.spinner = false;
+    }, 1700);
     //console.log(this.listTurnosCargados);
   }
 

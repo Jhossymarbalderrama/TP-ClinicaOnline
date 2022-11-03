@@ -37,6 +37,7 @@ export class SolicitarTurnoComponent implements OnInit {
   errorFormularioTurno: boolean = false;
   spinnerFechas: boolean = false;
 
+  spinner:boolean = true;
   constructor(
     public AuthService: AuthService,
     private FirestoreService: FirestoreService,
@@ -70,6 +71,10 @@ export class SolicitarTurnoComponent implements OnInit {
       }
       this.turno.paciente = datosUsuario;
     }
+
+    setTimeout(() => {
+      this.spinner = false;
+    }, 1500);
   }
 
 

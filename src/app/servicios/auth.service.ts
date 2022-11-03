@@ -7,29 +7,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 export class AuthService {
 
   //Despues de tester dejar en ""
-  user: any =  {
-    "nombre": "manuel",
-    "apellido": "marin",
-    "foto": "https://firebasestorage.googleapis.com/v0/b/tp-clinicaonline-ef480.appspot.com/o/d9b415fc9f697854606d04a63331b727.jpg?alt=media&token=98bf0f3f-98de-43e0-aeb4-e53abc65b660",
-    "tipoUsuario": "ESP",
-    "especialidad": [
-        "Cardiología"
-    ],
-    "habilitado": true,
-    "dni": 42254566,
-    "horarioS": [
-        "12:00 a 12:30",
-        "13:30 a 14:00"
-    ],
-    "mail": "manuel@gmail.com",
-    "id": "YlMCL9xvzpVyHilNa58Z",
-    "password": "Manuel159",
-    "horarioLV": [
-        "8:00 a 8:30",
-        "9:30 a 10:00"
-    ],
-    "edad": 42
-};
+  user: any =  "";
 
   //ADMINISTRADOR
 //   {

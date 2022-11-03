@@ -3,6 +3,7 @@ import { exit } from 'process';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { FechasTurnosService } from 'src/app/servicios/fechas-turnos.service';
 import { FirestoreService } from 'src/app/servicios/firestore.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-mis-horarios',
@@ -60,6 +61,8 @@ export class MisHorariosComponent implements OnInit {
   horaDesdeViewS: string = "";
   horaHastaViewS: string = "";
 
+  spinner:boolean = true;
+
   constructor(
     private AuthService: AuthService,
     private FirestoreService: FirestoreService,
@@ -67,6 +70,10 @@ export class MisHorariosComponent implements OnInit {
   ) {
     this.cargarEspecialidades();
     this.selectEspecialidad(this.AuthService.user.especialidad[0]);
+
+    setTimeout(() => {
+      this.spinner = false;
+    }, 1500);
   }
 
   ngOnInit(): void {
@@ -239,7 +246,18 @@ export class MisHorariosComponent implements OnInit {
     especialista.horarioS = [this.horaDesdeS, this.horaHastaS];
 
     this.FirestoreService.modificarEspecialista(especialista,especialista.id);
+    this.msjTurnoSuccess();
   }
   
+  msjTurnoSuccess() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Modificacion Exitosa',
+      text: `Se a modificado el horario laboral`,
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+
+    });
+  }
 
 }

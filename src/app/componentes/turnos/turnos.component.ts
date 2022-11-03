@@ -20,6 +20,9 @@ export class TurnosComponent implements OnInit {
   auxComentario: string = "";
   commentarioCancelacion: string = "";
   datosTurnoSeleccionado: any;
+
+  spinner: boolean = true;
+
   constructor(
     private FirestoreService:FirestoreService,
     private modalService: NgbModal  
@@ -30,11 +33,12 @@ export class TurnosComponent implements OnInit {
     });
     
     setTimeout(() => {
-      //console.log(this.listTurnosCaragos);
+      this.spinner = false;
     }, 1500);
   }
 
-  cargarTurnos(){
+  cargarTurnos(){   
+    this.listTurnosCaragos = []; 
     this.listTurnos.forEach((value: any) => {    
       this.listTurnosCaragos.push(value);
     });
