@@ -5,6 +5,16 @@
 
 Clinica Online es una pagina web de turnos para una clinica. El sistema de turnos es flexible y facil y rapido ya sea para el paciente que va sacar un turno o el especialista.
 
+## 📦 Datos 
+
+### 👤 contactos ✉️
+
+| Nombre | Description |
+| --- | --- |
+| [`GitHub`](https://github.com/Jhossymarbalderrama) | https://github.com/Jhossymarbalderrama |
+| [`Linkedin`](https://www.linkedin.com/in/jhossymar-balderrama-rocha-9740aa21b/) | https://www.linkedin.com/in/jhossymar-balderrama-rocha-9740aa21b/ |
+| `Gmail` | jhossymarbalderrama@gmail.com |
+
 ## 📌Pantalla Principal 🏡
 
 🟢- La siguiente imagen es nuestra pantalla principal de la pagina web, donde podemos encontrar un menu en la parte superior de la pantalla con las opciones de login y registrarse.
