@@ -1,5 +1,7 @@
 <p align="center"><img width=12.5% src="./src/assets/imagenes/Logo.png"></p>
 # TPFinalClinica
+<p align="center"><img width=50% height=45% src="./src/assets/imagenes/Logo.png"></p>
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
