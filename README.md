@@ -1,29 +1,28 @@
-<p align="center"><img width=12.5% src="./src/assets/imagenes/Logo.png"></p>
-# TPFinalClinica
+#  🖥️ TP Final Clinica Online 
 <p align="center"><img width=50% height=45% src="./src/assets/imagenes/Logo.png"></p>
 
+>  Desarrollado por Balderrama Rocha Jhossymar
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
+Clinica Online es una pagina web de turnos para una clinica. El sistema de turnos es flexible y facil y rapido ya sea para el paciente que va sacar un turno o el especialista.
 
-## Development server
+## 📌Pantalla Principal 🏡
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+La siguiente imagen es nuestra pantalla principal de la pagina web, donde podemos encontrar un menu en la parte superior de la pantalla con las opciones de login y registrarse.
+<p align="center"><img width=95% src="./src/assets/imagenes/img-readme/pantalla_principal.png"></p>
 
-## Code scaffolding
+<br>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 📌Login
+Los siguientes pasos son para poder logearse en el sistema de la pagina web. En esta seccion tambien podemos encontrar accesos rapidos para lograr una mayor rapidez en el logueo.
+<p align="center"><img width=85% src="./src/assets/imagenes/img-readme/login.gif"></p>
 
-## Build
+<br>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 📌Registro de Usuarios
+Los siguientes pasos son para poder logearse en el sistema de la pagina web. En esta seccion tambien podemos encontrar accesos rapidos para lograr una mayor rapidez en el logueo.
+<p align="center"><img width=85% src="./src/assets/imagenes/img-readme/login.gif"></p>
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+<br>
 
 ## Further help
 
