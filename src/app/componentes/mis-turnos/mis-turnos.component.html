@@ -102,8 +102,7 @@
                                                     (click)='cancelarTurno(turno,content)'>Cancelar turno</button>
                                                 <button class="mt-1 btn btn-outline-dark"
                                                     style="background-color: rgb(255, 255, 61);color: black;"
-                                                    *ngIf="(turno?.estado_turno != 'Realizado' || 
-                                                           turno?.estado_turno != 'Aceptado' || turno?.estado_turno != 'Rechazado') && this.AuthService.user.tipoUsuario == 'ESP'"
+                                                    *ngIf="(turno?.estado_turno == 'Pendiente') && this.AuthService.user.tipoUsuario == 'ESP'"
                                                     (click)='cancelarTurno(turno,content)'>Cancelar turno</button>
                                             </td>
                                             <td *ngIf="turno.resenea != ''">
