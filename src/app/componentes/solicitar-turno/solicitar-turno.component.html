@@ -23,7 +23,8 @@
                                     </p>
 
                                     <div class="row row-cols-8" *ngIf="this.listadoPacientes.length != 0">
-                                        <div class="d-flex align-items-center" *ngIf="this.spinner" style="color: #153A82;">
+                                        <div class="d-flex align-items-center" *ngIf="this.spinner"
+                                            style="color: #153A82;">
                                             <strong>Cargando lista...</strong>
                                             <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
                                         </div>
@@ -79,11 +80,32 @@
                                         </div>
                                     </div>
 
-                                    <div class="row row-cols-4 " *ngIf="this.listadoEspecialidad.length != 0">
-                                        <div class="col especialistas-celda" (click)="selectEspecialidad(especialidad)"
+                                    <div class="row row-cols-5 " *ngIf="this.listadoEspecialidad.length != 0">
+                                        <div class="col" (click)="selectEspecialidad(especialidad)"
                                             *ngFor="let especialidad of this.listadoEspecialidad"
                                             [ngClass]="{select: this.especialidadSelect && this.nombreEspecialidadSelect == especialidad}">
-                                            {{especialidad}}
+                                            <div align="center">
+                                                <button class="btn especialidad-Cardiologia"
+                                                    *ngIf="especialidad == 'Cardiología'" align="center">
+                                                    <img [src]="this.imgCardiologia" height="120px" width="auto">
+                                                </button>
+                                                <div class="btn especialidad-Pediatria"
+                                                    *ngIf="especialidad == 'Pediatria'" align="center">
+                                                    <img [src]="this.imgPediatria" height="120px" width="auto">
+                                                </div>
+                                                <div class="btn especialidad-Neumologia"
+                                                    *ngIf="especialidad == 'Neumología'" align="center">
+                                                    <img [src]="this.imgNeumologia" height="120px" width="auto">
+                                                </div>
+                                                <div class="btn especialidad-Default"
+                                                    *ngIf="especialidad != 'Cardiología' && especialidad != 'Pediatria' && especialidad != 'Neumología'"
+                                                    align="center">
+                                                    <img [src]="this.imgDefault" height="120px" width="auto">
+                                                </div>
+                                            </div>
+                                            <div class="especialidad-name" align="center" style="font-weight: bold;">
+                                                {{especialidad}}
+                                            </div>
                                         </div>
                                     </div>
 
@@ -110,12 +132,22 @@
                                         </div>
                                     </div>
 
-                                    <div class="row row-cols-4" *ngIf="this.listadoEspecialistas.length != 0">
-                                        <div class="col especialistas-celda"
+                                    <div class="row row-cols-5" *ngIf="this.listadoEspecialistas.length != 0">
+                                        <div class="col"
                                             *ngFor='let especialista of (this.listadoEspecialistas | filterEspecialistaEspecialidad: this.filtroXEspecialidad)'
                                             (click)="selectEspecialista(especialista)"
                                             [ngClass]="{select: this.especialistaSelect && especialista.id == this.idEspecialista}">
-                                            {{especialista.apellido + " " + especialista.nombre}}
+
+                                            <div align="center">
+                                                <button class="btn especialistas-img">
+                                                    <img class="img-esp" [src]="especialista.foto" height="100px"
+                                                        width="100px">
+                                                </button>
+                                            </div>
+                                            <div class="especialista-name" align="center"
+                                                style="font-weight: bold;text-transform: uppercase;">
+                                                {{especialista.apellido + " " + especialista.nombre}}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -138,21 +170,64 @@
                                         </div>
                                     </div>
 
-                                    <div class="row row-cols-5 "
+                                    <!-- <div class="row row-cols-5 "
                                         *ngIf="this.especialidadSelect && this.especialistaSelect">
                                         <div class="col fechas" *ngFor='let fecha of this.fechas'
                                             (click)="selectFecha(fecha)"
                                             [ngClass]="{select: this.fechaSelect && this.fechaSeleccionada == fecha}">
+
                                             {{fecha[1] +" "+ fecha[0] +" "+ fecha[2]}}
+                                        </div>
+                                    </div> -->
+                                    <div class="row row-cols-5 justify-content-center"
+                                        *ngIf="this.especialidadSelect && this.especialistaSelect">
+                                        <div class="col fechas text-center" *ngFor='let fecha of this.fechasDisponibles'                                           
+                                            (click)="buscoHorasXFecha(fecha)"
+                                            [ngClass]="{select: fecha == this.fechasola && this.fechaSolaSelect}">
+
+                                            
+                                            <div class="row justify-content-center">{{fecha[0]}}</div>
+                                            <!-- <div class="row justify-content-center">{{fecha[1]}}</div> -->
+                                         
+                                            <!-- {{fecha[1] +" "+ fecha[0]}} -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            
+                            <div class="row">
+                                <div class="container">
+                                    <p>
+                                        Hora Disponibles:        
+                                    </p>
+                                    <div class="row row-cols-5 justify-content-center"
+                                        *ngIf="this.horasDisponiblesXdia.length != 0">
+                                        <div class="col fechas text-center" *ngFor='let hora of this.horasDisponiblesXdia'
+                                             (click)="selectFecha(hora)"
+                                             [ngClass]="{select: hora == this.horaSola && this.horaSolaSelect}">
+                                            {{hora}}
+
+                                            <!-- <div *ngIf="(((hora.split('a',1)).trim()).split(':',1)) ">
+
+                                            </div> -->    
+                                            <div *ngIf="(hora.split(':',1)) < 12">
+                                                am
+                                            </div> 
+                                            <div *ngIf="(hora.split(':',1)) >= 12">
+                                                pm
+                                            </div>                                       
+                                            <!-- {{(hora.split(':',1))}} -->
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-
                             <hr>
                             <div class="row">
-                                <button class="w-100 boton" type="submit" (click)="generarTurno()">Generar
+                                <button class="w-100 boton" type="submit"
+                                    [disabled]="!(this.especialistaSelect && this.especialidadSelect && this.fechaSolaSelect && this.horaSolaSelect)"
+                                    (click)="generarTurno()">Generar
                                     Turno</button>
                             </div>
                         </form>

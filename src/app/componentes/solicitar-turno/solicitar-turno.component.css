@@ -47,19 +47,26 @@ section{
 .fechas{
     background-color: #03aca1;
     color: white;
-    font-size: 14px;
-    text-align: center;
-    /* padding: 1em 2em 1em 2em ; */
+    font-size: 24px;
+
+    /* border-radius: 24px; */
+
     cursor: pointer;
     border: 1px solid black;
     font-weight: 600;
     color: black;
+
+    margin: 5px 8px 5px 8px;
+
+    /* margin-right: 5px;
+    margin-left: 5px; */
 }
 
 .fechas:hover{
-    background-color: #2151b1;  
+    background-color: #5d90f7;  
     color: white;  
 }
+
 
 .especialistas-celda{
     background-color: #008B81;
@@ -77,21 +84,73 @@ section{
     cursor: pointer;
 }
 
+.especialidad-circulo{
+    background-color: #008B81;
+    height: 200px;
+    width: auto;
+    border-radius: 100%;
+}
+
+
+
 .especialistas-celda:hover{
-    background-color: #2151b1;
+    background-color: #5d90f7;    
 }
 
 .select{
     background-color: #2151b1;
+    color: white !important;
 }
 
 .select-pac{
-    background-color: #01a096;
+    background-color: #2151b1;
+    color: white !important;
 }
 
 p{
     font-weight: bold;
 }
+
+.especialidad-Cardiologia{  
+    height: 160px;
+    width: auto;
+    border-radius: 100%;
+    padding-top: 10%;
+    overflow: hidden;
+}
+.especialidad-Pediatria{  
+    height: 160px;
+    width: auto;
+    border-radius: 100%;
+    padding-top: 10%;
+    overflow: hidden;
+}
+.especialidad-Neumologia{  
+    height: 160px;
+    width: auto;
+    border-radius: 100%;
+    padding-top: 10%;
+    overflow: hidden;
+}
+.especialidad-Default{  
+    height: 160px;
+    width: auto;
+    border-radius: 100%;
+    padding-top: 10%;
+    overflow: hidden;
+}
+
+.especialistas-img{  
+    height: 160px !important;
+    width: 160px;
+    border-radius: 100% !important;
+    overflow: hidden;    
+}
+
+.img-esp{
+    transform: scale(1.7);
+}
+
 
 .boton{    
     background-color: #153A82;
@@ -132,7 +191,7 @@ td{
 .btn{
     font-weight: 600;
     color: white !important;
-    background-color: #153A82 !important;
+    background-color: #5d90f7 !important;
 }
 
 .btn:hover{    

@@ -1,0 +1,68 @@
+<div class="header-form">
+    <div class="btn-volver" (click)="volver()" *ngIf="this.AuthService.user.tipoUsuario == 'ADM'">
+        <svg width="46" height="46" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M2.25 12c0 5.384 4.365 9.75 9.75 9.75 5.384 0 9.75-4.366 9.75-9.75 0-5.385-4.366-9.75-9.75-9.75A9.75 9.75 0 0 0 2.25 12Zm9.968-4.282a.751.751 0 0 1 .004 1.06L9.77 11.25h6.261a.75.75 0 1 1 0 1.5H9.77l2.452 2.472a.75.75 0 1 1-1.066 1.056l-3.721-3.75a.75.75 0 0 1 0-1.056l3.721-3.75a.75.75 0 0 1 1.062-.005Z">
+            </path>
+        </svg>
+        <a style="margin-left: 10px;">volver</a>
+    </div>
+</div>
+
+<div class="container">
+    <h2 style="padding: 5px 0px 5px 0px;">Historias Clinicas de Pacientes</h2>
+    <div class="d-flex align-items-center" *ngIf="this.spinner" style="color: #153A82;">
+        <strong>Cargando lista...</strong>
+        <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+    </div>
+
+    <div *ngIf="!this.spinner">
+        <table class="table table-striped  table-hover">
+            <thead class="thead-dark" align="start">
+                <tr>
+                    <th scope="col">DNI</th>
+                    <th scope="col">Mail</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody align="start">
+                <tr *ngFor='let paciente of this.listaPacienteAux'>
+                    <td>{{paciente?.dni}}</td>
+                    <td>{{paciente?.mail}}</td>
+                    <td>{{paciente?.apellido}}</td>
+                    <td>{{paciente?.nombre}}</td>
+                    <td>
+                        <!-- <button class="mt-2 btn btn-outline-dark" (click)='seleccionarPaciente(paciente)'>Ver informacion</button> -->
+                        <button class="mt-2 btn btn-outline-dark" (click)='seleccionarPaciente(paciente)'>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-file-earmark-medical" viewBox="0 0 16 16">
+                                <path
+                                    d="M7.5 5.5a.5.5 0 0 0-1 0v.634l-.549-.317a.5.5 0 1 0-.5.866L6 7l-.549.317a.5.5 0 1 0 .5.866l.549-.317V8.5a.5.5 0 1 0 1 0v-.634l.549.317a.5.5 0 1 0 .5-.866L8 7l.549-.317a.5.5 0 1 0-.5-.866l-.549.317V5.5zm-2 4.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 2a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z" />
+                                <path
+                                    d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
+                            </svg>
+                            Ver Historia Clinica</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div>
+        <div class="d-flex align-items-center" *ngIf="this.spinnerHC" style="color: #153A82;">
+            <strong>Buscando historial clinico...</strong>
+            <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+        </div>
+
+        <div *ngIf="!this.spinnerHC">
+            <div style="padding: 5px 5px 5px 5px">
+                <app-detalle-historia-clinica [selectPaciente]='this.pacienteSeleccionado'>
+                </app-detalle-historia-clinica>
+            </div>
+        </div>
+
+    </div>

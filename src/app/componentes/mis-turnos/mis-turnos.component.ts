@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from 'src/app/servicios/firestore.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/servicios/auth.service';
+import { HistoriaClinica } from 'src/app/clases/historia-clinica';
 
 @Component({
   selector: 'app-mis-turnos',
@@ -20,6 +21,8 @@ export class MisTurnosComponent implements OnInit {
   filtroApellidoEspecialista: string = "";
   filtroEspecialidad: string = "";
 
+  filtroCampoTurnoHistoriaClinica: string = "";
+
   closeResult: any;
   auxComentario: string = "";
   commentarioCancelacion: string = "";
@@ -30,6 +33,7 @@ export class MisTurnosComponent implements OnInit {
 
   spinner: boolean = true;
 
+  
   constructor(
     public AuthService: AuthService,
     private FirestoreService: FirestoreService,
@@ -94,23 +98,35 @@ export class MisTurnosComponent implements OnInit {
   }
 
   comentarioRechazarTurno: string = "";
-  rechazarTurno(turno: any, contentRechazo: any){
+  rechazarTurno(turno: any, contentRechazo: any) {
     this.datosTurnoSeleccionado = turno;
     this.openRechazoTurno(contentRechazo);
   }
 
-  aceptarTurno(turno:any){
+  aceptarTurno(turno: any) {
     let datosTurno = turno;
 
     datosTurno.estado_turno = "Aceptado";
-    this.FirestoreService.modificarTurno(datosTurno,  datosTurno.id);
+    this.FirestoreService.modificarTurno(datosTurno, datosTurno.id);
   }
 
-  
-  finalizarTurno(turno: any, reseneaDiagnostico: any){
+
+  // referenciaFormAltaHistoriaClinica: any;
+
+  // finalizarTurno(turno: any, reseneaDiagnostico: any, altaHistoriaclinica: any){
+  //   this.datosTurnoSeleccionado = turno;
+  //   this.referenciaFormAltaHistoriaClinica = altaHistoriaclinica;  
+  //   this.openReseneaDiagnosticoEsp(reseneaDiagnostico);  
+  // }
+
+  referenciaFormAltaHistoriaClinica: any;
+  async finalizarTurno(turno: any, reseneaDiagnostico: any, altaHistoriaclinica: any) {
     this.datosTurnoSeleccionado = turno;
+    this.referenciaFormAltaHistoriaClinica = altaHistoriaclinica;
     this.openReseneaDiagnosticoEsp(reseneaDiagnostico);
   }
+
+
 
   ngOnInit(): void {
     //console.log(this.listTurnosCargados);
@@ -182,7 +198,7 @@ export class MisTurnosComponent implements OnInit {
   openEncuesta(content: any) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
       (result) => {
-        
+
         let turno = this.datosTurnoSeleccionado;
 
         let encuesta = {
@@ -228,11 +244,74 @@ export class MisTurnosComponent implements OnInit {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
       (result) => {
         let turnoSelect = this.datosTurnoSeleccionado;
-        turnoSelect.resenea = "Diagnostico: " +this.reseneaDiagnosticoEsp;
-        turnoSelect.estado_turno = "Realizado";        
+        turnoSelect.resenea = "Diagnostico: " + this.reseneaDiagnosticoEsp;
+        turnoSelect.estado_turno = "Realizado";
         this.FirestoreService.modificarTurno(turnoSelect, turnoSelect.id);
 
         this.reseneaDiagnosticoEsp = "";
+
+        this.openAltaHistoriaClinica(this.referenciaFormAltaHistoriaClinica);
+        this.closeResult = `Closed with: ${result}`;
+      },
+      (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      },
+    );
+  }
+
+
+  //Alta Historia CLinica
+  altura: string = "";
+  peso: string = "";
+  temperatura: string = "";
+  presion: string = "";
+
+  dato_1_tipo: string = "";
+  dato_1_valor: string = "";
+
+  dato_2_tipo: string = "";
+  dato_2_valor: string = "";
+
+  dato_3_tipo: string = "";
+  dato_3_valor: string = "";
+
+  openAltaHistoriaClinica(content: any) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', size: 'xl' }).result.then(
+      (result) => {
+        let turnoSelect = this.datosTurnoSeleccionado;
+        let historiaClincia = {
+          id_paciente: turnoSelect.paciente.id,
+          id_atencion: turnoSelect.id,
+          altura: this.altura,
+          peso: this.peso,
+          temperatura: this.temperatura,
+          presion: this.presion,
+          datos_1: [this.dato_1_tipo,this.dato_1_valor],
+          datos_2: [this.dato_2_tipo,this.dato_2_valor],
+          datos_3: [this.dato_3_tipo,this.dato_3_valor]
+        }
+
+        console.log(historiaClincia);
+
+        turnoSelect.historiaClinica = historiaClincia;
+
+        this.FirestoreService.modificarTurno(turnoSelect, turnoSelect.id);
+        this.FirestoreService.altaHistorialCLinico(historiaClincia);
+
+        this.altura = "";
+        this.peso = "";
+        this.temperatura = "";
+        this.presion = "";
+
+        this.dato_1_tipo = "";
+        this.dato_1_valor = "";
+
+        this.dato_2_tipo = "";
+        this.dato_2_valor = "";
+
+        this.dato_3_tipo = "";
+        this.dato_3_valor = "";
+
         this.closeResult = `Closed with: ${result}`;
       },
       (reason) => {

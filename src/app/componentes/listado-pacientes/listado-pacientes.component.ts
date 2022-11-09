@@ -1,6 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FirestoreService } from 'src/app/servicios/firestore.service';
 import { Paciente } from 'src/app/clases/paciente';
+import { ExcelService } from 'src/app/servicios/excel.service';
+
+
 
 @Component({
   selector: 'app-listado-pacientes',
@@ -27,6 +30,8 @@ export class ListadoPacientesComponent implements OnInit {
       this.spinner = false;
     }, 1000);
   }
+
+ 
 
   seleccionarPaciente(paciente: Paciente){
     //console.log(paciente);

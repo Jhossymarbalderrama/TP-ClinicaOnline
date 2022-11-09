@@ -11,7 +11,7 @@
             <ul class="nav nav-pills flex-column mb-auto">
                 <!-- <a href="#" class="nav-link active" aria-current="page"> -->
                 <li>
-                    <a class="nav-link text-white menu-item" aria-current="page"  (click)="onMiHome()">
+                    <a class="nav-link text-white menu-item" aria-current="page" (click)="onMiHome()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                             class="bi bi-house-fill" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
@@ -40,6 +40,23 @@
                         </a>
                     </a>
                 </li>
+
+                <li *ngIf="this.AuthService.user.tipoUsuario == 'ESP'">
+                    <a routerLink="/menu-administrador" class="nav-link text-white menu-item"
+                        [ngClass]="{habilitado: this.historiaClinicaEspActivate}" (click)="onSeccionPacientes()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-person-rolodex" viewBox="0 0 16 16"
+                            style="margin-bottom: 5px !important;margin-right: 5px;">
+                            <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                            <path
+                                d="M1 1a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h.5a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h.5a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H6.707L6 1.293A1 1 0 0 0 5.293 1H1Zm0 1h4.293L6 2.707A1 1 0 0 0 6.707 3H15v10h-.085a1.5 1.5 0 0 0-2.4-.63C11.885 11.223 10.554 10 8 10c-2.555 0-3.886 1.224-4.514 2.37a1.5 1.5 0 0 0-2.4.63H1V2Z" />
+                        </svg>
+                        <a style="padding-left: 10px;">
+                            Seccion Pacientes
+                        </a>
+                    </a>
+                </li>
+
                 <li *ngIf="this.AuthService.user.tipoUsuario != 'ADM'">
                     <a class="nav-link text-white menu-item" [ngClass]="{habilitado: this.misTurnosActivate}"
                         (click)="onMisTurnos()">
@@ -111,7 +128,23 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item" (click)="onMisHorarios()" *ngIf="this.AuthService.user.tipoUsuario == 'ESP'">
+                        <a class="dropdown-item" (click)="onHistoriaClinica()"
+                            *ngIf="this.AuthService.user.tipoUsuario == 'PAC'">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-card-heading" viewBox="0 0 16 16"
+                                style="margin-bottom: 5px !important;margin-right: 5px;">
+                                <path
+                                    d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                <path
+                                    d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z" />
+                            </svg>
+                            Historia Clinica
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" (click)="onMisHorarios()"
+                            *ngIf="this.AuthService.user.tipoUsuario == 'ESP'">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-calendar-week" viewBox="0 0 16 16">
                                 <path
@@ -145,47 +178,59 @@
         </div>
 
         <!-- Mi Home  -->
-        <div class="container" *ngIf="this.miHomeActivate">
+        <div class="container scale-up-center" *ngIf="this.miHomeActivate">
             <app-pagina-error></app-pagina-error>
         </div>
 
         <!-- Seccion Usuarios -->
-        <div class="container " *ngIf="this.AuthService.user.tipoUsuario == 'ADM'
+        <div class="container  scale-up-center" *ngIf="this.AuthService.user.tipoUsuario == 'ADM'
         && this.seccionUsuariosActivate
         ">
             <app-seccion-usuarios></app-seccion-usuarios>
         </div>
 
+        <div class="container  scale-up-center" *ngIf="this.historiaClinicaEspActivate">
+            <app-historia-clinica></app-historia-clinica>
+        </div>
+
         <!-- Mis Turnos -->
-        <div class="container" *ngIf="this.misTurnosActivate">
+        <div class="container scale-up-center" *ngIf="this.misTurnosActivate">
             <app-mis-turnos></app-mis-turnos>
         </div>
 
 
         <!-- Turnos -->
-        <div class="container" *ngIf="this.turnosActivate">
+        <div class="container scale-up-center" *ngIf="this.turnosActivate">
             <app-turnos></app-turnos>
         </div>
 
 
         <!-- Solicitar turnos -->
-        <div class="container" *ngIf="this.solicitarTurnoActivate">
+        <div class="container scale-up-center" *ngIf="this.solicitarTurnoActivate">
             <app-solicitar-turno></app-solicitar-turno>
         </div>
 
 
         <!-- Mi Perfil -->
-        <div class="container" *ngIf="this.miPerfilActivate">
+        <div class="container scale-up-center" *ngIf="this.miPerfilActivate">
             <app-mi-perfil></app-mi-perfil>
         </div>
 
+        <!-- Historia Clinica -->
+        <div class="container scale-up-center" *ngIf="this.historiaClinica">
+            <div class="body-historia-clinica">
+                <app-detalle-historia-clinica></app-detalle-historia-clinica>
+            </div>
+        </div>
+
+
         <!-- Mis Horarios -->
-        <div class="container" *ngIf="this.misHorariosActivate && this.AuthService.user.tipoUsuario == 'ESP'">
+        <div class="container scale-up-center" *ngIf="this.misHorariosActivate && this.AuthService.user.tipoUsuario == 'ESP'">
             <app-mis-horarios></app-mis-horarios>
         </div>
 
         <!-- Pag 404 -->
-        <div class="container" *ngIf="this.pagError404">
+        <div class="container scale-up-center" *ngIf="this.pagError404">
             <app-pagina-error></app-pagina-error>
         </div>
     </main>

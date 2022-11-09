@@ -48,6 +48,10 @@ import { MisTurnosComponent } from './componentes/mis-turnos/mis-turnos.componen
 import { FiltroTurnosXLastnamePacientePipe } from './pipes/filtro-turnos-xlastname-paciente.pipe';
 import { FiltroTurnosXNamePacientePipe } from './pipes/filtro-turnos-xname-paciente.pipe';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HistoriaClinicaComponent } from './componentes/historia-clinica/historia-clinica.component';
+import { DetalleHistoriaClinicaComponent } from './componentes/detalle-historia-clinica/detalle-historia-clinica.component';
+import { FiltroTurnosCualquierCampoPipe } from './pipes/filtro-turnos-cualquier-campo.pipe';
 
 @NgModule({
   declarations: [
@@ -79,7 +83,10 @@ import { FiltroTurnosXNamePacientePipe } from './pipes/filtro-turnos-xname-pacie
     FiltroTurnosXLastnameEspecialistaPipe,
     MisTurnosComponent,
     FiltroTurnosXLastnamePacientePipe,
-    FiltroTurnosXNamePacientePipe    
+    FiltroTurnosXNamePacientePipe,
+    HistoriaClinicaComponent,
+    DetalleHistoriaClinicaComponent,
+    FiltroTurnosCualquierCampoPipe    
   ],
   imports: [
     BrowserModule,
@@ -93,7 +100,8 @@ import { FiltroTurnosXNamePacientePipe } from './pipes/filtro-turnos-xname-pacie
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

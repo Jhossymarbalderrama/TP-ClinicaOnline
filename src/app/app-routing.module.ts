@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { BienvenidaComponent } from './componentes/bienvenida/bienvenida.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { MenuAdministradorComponent } from './componentes/menu-administrador/menu-administrador.component';
 import { MisHorariosComponent } from './componentes/mis-horarios/mis-horarios.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { SendEmailComponent } from './componentes/send-email/send-email.component';

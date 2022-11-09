@@ -20,7 +20,7 @@ export class FirestoreService {
   listEspecialistasCollectionReference: any;
   listPacientesCollectionReference: any;
   listTurnosCollectionReference: any;
-
+  listHistoriasCLinicasCollectionReference: any;
 
   constructor(
     public FireStore: Firestore
@@ -30,7 +30,8 @@ export class FirestoreService {
     this.listAdministradoresCollectionReference = collection(this.FireStore,'administradores');
     this.listEspecialistasCollectionReference = collection(this.FireStore,'especialistas');
     this.listPacientesCollectionReference = collection(this.FireStore,'pacientes');
-    this.listTurnosCollectionReference = collection(this.FireStore,'turnos');    
+    this.listTurnosCollectionReference = collection(this.FireStore,'turnos');  
+    this.listHistoriasCLinicasCollectionReference = collection(this.FireStore,'historialesClinicos');    
   }
 
 
@@ -81,6 +82,10 @@ export class FirestoreService {
     return addDoc(this.listTurnosCollectionReference,turno);
   }
 
+  altaHistorialCLinico(historial: any){
+    return addDoc(this.listHistoriasCLinicasCollectionReference,historial);
+  }
+
   //Bajas
   
 
@@ -112,5 +117,8 @@ export class FirestoreService {
     return collectionData(this.listTurnosCollectionReference,{idField: 'id'}) as Observable<any[]>;
   }
 
+  listaHistorialesClinicos():Observable<any[]>{
+    return collectionData(this.listHistoriasCLinicasCollectionReference,{idField: 'id'}) as Observable<any[]>;
+  }
 
 }

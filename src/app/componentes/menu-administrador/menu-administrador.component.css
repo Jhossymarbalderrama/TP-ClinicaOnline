@@ -56,3 +56,47 @@ span{
 a{
     font-weight: 600;
 }
+
+
+.body-historia-clinica{
+    padding: 15px 15px 15px 15px;
+    width: 100%;
+	height: 100%;	
+    background-color: #f5f2f2;
+    border-radius: 5px;
+
+    box-shadow:
+        2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+        6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+        12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+        22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+        41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+        100px 100px 80px rgba(0, 0, 0, 0.07)
+    ;
+}
+
+.scale-up-center {
+	-webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@-webkit-keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  @keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }

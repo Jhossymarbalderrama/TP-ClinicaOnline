@@ -84,6 +84,12 @@ export class MisHorariosComponent implements OnInit {
     this.listEspecialidades = this.AuthService.user.especialidad;
   };
 
+
+  horasinmodificarDesdLV: string = "";
+  horasinmodificarHastLV: string = "";
+  horasinmodificarDesdS: string = "";
+  horasinmodificarHastS: string = "";
+
   selectEspecialidad(especialidad: string) {
     this.especialidadSelect = true;
     this.nombreEspecialidadSelect = especialidad;
@@ -96,13 +102,18 @@ export class MisHorariosComponent implements OnInit {
      
   
           this.horaDesdeView = this.AuthService.user.horarioLV[0].split("a",2)[0].trim();
-          console.log(this.horaDesdeLV);
+          //console.log(this.horaDesdeLV);
           // this.horaDesdeLV = this.AuthService.user.horarioLV[0];
           this.horaHastaView = this.AuthService.user.horarioLV[1].split("a",2)[1].trim();
   
           this.horaDesdeViewS = this.AuthService.user.horarioS[0].split("a",2)[0].trim();
           this.horaHastaViewS = this.AuthService.user.horarioS[1].split("a",2)[1].trim();
   
+          this.horasinmodificarDesdLV = this.AuthService.user.horarioLV[0];
+          this.horasinmodificarHastLV = this.AuthService.user.horarioLV[1];
+          this.horasinmodificarDesdS = this.AuthService.user.horarioS[0];
+          this.horasinmodificarHastS = this.AuthService.user.horarioS[1];
+
           this.horaDesdeSelect = true;
           this.horaHastaSelect = true;
           this.horaDesdeSelectS = true; 
@@ -243,19 +254,19 @@ export class MisHorariosComponent implements OnInit {
     let especialista = this.AuthService.user;
 
     if(this.horaDesdeLV == ''){
-      this.horaDesdeLV = this.horaDesdeView;
+      this.horaDesdeLV = this.horasinmodificarDesdLV;
     }
 
     if(this.horaHastaLV == ''){
-      this.horaHastaLV = this.horaHastaView;
+      this.horaHastaLV = this.horasinmodificarHastLV;
     }
 
     if(this.horaDesdeS == ''){
-      this.horaDesdeS = this.horaDesdeViewS;
+      this.horaDesdeS = this.horasinmodificarDesdS;
     }
 
     if(this.horaHastaS == ''){
-      this.horaHastaS = this.horaHastaViewS;
+      this.horaHastaS = this.horasinmodificarHastS;
     }
 
     especialista.horarioLV = [this.horaDesdeLV, this.horaHastaLV];

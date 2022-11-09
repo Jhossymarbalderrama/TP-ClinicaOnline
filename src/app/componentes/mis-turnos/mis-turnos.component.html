@@ -9,7 +9,7 @@
 
                             <div style="width: 100%;">
                                 <div class="row row-12">
-                                    <h3>Filtros</h3>
+                                    <h3>Filtros</h3>                                    
                                     <div class="col-md-3 my-3" *ngIf="this.AuthService.user.tipoUsuario == 'PAC'">
                                         <label for="firstName">Nombre especialista: </label>
                                         <input type="text" class="form-control"
@@ -38,6 +38,13 @@
                                         <label for="firstName">Especialidad: </label>
                                         <input type="text" class="form-control" placeholder="ingrese especialidad..."
                                             [(ngModel)]="this.filtroEspecialidad">
+                                    </div>
+
+                                    <div class="col-md-3 my-3">
+                                        <label for="firstName">Campo del turno/historia clinica: </label>
+                                        <input type="text" class="form-control"
+                                            placeholder="ingrese nombre del especialista..."
+                                            [(ngModel)]="this.filtroCampoTurnoHistoriaClinica">
                                     </div>
                                     <hr>
                                 </div>
@@ -78,7 +85,8 @@
                                                                                          | filtroTurnosXLastnameEspecialista: filtroApellidoEspecialista
                                                                                          | filtroTurnosXEspecialidad: filtroEspecialidad
                                                                                          | filtroTurnosXNamePaciente: filtroNombrePaciente
-                                                                                         | filtroTurnosXLastnamePaciente: filtroApellidoPaciente)">
+                                                                                         | filtroTurnosXLastnamePaciente: filtroApellidoPaciente
+                                                                                         | filtroTurnosCualquierCampo: filtroCampoTurnoHistoriaClinica)">
 
                                             <td style="font-size: 24px;font-weight: bold;color: rgb(255, 255, 61);text-shadow: 2px 2px 2px rgb(19, 19, 19);"
                                                 [ngClass]="{'cancelado': turno?.estado_turno == 'Cancelado'}">
@@ -118,23 +126,27 @@
                                                     turno</button>
                                             </td>
 
-                                            <td *ngIf="turno.estado_turno == 'Pendiente' && this.AuthService.user.tipoUsuario == 'ESP'">
+                                            <td
+                                                *ngIf="turno.estado_turno == 'Pendiente' && this.AuthService.user.tipoUsuario == 'ESP'">
                                                 <button class="mt-1 btn btn-outline-dark"
                                                     style="background-color: rgb(255, 255, 61);color: black;"
                                                     (click)="rechazarTurno(turno,contentRechazoTurno)">Rechazar
                                                     Turno</button>
                                             </td>
 
-                                            <td *ngIf="turno.estado_turno == 'Pendiente' && this.AuthService.user.tipoUsuario == 'ESP'">
+                                            <td
+                                                *ngIf="turno.estado_turno == 'Pendiente' && this.AuthService.user.tipoUsuario == 'ESP'">
                                                 <button class="mt-1 btn btn-outline-dark"
                                                     style="background-color: rgb(255, 255, 61);color: black;"
                                                     (click)="aceptarTurno(turno)">Aceptar Turno</button>
                                             </td>
 
-                                            <td *ngIf="turno.estado_turno == 'Aceptado' && this.AuthService.user.tipoUsuario == 'ESP'">
+                                            <td
+                                                *ngIf="turno.estado_turno == 'Aceptado' && this.AuthService.user.tipoUsuario == 'ESP'">
                                                 <button class="mt-1 btn btn-outline-dark"
                                                     style="background-color: rgb(255, 255, 61);color: black;"
-                                                    (click)="finalizarTurno(turno,contentReseneaEspecialista)">Finalizar Turno</button>
+                                                    (click)="finalizarTurno(turno,contentReseneaEspecialista,contentAltaHistoriaClinica)">Finalizar
+                                                    Turno</button>
                                             </td>
 
                                             <td
@@ -279,6 +291,83 @@
         <div class="modal-footer">
             <button type="button" class="btn btn-outline-dark btn-danger" (click)="modal.close('Save click')"
                 [disabled]="this.reseneaDiagnosticoEsp == ''">Enviar Calificaicon</button>
+        </div>
+    </ng-template>
+
+
+
+    <!-- Alta de Historia Clinica -->
+    <ng-template #contentAltaHistoriaClinica let-modal>
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-basic-title">Alta - Historia Clinica</h3>            
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">          
+                <div class="input-grup">
+
+                    <div class="row g-3">
+                        <hr class="mb-4">
+                        <div class="col-md-3">
+                            <label for="firstName">Altura</label>
+                            <input type="text" class="form-control" placeholder="Ingrese altura" [(ngModel)]="this.altura">
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <label for="firstName">Peso</label>
+                            <input type="text" class="form-control" placeholder="Ingrese peso" [(ngModel)]="this.peso">
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <label for="firstName">Temperatura</label>
+                            <input type="text" class="form-control" placeholder="Ingrese temperatura" [(ngModel)]="this.temperatura">
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="firstName">Presion</label>
+                            <input type="text" class="form-control" placeholder="Ingrese presion" [(ngModel)]="this.presion">
+                        </div>
+
+                        <!-- datos adicionales -->
+                        <h4>Datos adicionales</h4>
+                        <hr class="mb-4">
+                        <div class="col-md-5">
+                            <label for="firstName">Tipo:</label>
+                            <input type="text" class="form-control" placeholder="Ingrese tipo" [(ngModel)]="this.dato_1_tipo">                            
+                        </div>
+                    
+                        <div class="col-md-5">
+                            <label for="firstName">Descripcion o cantidad:</label>
+                            <input type="text" class="form-control" placeholder="Ingrese dato aquí" [(ngModel)]="this.dato_1_valor">
+                        </div>
+
+                        <div class="col-md-5">
+                            <label for="firstName">Tipo:</label>
+                            <input type="text" class="form-control" placeholder="Ingrese tipo" [(ngModel)]="this.dato_2_tipo">                            
+                        </div>
+                    
+                        <div class="col-md-5">
+                            <label for="firstName">Descripcion o cantidad:</label>
+                            <input type="text" class="form-control" placeholder="Ingrese dato aquí" [(ngModel)]="this.dato_2_valor">
+                        </div>
+
+                        <div class="col-md-5">
+                            <label for="firstName">Tipo:</label>
+                            <input type="text" class="form-control" placeholder="Ingrese tipo" [(ngModel)]="this.dato_3_tipo">                            
+                        </div>
+                    
+                        <div class="col-md-5">
+                            <label for="firstName">Descripcion o cantidad:</label>
+                            <input type="text" class="form-control" placeholder="Ingrese dato aquí" [(ngModel)]="this.dato_3_valor">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark btn-danger" (click)="modal.close('Save click')"
+            >Generar Historia Clinica</button>
         </div>
     </ng-template>
 </body>

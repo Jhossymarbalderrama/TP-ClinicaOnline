@@ -8,6 +8,17 @@ export class AuthService {
 
   //Despues de tester dejar en ""
   user: any =  "";
+  // {
+  //       "password": "Pedro159",
+  //       "nombre": "pedro",
+  //       "apellido": "lopez",
+  //       "tipoUsuario": "ADM",
+  //       "mail": "pedro@gmail.com",
+  //       "edad": 30,
+  //       "foto": "https://firebasestorage.googleapis.com/v0/b/tp-clinicaonline-ef480.appspot.com/o/B.png?alt=media&token=fe1aa44b-a3a4-46b6-8ae9-1e409aaf334d",
+  //       "dni": 54545554,
+  //       "id": "RPALQYrlwcGwc3KUjdyl"
+  //   };
 
   //ADMINISTRADOR
 //   {

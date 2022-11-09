@@ -21,6 +21,10 @@ export class SolicitarTurnoComponent implements OnInit {
   fechaSelect: boolean = false;
   pacienteSelect: boolean = false;
 
+  
+  fechaSolaSelect: boolean = false;
+  horaSolaSelect: boolean = false;
+
 
   nombreEspecialidadSelect: string = "";
   idEspecialista: string = "";
@@ -37,7 +41,13 @@ export class SolicitarTurnoComponent implements OnInit {
   errorFormularioTurno: boolean = false;
   spinnerFechas: boolean = false;
 
-  spinner:boolean = true;
+  spinner: boolean = true;
+
+  imgCardiologia: string = "../../../assets/imagenes/especialidades/cardiologia.png";
+  imgPediatria: string = "../../../assets/imagenes/especialidades/pediatria.png";
+  imgNeumologia: string = "../../../assets/imagenes/especialidades/neumologia.png";
+  imgDefault: string = "../../../assets/imagenes/especialidades/default.png";
+
   constructor(
     public AuthService: AuthService,
     private FirestoreService: FirestoreService,
@@ -91,8 +101,7 @@ export class SolicitarTurnoComponent implements OnInit {
     }
   }
 
-  cargarFechasOcupadas() {
-    //ACA
+  cargarFechasOcupadas() {    
     for (var i = 0; i < this.fechasOcupadas.length; i++) {
       this.fechasOcupadasLocal.push(this.fechasOcupadas[i].fecha);
     }
@@ -115,9 +124,16 @@ export class SolicitarTurnoComponent implements OnInit {
       //Guardo las fechas que tiene turno el especialista seleccionado
       for (let j = 0; j < this.fechasOcupadas.length; j++) {
         if (this.fechasOcupadas[j].especialista.id == this.idEspecialista) {
-          if(this.fechasOcupadas[j].estado_turno != 'Cancelado'){
+          if (this.fechasOcupadas[j].estado_turno == 'Pendiente' || 
+            this.fechasOcupadas[j].estado_turno == 'Aceptado' ||
+            this.fechasOcupadas[j].estado_turno == 'Realizado' ||
+            this.fechasOcupadas[j].estado_turno == 'Finalizado') {
             fOcupadaXEspecialista.push(this.fechasOcupadas[j].fecha);
-          }  
+          }
+          // if (this.fechasOcupadas[j].estado_turno != 'Cancelado' || 
+          //   this.fechasOcupadas[j].estado_turno != 'Rechazado') {
+          //   fOcupadaXEspecialista.push(this.fechasOcupadas[j].fecha);
+          // }
         }
       }
 
@@ -172,13 +188,18 @@ export class SolicitarTurnoComponent implements OnInit {
         }
       }
     }
+
+    this.generoFechasxDia();
   }
 
   horasEspecialistaLV: string = "";
   horasEspecialistaS: string = "";
+  
 
   selectEspecialista(especialista: any) {
-    this.especialistaSelect = true;
+    this.fechaSolaSelect = false;
+    this.horasDisponiblesXdia = "";
+    this.especialistaSelect = true;    
     this.idEspecialista = especialista.id;
 
     let datosEspecialista = {
@@ -202,6 +223,8 @@ export class SolicitarTurnoComponent implements OnInit {
 
 
   selectEspecialidad(especialidad: string) {
+    this.horasDisponiblesXdia = "";
+    this.especialistaSelect = false;
     this.especialidadSelect = true;
     this.nombreEspecialidadSelect = especialidad;
     this.turno.especialidad = especialidad;
@@ -211,10 +234,16 @@ export class SolicitarTurnoComponent implements OnInit {
     //this.verificacionFechasHabilitadas();    
   }
 
-  selectFecha(fecha: any) {
+  horaSola: string = "";
+  //Capturo la fecha y hora
+  selectFecha(hora: any) {
+    this.horaSolaSelect = true;
+    this.horaSola = hora;
     this.fechaSelect = true;
-    this.fechaSeleccionada = fecha;
-    this.turno.fecha = fecha;
+    let fechaConHora: any = [this.fechasola[0], this.fechasola[1], hora]
+    this.fechaSeleccionada = fechaConHora;
+    this.turno.fecha = fechaConHora;
+    //console.log(this.turno.fecha);
   }
 
   selectPaciente(paciente: any) {
@@ -270,6 +299,79 @@ export class SolicitarTurnoComponent implements OnInit {
     }
   }
 
+
+  horasDisponiblesXdia: any = [];
+  fechasola: any = [];
+  //Genero un array de las horas disponibles por fecha
+  buscoHorasXFecha(fecha : any) {
+    this.fechaSolaSelect = true;
+    this.horasDisponiblesXdia = [];
+    this.fechasola = [];
+    this.fechasola = fecha;
+    this.horaSolaSelect = false;
+    //console.log(this.fechasola);
+
+    let auxHoras: any = [];
+    //En el array de arriba lleno con los valores 
+    //de horas iguales de la colleccion fechas comparadas con la coleecion fechasDisponibles
+
+    for (let i = 0; i < this.fechas.length; i++) {      
+      if(this.fechas[i][0] == this.fechasola[0] &&
+          this.fechas[i][1] == this.fechasola[1]){
+            auxHoras.push(this.fechas[i][2]);
+      } 
+    }
+
+    //this.fechasOcupadasLocal // Aca estan todos los turnos con sus fechas
+
+
+
+    // for (let i = 0; i < this.fechas.length; i++) {    
+
+    //   for (let j = 0; j < this.fechasDisponibles.length; j++) {
+
+    //     // console.log(this.fechasDisponibles[j]);
+    //     if (this.fechas[i][0] == this.fechasDisponibles[j][0] &&
+    //       this.fechas[i][1] == this.fechasDisponibles[j][1]) {
+    //         auxHoras.push(this.fechas[i][2]);
+    //         //console.log(this.fechas[i]);
+    //         // if(this.fechas[i][2] != this.fechasDisponibles[j][2]){              
+    //         //   auxHoras.push(this.fechas[j][2]);
+    //         // }
+
+    //     }
+    //   }
+    // }
+
+    this.horasDisponiblesXdia = auxHoras.filter((item:any, index:any) =>{
+      return auxHoras.indexOf(item) === index;
+    });    
+    //console.log(auxHoras);
+  }
+
+
+  fechasDisponibles: any = [];
+  //Genero un array de los dias que tengo disponible sin repetir fecha
+  generoFechasxDia() {
+    this.fechasDisponibles = [];
+
+    for (let i = 0; i < this.fechas.length - 1; i++) {
+      if (i != this.fechas.length) {
+        if (this.fechas[i][0] != this.fechas[i + 1][0] &&
+          this.fechas[i][1] != this.fechas[i + 1][1]) {
+          let fecha = [this.fechas[i][0], this.fechas[i][1]];
+          this.fechasDisponibles.push(fecha);
+        }
+      }
+    }
+
+    let fecha = [this.fechas[this.fechas.length - 1][0], this.fechas[this.fechas.length - 1][1]];
+    this.fechasDisponibles.push(fecha);
+
+
+    //console.log(this.fechasDisponibles);
+  }
+
   msjTurnoSuccess() {
     Swal.fire({
       icon: 'success',
@@ -277,12 +379,12 @@ export class SolicitarTurnoComponent implements OnInit {
       text: `Puede verificar el estado de su turno en la seccion Mis Turnos`,
       confirmButtonText: 'Aceptar'
     }).then((result) => {
-        this.especialistaSelect = false;
-        this.especialidadSelect = false;
-        this.fechaSelect = false;
-        this.idEspecialista = "";
-        this.nombreEspecialidadSelect = "";
-        this.fechaSeleccionada = "";
+      this.especialistaSelect = false;
+      this.especialidadSelect = false;
+      this.fechaSelect = false;
+      this.idEspecialista = "";
+      this.nombreEspecialidadSelect = "";
+      this.fechaSeleccionada = "";
     });
   }
 }
