@@ -9,13 +9,13 @@ export class ExcelService {
 
   constructor() { }
 
-  exportexcel(name: string): void
+  exportexcel(name: string, id_table: any): void
   {
     let fecha: any = new Date();
     let fileName = name + fecha.toLocaleString("es-ES") + ".xlsx" 
 
     /* pass here the table id */
-    let element = document.getElementById('excel-table');
+    let element = document.getElementById(id_table);
     const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
  
     /* generate workbook and add the worksheet */
@@ -24,6 +24,5 @@ export class ExcelService {
  
     /* save to file */  
     XLSX.writeFile(wb, fileName);
- 
   }
 }

@@ -1,4 +1,8 @@
 
+section{
+    height: 100%;
+}
+
 .container-listados{
     width: 100%;
     height: 100%;
@@ -176,3 +180,32 @@ h2{
             transform: translateX(-100px);
   }
 }
+
+
+.slide-top {
+    padding-top: 500px;
+	-webkit-animation: slide-top 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+	        animation: slide-top 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+@-webkit-keyframes slide-top {
+	0% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	}
+	100% {
+	  -webkit-transform: translateY(-400px);
+			  transform: translateY(-400px);
+	}
+  }
+  @keyframes slide-top {
+	0% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	}
+	100% {
+	  -webkit-transform: translateY(-400px);
+			  transform: translateY(-400px);
+	}
+  }
+  

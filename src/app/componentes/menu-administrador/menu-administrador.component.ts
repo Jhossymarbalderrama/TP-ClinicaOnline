@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
+import { FirestoreService } from 'src/app/servicios/firestore.service';
 
 
 @Component({
@@ -15,84 +16,104 @@ export class MenuAdministradorComponent implements OnInit {
   misTurnosActivate: boolean = false;
   turnosActivate: boolean = false;
   solicitarTurnoActivate: boolean = false;
-  miPerfilActivate:boolean = false;
-  misHorariosActivate:boolean = false;
+  miPerfilActivate: boolean = false;
+  misHorariosActivate: boolean = false;
   miHomeActivate: boolean = false;
   historiaClinica: boolean = false;
   historiaClinicaEspActivate: boolean = false;
+  chartsActivate: boolean = false;
 
-  pagError404:boolean = false;
+  pagError404: boolean = false;
 
   constructor(
+    private FirestoreService: FirestoreService,
     public AuthService: AuthService,
     private Router: Router
-  ) { 
+  ) {
     this.usuario = this.AuthService.user.tipoUsuario;
+
+
+    let date = new Date;
+    let fecha = date.toLocaleString("es-ES");
+
+    let usuario = {
+      mail: this.AuthService.user.mail,
+      apellido: this.AuthService.user.apellido,
+      nombre: this.AuthService.user.nombre,
+      fecha: fecha
+    }
+
+    this.FirestoreService.altaLogUsuarios(usuario);//LOG DE USUARIOS FIREBASE
   }
 
   ngOnInit(): void {
-    if(this.usuario == 'ADM'){
+    if (this.usuario == 'ADM') {
       this.seccionUsuariosActivate = true;
-    }else if(this.usuario == 'ESP' || this.usuario == 'PAC'){
+    } else if (this.usuario == 'ESP' || this.usuario == 'PAC') {
       this.resetValues();
       this.miPerfilActivate = true;
     }
   }
 
 
-  onSeccionUsuarios(){
+  onSeccionUsuarios() {
     this.resetValues();
     this.seccionUsuariosActivate = true;
   }
 
-  onMisTurnos(){
+  onMisTurnos() {
     this.resetValues();
     this.misTurnosActivate = true;
   }
 
-  onTurnos(){
+  onTurnos() {
     this.resetValues();
     this.turnosActivate = true;
   }
 
-  onSolicitarTurno(){
+  onSolicitarTurno() {
     this.resetValues();
     this.solicitarTurnoActivate = true;
   }
 
-  onPerfil(){
+  onPerfil() {
     //Seccion Perfil
     this.resetValues();
     this.miPerfilActivate = true;
   }
 
-  onHistoriaClinica(){
+  onHistoriaClinica() {
     this.resetValues();
     this.historiaClinica = true;
   }
 
-  onMisHorarios(){
+  onMisHorarios() {
     this.resetValues();
     this.misHorariosActivate = true;
   }
 
-  onLogout(){
+  onLogout() {
     this.AuthService.user = "";
     this.AuthService.logout();
     this.Router.navigateByUrl('/bienvenida');
   }
-  
-  onMiHome(){
+
+  onMiHome() {
     this.resetValues();
-    this.miHomeActivate = true;    
+    this.miHomeActivate = true;
   }
 
-  onSeccionPacientes(){
+  onSeccionPacientes() {
     this.resetValues();
     this.historiaClinicaEspActivate = true;
   }
-  
-  resetValues(){
+
+  onGraficosEstadisticas() {
+    this.resetValues();
+    this.chartsActivate = true;
+  }
+
+  resetValues() {
     this.seccionUsuariosActivate = false;
     this.misTurnosActivate = false;
     this.turnosActivate = false;
@@ -103,5 +124,6 @@ export class MenuAdministradorComponent implements OnInit {
     this.historiaClinica = false;
     this.historiaClinicaEspActivate = false;
     this.pagError404 = false;
+    this.chartsActivate = false;
   }
 }

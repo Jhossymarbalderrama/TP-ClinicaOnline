@@ -102,6 +102,21 @@
                         </a>
                     </a>
                 </li>
+
+                <li *ngIf="this.AuthService.user.tipoUsuario == 'ADM'">
+                    <a class="nav-link text-white menu-item" [ngClass]="{habilitado: this.chartsActivate}"
+                        (click)="onGraficosEstadisticas()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-bar-chart-line" viewBox="0 0 16 16"
+                            style="margin-bottom: 5px !important;margin-right: 5px;">
+                            <path
+                                d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z" />
+                        </svg>
+                        <a style="padding-left: 10px;">
+                            Graficos y Estadisticas
+                        </a>
+                    </a>
+                </li>
             </ul>
             <hr>
             <div class="dropdown-up" style="padding-left: 2%;padding-bottom: 5%;">
@@ -210,6 +225,10 @@
             <app-solicitar-turno></app-solicitar-turno>
         </div>
 
+        <!-- Graficos y Estadisticas -->
+        <div class="container scale-up-center" *ngIf="this.chartsActivate">
+            <app-charts-administrador></app-charts-administrador>
+        </div>
 
         <!-- Mi Perfil -->
         <div class="container scale-up-center" *ngIf="this.miPerfilActivate">
@@ -225,7 +244,8 @@
 
 
         <!-- Mis Horarios -->
-        <div class="container scale-up-center" *ngIf="this.misHorariosActivate && this.AuthService.user.tipoUsuario == 'ESP'">
+        <div class="container scale-up-center"
+            *ngIf="this.misHorariosActivate && this.AuthService.user.tipoUsuario == 'ESP'">
             <app-mis-horarios></app-mis-horarios>
         </div>
 

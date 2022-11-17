@@ -52,6 +52,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HistoriaClinicaComponent } from './componentes/historia-clinica/historia-clinica.component';
 import { DetalleHistoriaClinicaComponent } from './componentes/detalle-historia-clinica/detalle-historia-clinica.component';
 import { FiltroTurnosCualquierCampoPipe } from './pipes/filtro-turnos-cualquier-campo.pipe';
+import { ChartsAdministradorComponent } from './componentes/charts-administrador/charts-administrador.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -86,7 +88,8 @@ import { FiltroTurnosCualquierCampoPipe } from './pipes/filtro-turnos-cualquier-
     FiltroTurnosXNamePacientePipe,
     HistoriaClinicaComponent,
     DetalleHistoriaClinicaComponent,
-    FiltroTurnosCualquierCampoPipe    
+    FiltroTurnosCualquierCampoPipe,
+    ChartsAdministradorComponent    
   ],
   imports: [
     BrowserModule,
@@ -101,7 +104,8 @@ import { FiltroTurnosCualquierCampoPipe } from './pipes/filtro-turnos-cualquier-
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     NgbModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgApexchartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

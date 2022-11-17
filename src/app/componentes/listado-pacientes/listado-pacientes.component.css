@@ -33,3 +33,17 @@ td{
         41px 48px 11px -5px rgba(0, 0, 0, 0.08)
     ;
 }
+
+.img-usuario{
+    height: 125px;
+    width: 125px;
+    border-radius: 100%;
+}
+
+.select-usuario{    
+    cursor: pointer;
+}
+
+.select-usuario:hover{
+    transform: scale(1.05);
+}

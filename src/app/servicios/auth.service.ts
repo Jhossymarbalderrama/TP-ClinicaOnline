@@ -7,7 +7,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 export class AuthService {
 
   //Despues de tester dejar en ""
-  user: any =  "";
+  user: any = "";
   // {
   //       "password": "Pedro159",
   //       "nombre": "pedro",

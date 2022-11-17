@@ -67,7 +67,7 @@ export class SeccionUsuariosComponent implements OnInit {
   }
 
   exportexcel(){
-    this.ExcelService.exportexcel("Lista_Usuarios_");
+    this.ExcelService.exportexcel("Lista_Usuarios_","excel-table");
   }
   
   listarUsuario(tipo: string){

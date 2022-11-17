@@ -175,7 +175,7 @@
         </app-info-usuarios>
     </div>
 
-    <div *ngIf="this.registroUsuariosAdmin" class="slide-left ">
+    <div *ngIf="this.registroUsuariosAdmin"  class="slide-top ">
         <app-registro-usuarios-administrador (volverEvent)="estadoRegistroUsuario($event)"
             [tipoRegistro]='this.tipoListado'></app-registro-usuarios-administrador>
     </div>

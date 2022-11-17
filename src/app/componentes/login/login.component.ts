@@ -76,9 +76,9 @@ export class LoginComponent implements OnInit {
       this.cargarArray(this.listaPacientes);
     });
 
-    
+
     setTimeout(() => {
-      
+
       //console.log("Lista General usuarios");
       //console.log(this.listaUsuarios);
     }, 500);
@@ -88,29 +88,29 @@ export class LoginComponent implements OnInit {
 
   cargarArray(lista: any) {
     for (const item of lista) {
-      this.listaUsuarios.push(item); 
-      
+      this.listaUsuarios.push(item);
+
       this.cargarFotosAccesosR(item);
     }
   }
 
-  cargarFotosAccesosR(item: any){
+  cargarFotosAccesosR(item: any) {
     if (item.mail == "pedro@gmail.com" && item.password == "Pedro159") {
-      this.fotoAdmin_1 = item.foto;                 
+      this.fotoAdmin_1 = item.foto;
     }
 
     if (item.mail == "julian@gmail.com" && item.password == "julian123") {
-      this.fotoPac_1 = item.foto[0];            
-    }else if(item.mail == "rodriguez@gmail.com" && item.password == "Rodriguez159") {
-      this.fotoPac_2 = item.foto[0];            
-    }else if(item.mail == "gabriel@gmail.com" && item.password == "gabriel123") {
-      this.fotoPac_3 = item.foto[0];            
+      this.fotoPac_1 = item.foto[0];
+    } else if (item.mail == "rodriguez@gmail.com" && item.password == "Rodriguez159") {
+      this.fotoPac_2 = item.foto[0];
+    } else if (item.mail == "gabriel@gmail.com" && item.password == "gabriel123") {
+      this.fotoPac_3 = item.foto[0];
     }
 
-    if(item.mail == "manuel@gmail.com" && item.password == "Manuel159") {
-      this.fotoEsp_1 = item.foto;                    
-    }else if(item.mail == "maria@gmail.com" && item.password == "maria123") {
-      this.fotoEsp_2 = item.foto;               
+    if (item.mail == "manuel@gmail.com" && item.password == "Manuel159") {
+      this.fotoEsp_1 = item.foto;
+    } else if (item.mail == "maria@gmail.com" && item.password == "maria123") {
+      this.fotoEsp_2 = item.foto;
     }
   }
 
@@ -141,6 +141,7 @@ export class LoginComponent implements OnInit {
             if (this.usuariosLocales()) {
               if (this.AuthService.user.tipoUsuario == "ESP") {
                 if (this.AuthService.user.habilitado) {
+                  console.log("1");
                   this.loadingSession();
                 } else {
                   //Usuario No habilitado por un Administrador                    
@@ -151,6 +152,7 @@ export class LoginComponent implements OnInit {
                   }, 1000);
                 }
               } else {
+                console.log("2");
                 this.loadingSession();
               }
 
@@ -158,6 +160,7 @@ export class LoginComponent implements OnInit {
               if (this.AuthService.userDateFirebase.user.emailVerified == true) {
                 if (this.AuthService.user.tipoUsuario == "ESP") {
                   if (this.AuthService.user.habilitado) {
+                    console.log("3");
                     this.loadingSession();
                   } else {
                     //Usuario No habilitado por un Administrador                      
@@ -168,6 +171,7 @@ export class LoginComponent implements OnInit {
                     }, 1000);
                   }
                 } else {
+                  console.log("4");
                   this.loadingSession();
                 }
               } else if (this.AuthService.userDateFirebase.user.emailVerified == false) {
@@ -189,6 +193,7 @@ export class LoginComponent implements OnInit {
           this.userExist = true;
         }
       }
+      
     }
   }
 
@@ -196,6 +201,7 @@ export class LoginComponent implements OnInit {
     this.spinner = true;
     setTimeout(() => {
       this.spinner = false;
+
       this.Router.navigateByUrl('/menu-administrador');
     }, 2000);
   }

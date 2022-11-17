@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Especialista } from 'src/app/clases/especialista';
 import { FirestoreService } from 'src/app/servicios/firestore.service';
+import { ExcelService } from 'src/app/servicios/excel.service';
 
 @Component({
   selector: 'app-listado-especialistas',
@@ -14,12 +15,20 @@ export class ListadoEspecialistasComponent implements OnInit {
   listadoEspecialistas: any = "";
   spinner:boolean = true;
 
+  listaTurnosXespecialista: any = [];
+  listTurno: any = [];
+
   constructor(
-    private FirestoreService: FirestoreService
+    private FirestoreService: FirestoreService,
+    private ExcelService: ExcelService
   ) { 
     this.FirestoreService.listaEspecialistas().subscribe(especialista => {
       this.listadoEspecialistas = especialista;
       //console.log(especialista);
+    });
+
+    this.FirestoreService.listaTurnos().subscribe(turnos =>{
+      this.listTurno = turnos;
     });
   }
 
@@ -32,6 +41,26 @@ export class ListadoEspecialistasComponent implements OnInit {
   seleccionarPaciente(especialista: Especialista){
     //console.log(especialista);
     this.usuarioEvent.emit(especialista);
+  }
+
+
+  cargarTurnosXPaciente(especialistaSelect: any){
+    let especialista: any;
+    this.listaTurnosXespecialista = [];
+    
+    this.listTurno.forEach(data => {
+      if(data.especialista?.id == especialistaSelect?.id &&
+        data.estado_turno != 'Pendiente'){
+        this.listaTurnosXespecialista.push(data);
+        especialista = data.especialista;
+      }
+    });
+
+    //console.log(this.listaTurnosXpaciente);
+
+    setTimeout(() => {
+      this.ExcelService.exportexcel("Datos_Turnos_Especialista_"+especialista?.id+"_", "excel-table-especialista");
+    }, 1000);
   }
 
   cambiarEstadoEspecialista(especialista: any){
