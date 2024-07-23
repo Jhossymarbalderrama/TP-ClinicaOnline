@@ -1,7 +1,78 @@
+body {
+  background-color: transparent !important;
+}
+
+thead tr th {
+  font-weight: 500;
+  cursor: default;
+  font-size: small;
+}
+
+tbody tr td {
+  font-size: small;
+}
+
+th {
+  width: 200px;
+}
+
+tr:hover {
+  cursor: pointer;
+  background-color:  var(--color-fivety);
+}
+
+tr:hover td {
+  color: white !important;
+}
+
+
+hr {
+  border: 2px solid #008B81;
+}
+
+.container {
+  padding-top: 25px;
+}
+
+.card {
+  background-color: #ffffffd3;
+  border-radius: 0.3rem;
+  box-shadow: 1px 1px 10px #000000d7;
+}
+
 .chart {
-    max-width: 500px;
-    margin: 35px auto;
-    padding: 0;
-    font-weight: bold;
-  }
-  
+  max-width: 500px;
+  margin: 35px auto;
+  padding: 0;
+  font-weight: bold;
+}
+
+
+
+
+.page-link {
+  background-color: var(--color-fivety);
+  color: white;
+  font-weight: bold; 
+}
+
+.page-link.active {
+  background-color: var(--color-primary); 
+  color: white;
+}
+
+.btn-custom{
+  background: #00776f;
+  color: white;
+  border: none;
+  font-size: small;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-link{
+  font-size: small;
+}
+
+

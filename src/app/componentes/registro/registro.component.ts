@@ -13,6 +13,8 @@ export class RegistroComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // this.cargarFormulario("especialistas");
+    // this.cambioFormulario(true);
   }
 
   cargarFormulario(tipo:string){

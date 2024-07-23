@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { FirestoreService } from 'src/app/servicios/firestore.service';
-import { Paciente } from 'src/app/clases/paciente';
-import { AuthService } from 'src/app/servicios/auth.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import { Paciente } from 'src/app/classes/paciente';
+import { AuthService } from 'src/app/services/auth.service';
 
 // import pdfMake from 'pdfmake/build/pdfmake';
 // import pdfFonts from 'pdfmake/build/vfs_fonts';

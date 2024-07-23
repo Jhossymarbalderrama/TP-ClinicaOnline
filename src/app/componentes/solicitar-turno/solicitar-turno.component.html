@@ -1,240 +1,201 @@
-<section>
-    <h2 style="padding-left: 15px;">Solicitar Turno</h2>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card mb-4 box-shadow">
-                    <div class="card-body">
-                        <h3>Formulario de Turno</h3>
-                        <!-- <p>Lunes a Viernes de 8:00 a 19:00 y Sabados de 8:00 a 14:00</p> -->
-                        <!-- <p>Duracion de un turno 30 min</p> -->
-                        <form>
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card mb-4 p-4">
+                        <div>
+                            <h3 class="fw-bold">Formulario de turnos</h3>
 
+                            <h6><i class="fa-regular fa-calendar-days"></i> Lunes - Viernes de 8 a 19hs | Sabados de
+                                8:00 a 14:00</h6>
+                            <h6 class="text-danger"><i class="fa-solid fa-circle-info"></i> La duración de un turno es
+                                de 30 min</h6>
 
-                            <div class="row" *ngIf="this.AuthService.user.tipoUsuario == 'ADM'">
-                                <hr>
-                                <div class="container">
-                                    <p>
-                                        Seleccione la Paciente:
-                                        <span align="end" class="invalid"
-                                            *ngIf="!this.pacienteSelect&& this.errorFormularioTurno">
-                                            *Seleccione un Paciente
-                                        </span>
-                                    </p>
+                            <hr>
+                            <form>
+                                <!-- List Pacientes -->
+                                <div class="row px-3" *ngIf="this.AuthService.user.tipoUsuario == 'ADM'">
+                                    <h5 class="py-2">Seleccione la Paciente:</h5>
+                                    <span *ngIf="!this.pacienteSelect&& this.errorFormularioTurno" class="invalid"
+                                        align="end">
+                                        *Seleccione un Paciente
+                                    </span>
 
                                     <div class="row row-cols-8" *ngIf="this.listadoPacientes.length != 0">
-                                        <div class="d-flex align-items-center" *ngIf="this.spinner"
-                                            style="color: #153A82;">
-                                            <strong>Cargando lista...</strong>
-                                            <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                                        <div *ngIf="this.spinner" class="box-spinner d-flex align-items-center ">
+                                            Cargando lista...
+                                            <div class="spinner spinner-border ms-auto" role="status"
+                                                aria-hidden="true">
+                                            </div>
                                         </div>
 
-                                        <table class="table table-striped  table-hover" *ngIf="!this.spinner">
-                                            <thead class="thead-dark" align="center">
+                                        <table class="table table-striped table-bordered border-dark table-hover"
+                                            *ngIf="!this.spinner">
+                                            <thead class="table-dark">
                                                 <tr>
-                                                    <th scope="col">Mail</th>
+                                                    <th scope="col">Email</th>
                                                     <th scope="col">Apellido</th>
                                                     <th scope="col">Nombre</th>
                                                     <th scope="col">DNI</th>
                                                     <th scope="col">Edad</th>
                                                     <th scope="col">Obra Social</th>
-                                                    <th scope="col"> </th>
                                                 </tr>
                                             </thead>
-                                            <tbody align="center">
+                                            <tbody>
                                                 <tr *ngFor='let paciente of this.listadoPacientes' [ngClass]="{'select-pac': this.pacienteSelect && 
-                                                            paciente.id == this.pacienteSeleccionado.id}">
+                                                                paciente.id == this.pacienteSeleccionado.id}"
+                                                    (click)='selectPaciente(paciente)'>
                                                     <td>{{paciente?.mail}}</td>
-                                                    <td>{{paciente?.apellido}}</td>
-                                                    <td>{{paciente?.nombre}}</td>
+                                                    <td class="text-capitalize">{{paciente?.apellido}}</td>
+                                                    <td class="text-capitalize">{{paciente?.nombre}}</td>
                                                     <td>{{paciente?.dni}}</td>
                                                     <td>{{paciente?.edad}}</td>
-                                                    <td>{{paciente?.obra_social}}</td>
-                                                    <td>
-                                                        <button class="mt-2 btn btn-outline-dark"
-                                                            (click)='selectPaciente(paciente)'>seleccionar</button>
-                                                    </td>
+                                                    <td class="text-uppercase">{{paciente?.obra_social}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
-
-
                                 </div>
-                            </div>
 
-                            <hr>
-                            <div class="row">
-                                <div class="container">
-                                    <p>
-                                        Seleccione la Especialidad:
+                                <hr>
+
+                                <!-- List Especialidades -->
+                                <div class="row px-3">
+                                        <h5 class="py-2">Seleccione Especialidad:</h5>
                                         <span align="end" class="invalid"
                                             *ngIf="!this.especialidadSelect && this.errorFormularioTurno">
                                             *Seleccione una Especialidad
                                         </span>
-                                    </p>
 
-                                    <div class="text-center" *ngIf="this.listadoEspecialidad.length == 0">
-                                        <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
-                                            <span class="sr-only"></span>
-                                        </div>
-                                    </div>
-
-                                    <div class="row row-cols-5 " *ngIf="this.listadoEspecialidad.length != 0">
-                                        <div class="col" (click)="selectEspecialidad(especialidad)"
-                                            *ngFor="let especialidad of this.listadoEspecialidad"
-                                            [ngClass]="{select: this.especialidadSelect && this.nombreEspecialidadSelect == especialidad}">
-                                            <div align="center">
-                                                <button class="btn especialidad-Cardiologia"
-                                                    *ngIf="especialidad == 'Cardiología'" align="center">
-                                                    <img [src]="this.imgCardiologia" height="120px" width="auto">
-                                                </button>
-                                                <div class="btn especialidad-Pediatria"
-                                                    *ngIf="especialidad == 'Pediatria'" align="center">
-                                                    <img [src]="this.imgPediatria" height="120px" width="auto">
-                                                </div>
-                                                <div class="btn especialidad-Neumologia"
-                                                    *ngIf="especialidad == 'Neumología'" align="center">
-                                                    <img [src]="this.imgNeumologia" height="120px" width="auto">
-                                                </div>
-                                                <div class="btn especialidad-Default"
-                                                    *ngIf="especialidad != 'Cardiología' && especialidad != 'Pediatria' && especialidad != 'Neumología'"
-                                                    align="center">
-                                                    <img [src]="this.imgDefault" height="120px" width="auto">
-                                                </div>
-                                            </div>
-                                            <div class="especialidad-name" align="center" style="font-weight: bold;">
-                                                {{especialidad}}
+                                        <div *ngIf="this.listadoEspecialidad.length == 0"
+                                            class="box-spinner d-flex align-items-center">
+                                            Cargando lista...
+                                            <div class="spinner spinner-border ms-auto" role="status"
+                                                aria-hidden="true">
                                             </div>
                                         </div>
-                                    </div>
 
-
+                                        <!-- <i class="fa-solid fa-user-doctor fs-5"></i>
+                                        <i class="fa-solid fa-stethoscope fs-5"></i>
+                                        <i class="fa-solid fa-lungs fs-5"></i>
+                                        <i class="fa-solid fa-lungs-virus fs-5"></i> -->
+                                        <div class="row row-cols-6 gap-1" *ngIf="this.listadoEspecialidad.length != 0">
+                                            <div class="col btn-especialidad" (click)="selectEspecialidad(especialidad)"
+                                                *ngFor="let especialidad of this.listadoEspecialidad"
+                                                [ngClass]="{select: this.especialidadSelect && this.nombreEspecialidadSelect == especialidad}">
+                                                <div align="center">
+                                                    <button class="btn" *ngIf="especialidad == 'Cardiología'"
+                                                        align="center">
+                                                        <i class="fa-solid fa-heart-circle-bolt fs-1"></i>
+                                                    </button>
+                                                    <div class="btn" *ngIf="especialidad == 'Pediatria'" align="center">
+                                                        <i class="fa-solid fa-person-breastfeeding fs-1"></i>
+                                                    </div>
+                                                    <div class="btn" *ngIf="especialidad == 'Neumología'"
+                                                        align="center">
+                                                        <i class="fa-solid fa-lungs-virus fs-1"></i>
+                                                    </div>
+                                                    <div class="btn"
+                                                        *ngIf="especialidad != 'Cardiología' && especialidad != 'Pediatria' && especialidad != 'Neumología'"
+                                                        align="center">
+                                                        <i class="fa-solid fa-user-doctor fs-1"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="especialidad-name" align="center">
+                                                    <h6>{{especialidad}}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
                                 </div>
-                            </div>
 
+                                <hr>
 
-                            <hr>
-                            <div class="row">
-                                <div class="container">
-                                    <p>
-                                        Seleccione al Especialista:
+                                <!-- List Especialistas -->
+                                <div class="row px-3">
+                                        <h5 class="py-2">Seleccione Especialista:</h5>
                                         <span class="invalid"
                                             *ngIf="!this.especialistaSelect && this.errorFormularioTurno">
                                             *Seleccione un Especialista
                                         </span>
-                                    </p>
 
+                                        <div class="row row-cols-6 gap-1" *ngIf="this.listadoEspecialistas.length != 0">
+                                            <div class="col py-1" align="center"
+                                                *ngFor='let especialista of (this.listadoEspecialistas | filterEspecialistaEspecialidad: this.filtroXEspecialidad)'
+                                                (click)="selectEspecialista(especialista)"
+                                                [ngClass]="{select: this.especialistaSelect && especialista.id == this.idEspecialista}">
 
-                                    <div class="text-center" *ngIf="this.listadoEspecialistas.length == 0">
-                                        <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
-                                            <span class="sr-only"></span>
-                                        </div>
-                                    </div>
-
-                                    <div class="row row-cols-5" *ngIf="this.listadoEspecialistas.length != 0">
-                                        <div class="col"
-                                            *ngFor='let especialista of (this.listadoEspecialistas | filterEspecialistaEspecialidad: this.filtroXEspecialidad)'
-                                            (click)="selectEspecialista(especialista)"
-                                            [ngClass]="{select: this.especialistaSelect && especialista.id == this.idEspecialista}">
-
-                                            <div align="center">
-                                                <button class="btn especialistas-img">
-                                                    <img class="img-esp" [src]="especialista.foto" height="100px"
-                                                        width="100px">
-                                                </button>
-                                            </div>
-                                            <div class="especialista-name" align="center"
-                                                style="font-weight: bold;text-transform: uppercase;">
-                                                {{especialista.apellido + " " + especialista.nombre}}
+                                                
+                                                    <button class="btn especialistas-img">
+                                                        <img class="img-esp" [src]="especialista.foto" height="100%"
+                                                            width="100%">
+                                                    </button>
+                                                
+                                                <div class="especialista-name text-capitalize" align="center">
+                                                   <h6> {{especialista.apellido + " " + especialista.nombre}}</h6>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                 </div>
-                            </div>
 
-                            <hr>
-                            <div class="row">
-                                <div class="container">
-                                    <p>
-                                        Fechas Disponibles:
-                                        <span class="invalid" *ngIf="!this.fechaSelect && this.errorFormularioTurno">
-                                            *Seleccione una Fecha
-                                        </span>
-                                    </p>
+                                <hr>
 
-                                    <div class="text-center" *ngIf="this.spinnerFechas">
-                                        <p>Buscando fechas disponibles...</p>
-                                        <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
-                                            <span class="sr-only"></span>
+                                <!-- List Fechas Disponibles -->
+                                <div class="row px-3">
+                                    <h5 class="py-2">Seleccione Fecha Disponible:</h5>
+                                    <span class="invalid"
+                                        *ngIf="!this.fechaSelect && this.errorFormularioTurno">
+                                        *Seleccione una Fecha
+                                    </span>                                     
+
+                                        <div class="row row-cols-6 justify-content-center gap-2"
+                                            *ngIf="this.especialidadSelect && this.especialistaSelect">
+                                            <div class="col fechas text-center"
+                                                *ngFor='let fecha of this.fechasDisponibles'
+                                                (click)="buscoHorasXFecha(fecha)"
+                                                [ngClass]="{select: fecha == this.fechasola && this.fechaSolaSelect}">
+
+                                                <div class="row justify-content-center">{{fecha[0]}}</div>
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <!-- <div class="row row-cols-5 "
-                                        *ngIf="this.especialidadSelect && this.especialistaSelect">
-                                        <div class="col fechas" *ngFor='let fecha of this.fechas'
-                                            (click)="selectFecha(fecha)"
-                                            [ngClass]="{select: this.fechaSelect && this.fechaSeleccionada == fecha}">
-
-                                            {{fecha[1] +" "+ fecha[0] +" "+ fecha[2]}}
-                                        </div>
-                                    </div> -->
-                                    <div class="row row-cols-5 justify-content-center"
-                                        *ngIf="this.especialidadSelect && this.especialistaSelect">
-                                        <div class="col fechas text-center" *ngFor='let fecha of this.fechasDisponibles'                                           
-                                            (click)="buscoHorasXFecha(fecha)"
-                                            [ngClass]="{select: fecha == this.fechasola && this.fechaSolaSelect}">
-
-                                            
-                                            <div class="row justify-content-center">{{fecha[0]}}</div>
-                                            <!-- <div class="row justify-content-center">{{fecha[1]}}</div> -->
-                                         
-                                            <!-- {{fecha[1] +" "+ fecha[0]}} -->
-                                        </div>
-                                    </div>
                                 </div>
-                            </div>
-                            <hr>
-                            
-                            <div class="row">
-                                <div class="container">
-                                    <p>
-                                        Hora Disponibles:        
-                                    </p>
-                                    <div class="row row-cols-5 justify-content-center"
-                                        *ngIf="this.horasDisponiblesXdia.length != 0">
-                                        <div class="col fechas text-center" *ngFor='let hora of this.horasDisponiblesXdia'
-                                             (click)="selectFecha(hora)"
-                                             [ngClass]="{select: hora == this.horaSola && this.horaSolaSelect}">
-                                            {{hora}}
 
-                                            <!-- <div *ngIf="(((hora.split('a',1)).trim()).split(':',1)) ">
+                                <hr>
 
-                                            </div> -->    
-                                            <div *ngIf="(hora.split(':',1)) < 12">
-                                                am
-                                            </div> 
-                                            <div *ngIf="(hora.split(':',1)) >= 12">
-                                                pm
-                                            </div>                                       
-                                            <!-- {{(hora.split(':',1))}} -->
+                                <!-- List Horas Disponibles -->
+                                <div class="row px-3">
+                                    <h5 class="py-2">Seleccione Hora Disponibles:</h5>
+
+                                        <div class="row row-cols-6 justify-content-center gap-1"
+                                            *ngIf="this.horasDisponiblesXdia.length != 0">
+                                            <div class="col horas text-center"
+                                                *ngFor='let hora of this.horasDisponiblesXdia'
+                                                (click)="selectFecha(hora)"
+                                                [ngClass]="{select: hora == this.horaSola && this.horaSolaSelect}">
+                                                {{hora}}                                                
+                                                <div *ngIf="(hora.split(':',1)) < 12">
+                                                    am
+                                                </div>
+                                                <div *ngIf="(hora.split(':',1)) >= 12">
+                                                    pm
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
                                 </div>
-                            </div>
 
-                            <hr>
-                            <div class="row">
-                                <button class="w-100 boton" type="submit"
-                                    [disabled]="!(this.especialistaSelect && this.especialidadSelect && this.fechaSolaSelect && this.horaSolaSelect)"
-                                    (click)="generarTurno()">Generar
-                                    Turno</button>
-                            </div>
-                        </form>
+                                <hr>
+                                <div class="row px-3">
+                                    <button class="w-100 boton" type="submit"
+                                        [disabled]="!(this.especialistaSelect && this.especialidadSelect && this.fechaSolaSelect && this.horaSolaSelect)"
+                                        (click)="generarTurno()">Generar
+                                        Turno</button>
+                                </div>
+                            </form>
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</body>

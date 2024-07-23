@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Especialista } from 'src/app/clases/especialista';
-import { FirestoreService } from 'src/app/servicios/firestore.service';
-import { ExcelService } from 'src/app/servicios/excel.service';
+import { Especialista } from 'src/app/classes/especialista';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import { ExcelService } from 'src/app/services/excel.service';
 
 @Component({
   selector: 'app-listado-especialistas',

@@ -1,0 +1,11 @@
+footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;	
+}
+
+footer div{
+	margin: 0;
+	padding: 0rem 5rem;
+	font-weight: 500;	
+}

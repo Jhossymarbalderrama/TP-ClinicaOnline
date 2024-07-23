@@ -1,67 +1,100 @@
 <hr>
-<!-- <div style="width: 100%;" align="end">
-    <button class="mt-2 btn btn-outline-primary" (click)='createPDF()'>
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-            class="bi bi-printer" viewBox="0 0 16 16">
-            <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
-            <path
-                d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z" />
-        </svg>
-        Imprimir historial
+<div align="end" >
+    <button class="mt-2 btn btn-download" (click)='createPDF()' *ngIf="this.paciente && !this.spinner && this.listTurnosRealizadosXpaciente.length > 0">
+        <i class="fa-regular fa-file-pdf"></i>
+        Descargar Historia
     </button>
-</div> -->
+</div>
 <div id="htmlData">
     <div style="width: 100%;font-weight: bold;" align="center">
-        <h1>Historia CLinica</h1>
+        <img src="../../../assets/imagenes/Logo-Dark.png" alt="" width="280px" height="80px">
+        <h3 class="fw-bold pt-3">Historia Clínica</h3>        
     </div>
     <hr>
-    
-    <h3 style="font-weight: bold;">
-        Datos Personales:
-    </h3>
-    
-    
-    <div class="datos-personales">
-        <p><a>DNI:</a> {{this.paciente?.dni}}</p>
-        <p><a>Apellido:</a> {{this.paciente?.apellido}}</p>
-        <p><a>Nombre:</a> {{this.paciente?.nombre}}</p>
-        <p><a>Edad:</a> {{this.paciente?.edad}}</p>
-        <p><a>Mail:</a> {{this.paciente?.mail}}</p>
-        <p><a>Obra Social:</a> {{this.paciente?.obra_social}}</p>
+
+    <h5 class="fw-bold">Datos del Paciente</h5>
+    <div class="box-info">
+        <div class="row">
+
+            <div class="col-md-3">
+                <label for="nombre">Nombre </label>
+                <input class="text-capitalize" type="text" name="nombre" disabled [value]="this.paciente?.nombre ? this.paciente?.nombre : ''">
+            </div>
+            <div class="col-md-4">
+                <label for="apellido">Apellido</label>
+                <input class="text-capitalize" type="text" name="apellido" disabled
+                    [value]="this.paciente?.apellido ? this.paciente?.apellido : ''">
+            </div>
+
+
+            <div class="col-md-2">
+                <label for="edad">Edad</label>
+                <input type="number" name="apellido" disabled [value]="this.paciente?.edad ? this.paciente?.edad : ''">
+            </div>
+
+            <div class="col-md-3">
+                <label for="obra_social">Obra social</label>
+                <input class="text-uppercase" type="text" name="obra_social" disabled
+                    [value]="this.paciente?.obra_social ? this.paciente?.obra_social : ''">
+            </div>
+
+            <div class="col-md-4">
+                <label for="dni">DNI </label>
+                <input type="number" name="dni" disabled [value]="this.paciente?.dni">
+            </div>
+
+            <div class="col-md-5">
+                <label for="email">Email</label>
+                <input type="email" name="email" disabled [value]="this.paciente?.mail ? this.paciente?.mail : ''">
+            </div>
+
+        </div>
     </div>
-    
+
     <hr>
-    
+
     <div class="d-flex align-items-center" *ngIf="this.spinner" style="color: #153A82;">
-        <strong>Cargando historial clinico...</strong>
+        <span>Cargando historial clinico...</span>
         <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
     </div>
+
 
     <div *ngIf="!this.spinner">
         <div *ngIf="this.listTurnosRealizadosXpaciente.length != 0">
             <div *ngFor="let datos of this.listTurnosRealizadosXpaciente">
-                <div>
-                    <h3>Consulta: {{datos.especialidad}} </h3>
-                    <h4>Fecha del turno: {{datos.fecha}}</h4>
+                <div class="box-turno">
+                    <div>
+                        <h4>{{datos.especialidad}} </h4>
+                        <h6>Fecha del turno: <a>{{datos.fecha[1]}} {{datos.fecha[0]}} a las {{datos.fecha[2]}}</a></h6>
+                    </div>
+
+                    <div class="box-info-turno">
+                        <p><a class="text-capitalize fw-bold">Altura: </a>{{datos.datosHC.altura}}</p>
+                        <p><a class="text-capitalize fw-bold">Peso: </a>{{datos.datosHC.peso}}</p>
+                        <p><a class="text-capitalize fw-bold">Temperatura: </a>{{datos.datosHC.temperatura}}</p>
+                        <p><a class="text-capitalize fw-bold">Presión: </a>{{datos.datosHC.presion}}</p>
+
+                        <p><a class="text-capitalize fw-bold">Reseña del turno: </a> {{datos.resenea}}</p>
+                    </div>
+
+                    <div class="box-observacion">
+                        <h5>Observaciones:</h5>
+                        <p><a class="text-capitalize fw-bold">{{datos.datosHC.datos_1[0]}}:
+                            </a>{{datos.datosHC.datos_1[1]}}</p>
+                        <p><a class="text-capitalize fw-bold">{{datos.datosHC.datos_2[0]}}:
+                            </a>{{datos.datosHC.datos_2[1]}}</p>
+                        <p><a class="text-capitalize fw-bold">{{datos.datosHC.datos_3[0]}}:
+                            </a>{{datos.datosHC.datos_3[1]}}</p>
+                    </div>
+
                 </div>
-                <p><a>Altura: </a>{{datos.datosHC.altura}}</p>
-                <p><a>Peso: </a>{{datos.datosHC.peso}}</p>
-                <p><a>Temperatura: </a>{{datos.datosHC.temperatura}}</p>
-                <p><a>Presión: </a>{{datos.datosHC.presion}}</p>
-                
-                <p><a>Reseña del turno: </a> {{datos.resenea}}</p>
-            
-                <h4>Observaciones:</h4>
-                <p><a>{{datos.datosHC.datos_1[0]}}: </a>{{datos.datosHC.datos_1[1]}}</p>
-                <p><a>{{datos.datosHC.datos_2[0]}}: </a>{{datos.datosHC.datos_2[1]}}</p>
-                <p><a>{{datos.datosHC.datos_3[0]}}: </a>{{datos.datosHC.datos_3[1]}}</p>
-            
+
                 <hr>
             </div>
         </div>
 
         <div *ngIf="this.listTurnosRealizadosXpaciente.length == 0">
-            <h3>No se encontraron datos.</h3>
+            <h5>No se encontraron datos.</h5>
         </div>
     </div>
 </div>

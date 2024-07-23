@@ -1,127 +1,85 @@
 <app-menu></app-menu>
 
-<div class="body">
-    <div class="container">
-        <div class="box">
-            <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2" style="width: 100%;margin-left: 10%;">
-                <div class="col" style="width: 70%;margin-top: 10%;">
+<div class="body d-flex justify-content-center align-items-center">
+    <div class="container d-flex justify-content-center align-items-center pt-4">
+        <div class="d-flex justify-content-center align-items-center pt-4">
+            <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2">
+                <div class="col">
                     <div class="box-login right-panel-active">
                         <div class="overlay-container">
                             <div class="overlay">
                                 <div class="overlay-panel">
-                                    <h1>¡Bienvenido!</h1>
-                                    <p>Para sacar turnos iniciar sesion con su correo y contraseña.</p>
+                                    <h1 class="title-welcome">Inicio de sesion</h1>                                    
+                                    <p class="pt-4">Para reservar un turno, por favor inicie sesión con su correo
+                                        electrónico y contraseña.</p>
+                                    <p>Si no tiene una cuenta, <a routerLink="/registro">regístrese acá</a></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-container sign-in-container">
+                        <div class="form-container sign-in-container pt-4">
                             <form [formGroup]="formLogin" (submit)="onLogin()">
-                                <h1>Login</h1>
-                                <span class="invalid"
-                                    style="font-size: 18px;font-weight: 600;width: 100%;text-align: start;"
-                                    *ngIf="this.userExist && this.noEncontroUser">
+                                <span class="invalid" *ngIf="this.userExist && this.noEncontroUser">
                                     *El usuario no existe
                                 </span>
-                                <span class="invalid"
-                                    style="font-size: 18px;font-weight: 600;width: 100%;text-align: start;"
-                                    *ngIf="this.noHabilitado">
+                                <span class="invalid" *ngIf="this.noHabilitado">
                                     *El usuario no fue Habilitado
                                 </span>
+                                
+                                <div class="py-3">
+                                    <input type="email" placeholder="mail" formControlName='mail' class="input-form">
+                                    <small class="invalid"
+                                        *ngIf="this.formLogin.get('mail')?.errors?.['required'] && this.formLogin.get('mail')?.touched">
+                                        *Mail requerido
+                                    </small>
 
-                                <input type="email" placeholder="mail" formControlName='mail'>
-                                <small class="invalid"
-                                    *ngIf="this.formLogin.get('mail')?.errors?.['required'] && this.formLogin.get('mail')?.touched">
-                                    *Mail requerido
-                                </small>
-
-                                <small class="invalid" *ngIf="this.formLogin.get('mail')?.errors?.['email']">
-                                    *Mail invalido
-                                </small>
-
-
-                                <input type="password" placeholder="password" formControlName='password'>
-                                <small class="invalid"
-                                    *ngIf="this.formLogin.get('password')?.errors?.['required'] && this.formLogin.get('password')?.touched">
-                                    *Password requerido
-                                </small>
+                                    <small class="invalid" *ngIf="this.formLogin.get('mail')?.errors?.['email']">
+                                        *Mail invalido
+                                    </small>
 
 
-                                <div class="spinner-border text-success" role="status" *ngIf="this.spinner"
-                                    style="margin-top: 5px;margin-bottom: 10px;">
+                                    <input type="password" placeholder="password" formControlName='password'
+                                        class="input-form">
+                                    <small class="invalid"
+                                        *ngIf="this.formLogin.get('password')?.errors?.['required'] && this.formLogin.get('password')?.touched">
+                                        *Password requerido
+                                    </small>
+
+
+                                </div>
+
+                                <div class="spinner-border text-success" role="status" *ngIf="this.spinner">
                                 </div>
 
                                 <button class="w-100 boton" type="submit" [disabled]="formLogin.invalid"
                                     (click)="onLogin()">
-                                    Iniciar sesion
+                                    login
                                 </button>
 
+                                <hr>
+
+                                <div>
+                                    <h5>Accesos rapidos</h5>
+                                    <div class="row ">
+                                        <div *ngFor="let usr of usersAccessLocal" class="col-6 col-md-4 col-lg-3 mb-3"
+                                            (click)="loginRapido(usr.email, usr.password)">
+                                            <button type="button" class="icon-button" [title]="usr.type == 'ADM' ? 'Administrador' : usr.type == 'ESP' ? 'Especialista' : usr.type == 'PAC' ? 'Paciente' : ''">
+                                                <i *ngIf="usr.type == 'ADM'" class="fa-solid fa-user-tie"></i>
+                                                <i *ngIf="usr.type == 'ESP'" class="fa-solid fa-user-doctor"></i>
+                                                <i *ngIf="usr.type == 'PAC'" class="fa-solid fa-user"></i>
+                                            </button>                                            
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col" style="width: auto; padding-left: 110px;">
-                    <div class="box-access-fast-login" align="center" (click)="loginRapido(1)" style="padding-top: 5px;">
-                        <img [src]="this.fotoAdmin_1" height="80px" width="auto" *ngIf="this.fotoAdmin_1 != ''">
-                        <div class="text-center" *ngIf="this.fotoAdmin_1 == ''">
-                            <div class="spinner-border" role="status">
-                                <span class="visually-hidden"></span>
-                            </div>
-                        </div>
-                        <p>Administrador</p>
-                    </div>
 
-                    <div class="box-access-fast-login" align="center" (click)="loginRapido(2)" style="padding-top: 5px;">
-                        <img [src]="this.fotoEsp_1" height="80px" width="auto" *ngIf="this.fotoEsp_1 != ''">
-                        <div class="text-center" *ngIf="this.fotoEsp_1 == ''">
-                            <div class="spinner-border" role="status">
-                                <span class="visually-hidden"></span>
-                            </div>
-                        </div>
-                        <p>Especialista</p>
-                    </div>
 
-                    <div class="box-access-fast-login" align="center" (click)="loginRapido(3)" style="padding-top: 5px;">
-                        <img [src]="this.fotoEsp_2" height="80px" width="auto" *ngIf="this.fotoEsp_2 != ''">
-                        <div class="text-center" *ngIf="this.fotoEsp_2 == ''">
-                            <div class="spinner-border" role="status">
-                                <span class="visually-hidden"></span>
-                            </div>
                         </div>
-                        <p>Especialista</p>
                     </div>
-
-                    <div class="box-access-fast-login" align="center" (click)="loginRapido(4)" style="padding-top: 5px;">
-                        <img [src]="this.fotoPac_1" height="80px" width="auto" *ngIf="this.fotoPac_1 != ''">
-                        <div class="text-center" *ngIf="this.fotoPac_1 == ''">
-                            <div class="spinner-border" role="status">
-                                <span class="visually-hidden"></span>
-                            </div>
-                        </div>
-                        <p>Paciente</p>
-                    </div>
-
-                    <div class="box-access-fast-login" align="center" (click)="loginRapido(5)" style="padding-top: 5px;">
-                        <img [src]="this.fotoPac_2" height="80px" width="auto" *ngIf="this.fotoPac_2 != ''">
-                        <div class="text-center" *ngIf="this.fotoPac_2 == ''">
-                            <div class="spinner-border" role="status">
-                                <span class="visually-hidden"></span>
-                            </div>
-                        </div>
-                        <p>Paciente</p>
-                    </div>
-
-                    <div class="box-access-fast-login" align="center" (click)="loginRapido(6)" style="padding-top: 5px;">
-                        <img [src]="this.fotoPac_3" height="80px" width="auto" *ngIf="this.fotoPac_3 != ''">
-                        <div class="text-center" *ngIf="this.fotoPac_3 == ''">
-                            <div class="spinner-border" role="status">
-                                <span class="visually-hidden"></span>
-                            </div>
-                        </div>
-                        <p>Paciente</p>
-                    </div>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<app-footer></app-footer>

@@ -1,199 +1,208 @@
-.text-class{
-    font-weight: bold;    
+body {
+    background-color: transparent !important;
 }
 
-p{
-    font-size: 18px;
+thead tr th {
+    font-weight: 500;
+    cursor: default;
+    font-size: small;
 }
 
+hr {
+    border: 1px solid #008B81;
+}
 
-h3, h4{
-    text-transform: uppercase;
+tbody tr td {
+    font-size: small;
+}
+
+h5{
+    margin: 0;
+    padding: 0;
+}
+
+h5::before{
+    content: "*";
+    color: var(--bs-danger)
+}
+
+p {
     font-weight: bold;
-    color: #008B81;
 }
 
-h2{
-    text-transform: uppercase;
-    font-weight: bold;
-    color: white;
-}
-
-
-
-section{
-    width: 100%;
-    height: 100%;
-
-    background-color:  #008B81;
-	border-radius: 10px;
-	box-shadow:
-        0.6px 0.7px 0.2px -5px rgba(0, 0, 0, 0.017),
-        1.4px 1.6px 0.4px -5px rgba(0, 0, 0, 0.025),
-        2.4px 2.8px 0.6px -5px rgba(0, 0, 0, 0.031),
-        3.6px 4.2px 1px -5px rgba(0, 0, 0, 0.035),
-        5.1px 6px 1.4px -5px rgba(0, 0, 0, 0.04),
-        7.3px 8.5px 1.9px -5px rgba(0, 0, 0, 0.045),
-        10.3px 12.1px 2.8px -5px rgba(0, 0, 0, 0.049),
-        15px 17.5px 4px -5px rgba(0, 0, 0, 0.055),
-        23.1px 27px 6.2px -5px rgba(0, 0, 0, 0.063),
-        41px 48px 11px -5px rgba(0, 0, 0, 0.08)
-    ;
-    padding: 2em 2em 2em 2em;
-    margin-bottom: 2em;    
-}
-
-
-.fechas{
-    background-color: #03aca1;
-    color: white;
-    font-size: 24px;
-
-    /* border-radius: 24px; */
-
+tr:hover {
     cursor: pointer;
-    border: 1px solid black;
-    font-weight: 600;
-    color: black;
-
-    margin: 5px 8px 5px 8px;
-
-    /* margin-right: 5px;
-    margin-left: 5px; */
+    background-color: #15398294;
 }
 
-.fechas:hover{
-    background-color: #5d90f7;  
-    color: white;  
+tr:hover td {
+    color: white !important;
 }
 
+/* Clases */
+.text-class {
+    font-weight: bold;
+}
 
-.especialistas-celda{
+.card {
+    background-color: #ffffffd3;
+    border-radius: 0.3rem;
+    box-shadow: 1px 1px 10px #000000d7;
+}
+
+.fechas {
+    background-color: var(--color-fivety);
+    font-size: medium;
+    cursor: pointer;
+    border: 1px solid #000000bd;
+    border-radius: 0.3rem;
+    font-weight: 500;
+    /* margin: 0.5rem 1rem; */
+}
+
+.horas{
+    background-color: var(--color-fivety);
+    font-size: small;
+    cursor: pointer;
+    border: 1px solid #000000bd;
+    border-radius: 0.3rem;
+    font-weight: 500;
+}
+
+.fechas:hover , .horas:hover{
+    background-color: #15398294;
+    color: white;
+}
+
+.especialistas-celda {
     background-color: #008B81;
     color: white;
     font-weight: 600;
     text-transform: uppercase;
-    text-align: center;    
+    text-align: center;
     height: 40px !important;
     width: auto !important;
-
     border-radius: 20px;
-    padding: 0.5em 1.5em 0.5em 1.5em ;
+    padding: 0.5em 1.5em;
     margin: 1em;
     padding-bottom: 30px;
     cursor: pointer;
 }
 
-.especialidad-circulo{
+.especialidad-circulo {
     background-color: #008B81;
     height: 200px;
     width: auto;
     border-radius: 100%;
 }
 
-
-
-.especialistas-celda:hover{
-    background-color: #5d90f7;    
+.container {
+    padding-top: 25px;
 }
 
-.select{
-    background-color: #2151b1;
+.select-pac {
+    background-color: #153982d2;
     color: white !important;
 }
 
-.select-pac{
-    background-color: #2151b1;
+.select-pac td {
+    color: white;
+    border-bottom: 1px solid var(--color-fivety);
+    border-top: 1px solid var(--color-fivety);
+}
+
+
+/* ? Especialidad Select */
+.select, .btn-especialidad:hover {
+    background-color: #15398294 !important;
+    border-radius: 0.3rem;
+    color: white;
+}
+
+
+.btn-especialidad{
+    background-color: #008b82bd;
+    border-radius: 0.3rem;
+    cursor: pointer;    
+}
+
+
+.btn-especialidad:hover div, .select div{
     color: white !important;
 }
 
-p{
-    font-weight: bold;
+
+.especialidad-name h6{
+    font-size: small;
+    font-weight: bold;    
 }
 
-.especialidad-Cardiologia{  
-    height: 160px;
-    width: auto;
-    border-radius: 100%;
-    padding-top: 10%;
-    overflow: hidden;
-}
-.especialidad-Pediatria{  
-    height: 160px;
-    width: auto;
-    border-radius: 100%;
-    padding-top: 10%;
-    overflow: hidden;
-}
-.especialidad-Neumologia{  
-    height: 160px;
-    width: auto;
-    border-radius: 100%;
-    padding-top: 10%;
-    overflow: hidden;
-}
-.especialidad-Default{  
-    height: 160px;
-    width: auto;
-    border-radius: 100%;
-    padding-top: 10%;
-    overflow: hidden;
-}
+/* ? END  Especialidad Select */
 
-.especialistas-img{  
-    height: 160px !important;
-    width: 160px;
+/* Imagen de Perfil del Especialista */
+.especialistas-img {
+    height: 6rem;
+    width: 6rem ;
     border-radius: 100% !important;
-    overflow: hidden;    
+    overflow: hidden;
 }
 
-.img-esp{
+.img-esp {
     transform: scale(1.7);
 }
 
-
-.boton{    
-    background-color: #153A82;
+.boton {
+    background-color: #15398294;
     color: white;
     font-weight: 600;
-
     border-radius: 8px;
     height: 40px;
     border: none;
     text-transform: uppercase;
 }
 
-.boton:enabled:hover{
+.invalid {
+    color: rgb(186, 19, 19);
+}
+
+.spinner {
+    height: 24px;
+    width: 24px;
+}
+
+.box-spinner {
+    color: var(--color-fourty);
+    font-weight: 500;
+}
+
+.btn-table {
+    color: white;
+    background-color: var(--color-fourty);
+    font-size: small;
+    font-weight: 500;
     cursor: pointer;
-    background-color: #008B81;
+}
+
+
+.especialistas-celda:hover {
+    background-color: #5d90f7;
+}
+
+.boton:enabled:hover {
+    cursor: pointer;
+    background-color: var(--color-fivety);
     color: white;
     font-weight: 600;
 }
 
-.boton:disabled{
+.boton:enabled{
+    opacity: 100%;
+}
+
+.boton:disabled {
     opacity: 85%;
 }
 
-.invalid{   
-    color: rgb(186, 19, 19);
-}
-
-th{
-    width: 140px;
-}
-
-td{
-    width: 140px;
-    font-weight: 600;
-    padding-right: 30px;
-}
-
-.btn{
-    font-weight: 600;
-    color: white !important;
-    background-color: #5d90f7 !important;
-}
-
-.btn:hover{    
-    background-color: #008B81 !important;
+.btn-table:hover {
+    background-color: var(--color-fivety);
 }

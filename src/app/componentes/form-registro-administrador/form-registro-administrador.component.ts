@@ -1,11 +1,11 @@
 import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Administrador } from 'src/app/clases/administrador';
-import { AuthService } from 'src/app/servicios/auth.service';
-import { CaptchaService } from 'src/app/servicios/captcha.service';
+import { Administrador } from 'src/app/classes/administrador';
+import { AuthService } from 'src/app/services/auth.service';
+import { CaptchaService } from 'src/app/services/captcha.service';
 
-import { FirestoreService } from 'src/app/servicios/firestore.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 import Swal from 'sweetalert2';
 
 @Component({

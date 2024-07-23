@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FirestoreService } from 'src/app/servicios/firestore.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from 'src/app/servicios/auth.service';
-import { HistoriaClinica } from 'src/app/clases/historia-clinica';
+import { AuthService } from 'src/app/services/auth.service';
+import { HistoriaClinica } from 'src/app/classes/historia-clinica';
 
 @Component({
   selector: 'app-mis-turnos',
@@ -332,5 +332,9 @@ export class MisTurnosComponent implements OnInit {
       this.auxComentario = "";
       return `with: ${reason}`;
     }
+  }
+
+  clearFilters(){
+    this.filtroNombreEspecialista = this.filtroApellidoEspecialista = this.filtroNombrePaciente = this.filtroApellidoPaciente =  this.filtroEspecialidad = this.filtroCampoTurnoHistoriaClinica = '';
   }
 }

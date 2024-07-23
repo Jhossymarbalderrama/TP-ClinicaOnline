@@ -1,145 +1,159 @@
-label{
+label,
+small {
     font-weight: 600;
 }
 
 small{
-    font-weight: 600;
+    color: var(--color-tertiary);
 }
 
-input{
-    background-color: rgb(230, 230, 230);
+input {
+    background-color: #e6e6e6;
 }
 
-h1{
+hr {
+    border: 3px solid var(--color-primary);
+}
+
+h3 {
     text-transform: uppercase;
     font-weight: bold;
-    color: #008B81;
+    color: var(--color-primary);
 }
 
-.body{
-    /* margin-top: 8%; */
-    width: 100%;
-	height: 100%;	
-	background-color: white;
-    border-radius: 5px;
-
-    box-shadow:
-        2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
-        6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
-        12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
-        22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
-        41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
-        100px 100px 80px rgba(0, 0, 0, 0.07)
-    ;
+section{       
+    display: flex;
+    justify-content: center;    
 }
 
-.container{     
+.body {
+    width: 70vw;    
+    background-color: #fffffff1;
+    border-radius: 0.3rem;
+    box-shadow: 5px 5px 25px black;    
+}
+
+
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 2%;
-    padding-bottom: 2%;
-
 }
 
-.invalid {
-    color: red;
-}
-
-.boton{    
-    background-color: #008B81;
-    color: white;
+.header-form {
+    background-color: #008b82bb;
+    padding: 2% 5%;
     font-weight: 600;
-
-    border-radius: 8px;
-    height: 40px;
-    border: none;
-    cursor: pointer;
+    font-size: x-large;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
 }
 
-.boton:enabled:hover{
-    background-color: #153A82;
-}
-
-.boton:enabled:active {
-	transform: scale(0.95);
-}
-
-.boton:focus {
-	outline: none;
-}
-
-
-.boton:disabled{
-    opacity: 85%;
-}
-
-.header-form{
-    background-color: #008B81;
-    padding-left: 5%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-
-    font-weight: 600;
-    font-size: 24px;
-
-    width: 100%;
-}
-
-.header-form > .btn-volver{
-    padding-top: 5px;
-    padding-left: 30px;
-    padding-bottom: 5px;
-
-    border-radius: 16px;
-
-    background-color: #153A82;
-    width: 200px;
+.header-form > .btn-volver {
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    background-color: var(--color-secondary);
+    max-width: 10rem;    
     color: white;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.header-form > .btn-volver:hover{
+.header-form > .btn-volver:hover {
     transform: scale(1.05);
+    background-color: #153982da;
     cursor: pointer;
-    background-color: black;    
 }
 
-.header-form > .btn-volver:active{
+.header-form > .btn-volver:active {
     transform: scale(0.95);
 }
 
-.header-form > .btn-volver:focus{
+.header-form > .btn-volver:focus {
     outline: none;
 }
 
-.captcha{    
-    
+.boton {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: 600;
+    border-radius: 0.3rem;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.boton:enabled:hover {
+    background-color: var(--color-secondary);
+}
+
+.boton:enabled:active {
+    transform: scale(0.95);
+}
+
+.boton:focus {
+    outline: none;
+}
+
+.boton:disabled {
+    opacity: 0.85;
+}
+
+.captcha {
     color: black;
     font-weight: 600;
     font-size: 36px;
     letter-spacing: 5px;
-
-    padding: 0.2em 0em 0.2em 0em;
-
+    padding: 0.2em 0;
     user-select: none;
 }
 
-.box-captcha{
+.box-captcha {
     background-color: #c3c3c3;
-    border-radius: 15px;
-    padding: 0.5em 0.5em 0.5em 0.5em;
+    border-radius: 0.3rem;
+    padding: 0.5em;
 }
 
-.refresh-captcha{
-    color: #153A82;
+.refresh-captcha {
+    color: var(--color-secondary);
     font-weight: bold;
     cursor: pointer;
 }
 
-.refresh-captcha:hover{
-    color: #008B81;
+.refresh-captcha:hover {
+    color: var(--color-primary);
 }
 
-.refresh-captcha:active{
+.refresh-captcha:active {
     transform: scale(0.8);
+}
+
+.row{
+    padding: 0.3rem 0rem;
+}
+
+.btn-volver{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-add-esp{
+    color: var(--color-primary);
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: small;
+}
+
+.btn-add-esp:hover, .btn-remove-esp:hover{
+    color: var(--color-secondary);
+}
+
+.btn-remove-esp{
+    color: var(--color-tertiary);
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: small;
 }

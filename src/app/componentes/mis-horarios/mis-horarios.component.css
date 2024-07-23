@@ -1,28 +1,56 @@
-section{
-    min-height: 100vh;
-    overflow: auto !important;
+body {
+    background-color: transparent !important;
 }
 
+.container {
+    padding-top: 25px;
+}
+
+.card {
+    background-color: #ffffffd3;
+    border-radius: 0.3rem;
+    box-shadow: 1px 1px 10px #000000d7;
+}
+
+
 .select{
-    background-color: #2151b1 !important;
+    background-color: var(--color-sixty) !important;
 }
 
 .especialistas-celda{
-    background-color: #008B81;
+    background-color: var(--color-fivety);
     color: white;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-align: center;    
-    height: 40px !important;
-    width: auto !important;
-
-    border-radius: 20px;
-    padding: 0.5em 1.5em 0.5em 1.5em ;
-    margin: 1em;
-    padding-bottom: 30px;
     cursor: pointer;
+    height: 40px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.2rem 0.4rem;
+    border-radius: 0.3rem;
 }
 
 .especialistas-celda:hover{
-    background-color: #2151b1;
+    background-color: var(--color-fourty);
+}
+
+h5 a{
+    color: var(--color-sixty);
+    font-weight: bold;    
+}
+
+hr {
+    border: 2px solid #008B81;
+}
+
+.btn-updata {
+    background-color: var(--color-fivety);
+    color: white;
+    border-radius: 0.3rem;
+    font-size: small;
+    font-weight: bold;
+}
+
+.btn-updata:hover {
+    background-color: var(--color-sixty);
 }

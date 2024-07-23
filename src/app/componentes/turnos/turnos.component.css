@@ -1,58 +1,236 @@
-th{
+body {
+    background-color: transparent !important;
+}
+
+thead tr th {
+    font-weight: 500;
+    cursor: default;
+    font-size: small;
+}
+
+tbody tr td {
+    font-size: small;
+}
+
+label {
+    font-size: small;
+    font-weight: 600;
+}
+
+hr {
+    border: 2px solid #008B81;
+}
+
+th {
     width: 200px;
 }
 
-label{
-    font-weight: 600;
+input {
+    background-color: #41414138;
+    font-size: small;
+    border: 1px solid #0000004f;
 }
 
-hr{
-    color: black;
+tr:hover {
+    cursor: pointer;
+    background-color: #15398294;
 }
 
-.background{
-    background-color: #008B81;
+tr:hover td {
+    color: white !important;
+}
+
+p {
+    font-weight: bold;
+}
+
+.text-class {
+    font-weight: bold;
+}
+
+.container {
     padding-top: 25px;
 }
 
-.estados{
+.card {
+    background-color: #ffffffd3;
+    border-radius: 0.3rem;
+    box-shadow: 1px 1px 10px #000000d7;
+}
+
+.fechas {
+    background-color: #03aca1;
+    color: black;
+    font-size: 24px;
+    cursor: pointer;
+    border: 1px solid black;
+    font-weight: 600;
+    margin: 5px 8px;
+}
+
+.especialistas-celda {
+    background-color: #008B81;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    height: 40px !important;
+    width: auto !important;
+    border-radius: 20px;
+    padding: 0.5em 1.5em;
+    margin: 1em;
+    padding-bottom: 30px;
+    cursor: pointer;
+}
+
+.especialidad-circulo {
+    background-color: #008B81;
+    height: 200px;
+    width: auto;
+    border-radius: 100%;
+}
+
+.select {
+    background-color: #153982d2;
+    color: white !important;
+}
+
+.select-pac {
+    background-color: #153982d2;
+    color: white !important;
+}
+
+.select-pac td {
+    color: white;
+    border-bottom: 1px solid var(--color-fivety);
+    border-top: 1px solid var(--color-fivety);
+}
+
+.especialidad-Cardiologia,
+.especialidad-Pediatria,
+.especialidad-Neumologia,
+.especialidad-Default {
+    height: 160px;
+    width: auto;
+    border-radius: 100%;
+    padding-top: 10%;
+    overflow: hidden;
+}
+
+.especialistas-img {
+    height: 160px !important;
+    width: 160px;
+    border-radius: 100% !important;
+    overflow: hidden;
+}
+
+.img-esp {
+    transform: scale(1.7);
+}
+
+.boton {
+    background-color: #153A82;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    height: 40px;
+    border: none;
+    text-transform: uppercase;
+}
+
+.invalid {
+    color: rgb(186, 19, 19);
+}
+
+.spinner {
+    height: 24px;
+    width: 24px;
+}
+
+.box-spinner {
+    color: var(--color-fourty);
+    font-weight: 600;
+}
+
+.btn-table {
+    color: white;
+    background-color: #e61919e0;
+    font-size: small;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-filter-clear {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.btn-filter-clear button {
+    font-size: small;
+}
+
+.pendiente {
+    border-left: 5px solid #ffff3d;
+}
+
+.cancelado {
+    border-left: 5px solid #fa1616;
+}
+
+.finalizado {
+    border-left: 5px solid #f75d25;
+}
+
+.aceptado {
+    border-left: 5px solid #02d002;
+}
+
+.rechazado {
+    border-left: 5px solid #a30da3;
+}
+
+.estado-line {
+    padding-left: 15px;
+}
+
+.estados {
     width: 100%;
     color: black;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 10px;
     cursor: default;
 }
 
-.estados > a{
-    padding: 5px 5px 5px 5px;
-    margin-right: 10px;
-    border-radius: 6px;
+.estados > a {
+    padding: 5px;
+    border-radius: 0.3rem;
+    border: 1px solid #0000004f;
+    font-size: small;
 }
 
-button{
-    font-weight: 600;
+/* Pseudoclases */
+.fechas:hover {
+    background-color: #5d90f7;
+    color: white;
+}
+
+.especialistas-celda:hover {
+    background-color: #5d90f7;
+}
+
+.boton:enabled:hover {
     cursor: pointer;
+    background-color: #008B81;
+    color: white;
+    font-weight: 600;
+    border-radius: 0.3rem;
 }
 
-button:hover{
-    background-color: #008B81 !important;
+.boton:disabled {
+    opacity: 85%;
 }
 
-.pendiente{
-    color: rgb(255, 255, 61) !important;
-}
-
-.cancelado{
-    color: rgb(250, 22, 22) !important;
-}
-.finalizado{
-    color: rgb(247, 93, 37) !important;
-}
-
-.aceptado{
-    color: rgb(2, 208, 2) !important;
-}
-
-.rechazado{
-    color: rgb(163, 13, 163) !important;
+.btn-table:hover {
+    background-color: #961717e0 !important;
 }

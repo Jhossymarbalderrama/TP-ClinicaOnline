@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AuthService } from 'src/app/servicios/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
-import { FirestoreService } from 'src/app/servicios/firestore.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -66,8 +66,7 @@ export class MiPerfilComponent implements OnInit {
 		this.logo64 = await this.toDataURL("../../../assets/imagenes/Logo-Dark.png");
 	}
 
-	async toDataURL(url) {
-		console.log("Downloading image...");
+	async toDataURL(url:any) {
 		var res = await fetch(url);
 		var blob = await res.blob();
 
@@ -242,8 +241,8 @@ export class MiPerfilComponent implements OnInit {
 	buscoTurnosRealizados(paciente: any) {
 		this.listTurnosRealizadosXpaciente = [];
 
-		this.listaTurnosAux.forEach(turno => {
-			if (turno.paciente.id == paciente.id &&
+		this.listaTurnosAux.forEach((turno:any) => {
+			if (turno.paciente?.id == paciente?.id &&
 				turno.estado_turno == 'Realizado') {
 				this.auxHistoriasClinicas.forEach(hclinica => {
 					if (hclinica.id_atencion == turno.id) {

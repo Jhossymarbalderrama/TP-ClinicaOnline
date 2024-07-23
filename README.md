@@ -18,7 +18,7 @@ Clinica Online es una pagina web de turnos para una clinica. El sistema de turno
 ## 📌Pantalla Principal 🏡
 
 🟢- La siguiente imagen es nuestra pantalla principal de la pagina web, donde podemos encontrar un menu en la parte superior de la pantalla con las opciones de login y registrarse.
-<p align="center"><img width=95% src="./src/assets/imagenes/img-readme/pantalla_principal.png"></p>
+<p align="center"><img width=95% src="./src/assets/imagenes/img-readme/pantalla_principal.webp"></p>
 
 <br>
 
@@ -30,7 +30,7 @@ Clinica Online es una pagina web de turnos para una clinica. El sistema de turno
 
 ## 📌Registro de Usuarios
 🟢 - La siguiente imagen nos muestra la pantalla de registro. En esta encontraremos dos opciones de registro ya sea como `paciente` o como un `especialista`.
-<p align="center"><img width=80% src="./src/assets/imagenes/img-readme/menu_registro.png"></p>
+<p align="center"><img width=80% src="./src/assets/imagenes/img-readme/menu_registro.webp"></p>
 <br>
 
 🟢 - 🎥 El siguiente video es el paso a paso de como registrarse en la web:
@@ -39,7 +39,7 @@ Clinica Online es una pagina web de turnos para una clinica. El sistema de turno
 
 ## 📌 👤 Administrador 💻
 🟢 - Pantalla principal de un `Administrador` al loguearse en nuestro sistema.
-<p align="center"><img width=95% src="./src/assets/imagenes/img-readme/pantalla_principal_administrador.png"></p>
+<p align="center"><img width=95% src="./src/assets/imagenes/img-readme/pantalla_principal_administrador.webp"></p>
 
 ### 🔷 Opciones Administrador
 <p>Los siguientes datos son las funciones posibles y habilitadas que puede hacer un usuario del tipo Administrador</p>
@@ -67,7 +67,7 @@ Clinica Online es una pagina web de turnos para una clinica. El sistema de turno
 
 ## 📌Especialista
 🟢 - Pantalla principal de un `Especialista` al loguearse en nuestro sistema.
-<p align="center"><img width=95% src="./src/assets/imagenes/img-readme/pantalla_principal_especialista.png"></p>
+<p align="center"><img width=95% src="./src/assets/imagenes/img-readme/pantalla_principal_especialista.webp"></p>
 
 ### 🔶 Opciones Especialista
 <p>Los siguientes datos son las funciones posibles y habilitadas que puede hacer un usuario del tipo Especialista</p>
@@ -94,7 +94,7 @@ Clinica Online es una pagina web de turnos para una clinica. El sistema de turno
  
 ## 📌Paciente
 🟢 - Pantalla principal de un `Paciente` al loguearse en nuestro sistema.
-<p align="center"><img width=95% src="./src/assets/imagenes/img-readme/pantalla_principal_paciente.png"></p>
+<p align="center"><img width=95% src="./src/assets/imagenes/img-readme/pantalla_principal_paciente.webp"></p>
 
 ### 🔳 Opciones Paciente
 <p>Los siguientes datos son las funciones posibles y habilitadas que puede hacer un usuario del tipo Paciente</p>

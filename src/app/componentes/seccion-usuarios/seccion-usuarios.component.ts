@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ExcelService } from 'src/app/servicios/excel.service';
-import { FirestoreService } from 'src/app/servicios/firestore.service';
+import { ExcelService } from 'src/app/services/excel.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-seccion-usuarios',
@@ -123,4 +123,5 @@ export class SeccionUsuariosComponent implements OnInit {
     this.registroUsuariosAdmin = false;
     this.infoUsuarios = false;
   }
+
 }

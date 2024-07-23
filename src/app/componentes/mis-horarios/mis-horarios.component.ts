@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { exit } from 'process';
-import { AuthService } from 'src/app/servicios/auth.service';
-import { FechasTurnosService } from 'src/app/servicios/fechas-turnos.service';
-import { FirestoreService } from 'src/app/servicios/firestore.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { FechasTurnosService } from 'src/app/services/fechas-turnos.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 import Swal from 'sweetalert2';
 
 @Component({

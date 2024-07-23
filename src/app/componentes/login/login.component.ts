@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Usuario } from 'src/app/clases/usuario';
-import { AuthService } from 'src/app/servicios/auth.service';
-import { FirestoreService } from 'src/app/servicios/firestore.service';
+import { Usuario } from 'src/app/classes/usuario';
+import { AuthService } from 'src/app/services/auth.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-login',
@@ -11,20 +11,14 @@ import { FirestoreService } from 'src/app/servicios/firestore.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  // fotoAdmin_1: string = "../../../assets/imagenes/iconos/administrador.png";
-  // fotoEsp_1: string = "../../../assets/imagenes/iconos/especialista-1.png";
-  // fotoEsp_2: string = "../../../assets/imagenes/iconos/especialista-2.png";
-  // fotoPac_1: string = "../../../assets/imagenes/iconos/paciente-1.png";
-  // fotoPac_2: string = "../../../assets/imagenes/iconos/paciente-2.png";
-  // fotoPac_3: string = "../../../assets/imagenes/iconos/paciente-1.png";
-
-  fotoAdmin_1: string = "";
-  fotoEsp_1: string = "";
-  fotoEsp_2: string = "";
-  fotoPac_1: string = "";
-  fotoPac_2: string = "";
-  fotoPac_3: string = "";
+  usersAccessLocal: any[] = [
+    { email: "pedro@gmail.com", password: "Pedro159" },
+    { email: "manuel@gmail.com", password: "Manuel159" },
+    { email: "maria@gmail.com", password: "maria123" },
+    { email: "julian@gmail.com", password: "julian123" },
+    { email: "rodriguez@gmail.com", password: "Rodriguez159" },
+    { email: "gabriel@gmail.com", password: "gabriel123" }
+  ];
 
   formLogin!: FormGroup;
 
@@ -37,7 +31,7 @@ export class LoginComponent implements OnInit {
   listaEspecialistas: any = [];
   listaPacientes: any = [];
 
-  listaUsuarios: any = [];
+  listaUsuarios: any = []; // ? Lista de Todos los Usuarios que se encuentran en Firebase
 
   userExist: boolean = false;
   noHabilitado: boolean = false;
@@ -58,73 +52,61 @@ export class LoginComponent implements OnInit {
     });
 
 
-    //Administrador
+    // ? Cargo los Administrador a la lista de listaUsuarios
     this.FirestoreService.listaAdministradores().subscribe(value => {
       this.listaAdministradores = value;
       this.cargarArray(this.listaAdministradores);
     });
 
-    //Especialistas
+    // ? Cargo los Especialistas a la lista de listaUsuarios
     this.FirestoreService.listaEspecialistas().subscribe(value => {
       this.listaEspecialistas = value;
       this.cargarArray(this.listaEspecialistas);
     });
 
-    //Pacientes
+    // ? Cargo los Pacientes a la lista de listaUsuarios
     this.FirestoreService.listaPacientes().subscribe(value => {
       this.listaPacientes = value;
       this.cargarArray(this.listaPacientes);
     });
-
-
-    setTimeout(() => {
-
-      //console.log("Lista General usuarios");
-      //console.log(this.listaUsuarios);
-    }, 500);
   }
 
 
-
+  /**
+   * Cargo la lista local de usuario
+   * @param lista usuarios de un tipo que cargo a la lista local de user
+   */
   cargarArray(lista: any) {
     for (const item of lista) {
       this.listaUsuarios.push(item);
-
       this.cargarFotosAccesosR(item);
     }
   }
 
+  /**
+   * Cargo info a los datos de users local
+   * @param item user que viene de Firebase al suscribirme
+   */
   cargarFotosAccesosR(item: any) {
-    if (item.mail == "pedro@gmail.com" && item.password == "Pedro159") {
-      this.fotoAdmin_1 = item.foto;
-    }
-
-    if (item.mail == "julian@gmail.com" && item.password == "julian123") {
-      this.fotoPac_1 = item.foto[0];
-    } else if (item.mail == "rodriguez@gmail.com" && item.password == "Rodriguez159") {
-      this.fotoPac_2 = item.foto[0];
-    } else if (item.mail == "gabriel@gmail.com" && item.password == "gabriel123") {
-      this.fotoPac_3 = item.foto[0];
-    }
-
-    if (item.mail == "manuel@gmail.com" && item.password == "Manuel159") {
-      this.fotoEsp_1 = item.foto;
-    } else if (item.mail == "maria@gmail.com" && item.password == "maria123") {
-      this.fotoEsp_2 = item.foto;
-    }
+    this.usersAccessLocal.some(usr => {
+      if (item.mail == usr.email && item.password == usr.password) {
+        usr.img = typeof (item.foto) == 'string' ? item.foto : item.foto[0];
+        usr.type = item.tipoUsuario;
+      }
+    });
   }
 
+  /**
+   * Metodo de login de usuarios
+   */
   async onLogin() {
     this.userExist = false;
     this.noEncontroUser = true;
-    //console.log("Estoy en Login");
     if (this.formLogin.valid) {
       this.usuario = {
         mail: this.formLogin.get('mail')?.value,
         password: this.formLogin.get('password')?.value
       };
-
-      //this.AuthService.user = this.usuario;
 
       for (const item of this.listaUsuarios) {
 
@@ -132,16 +114,12 @@ export class LoginComponent implements OnInit {
           item.password == this.usuario.password) {
 
           this.AuthService.user = item; //Logueo Local
-
           this.AuthService.login(this.usuario.mail, this.usuario.password); //Logueo con Autentication FireBase
 
           setTimeout(() => {
-            //console.log(this.AuthService.userDateFirebase.user);
-
             if (this.usuariosLocales()) {
               if (this.AuthService.user.tipoUsuario == "ESP") {
                 if (this.AuthService.user.habilitado) {
-                  console.log("1");
                   this.loadingSession();
                 } else {
                   //Usuario No habilitado por un Administrador                    
@@ -152,7 +130,6 @@ export class LoginComponent implements OnInit {
                   }, 1000);
                 }
               } else {
-                console.log("2");
                 this.loadingSession();
               }
 
@@ -160,7 +137,6 @@ export class LoginComponent implements OnInit {
               if (this.AuthService.userDateFirebase.user.emailVerified == true) {
                 if (this.AuthService.user.tipoUsuario == "ESP") {
                   if (this.AuthService.user.habilitado) {
-                    console.log("3");
                     this.loadingSession();
                   } else {
                     //Usuario No habilitado por un Administrador                      
@@ -171,11 +147,9 @@ export class LoginComponent implements OnInit {
                     }, 1000);
                   }
                 } else {
-                  console.log("4");
                   this.loadingSession();
                 }
               } else if (this.AuthService.userDateFirebase.user.emailVerified == false) {
-                //console.log("Redirecciono a verificar Email");
                 this.spinner = true;
                 setTimeout(() => {
                   this.spinner = false;
@@ -193,79 +167,48 @@ export class LoginComponent implements OnInit {
           this.userExist = true;
         }
       }
-      
+
     }
   }
 
+  /**
+   * Navegación despues de Logueo
+   */
   loadingSession() {
     this.spinner = true;
     setTimeout(() => {
       this.spinner = false;
-
       this.Router.navigateByUrl('/menu-administrador');
     }, 2000);
   }
 
+
+  /**
+   * Verifico si el usuario que esta en el Auth existe en la lista local de User
+   * @returns boolean True | False
+   */
   usuariosLocales(): boolean {
     let rta: boolean = false;
 
-    if (this.AuthService.user.mail == "maria@gmail.com" &&
-      this.AuthService.user.password == "maria123"
-    ) {
-      rta = true;
-    } else if (this.AuthService.user.mail == "manuel@gmail.com" &&
-      this.AuthService.user.password == "Manuel159"
-    ) {
-      rta = true;
-    } else if (this.AuthService.user.mail == "gabriel@gmail.com" &&
-      this.AuthService.user.password == "gabriel123"
-    ) {
-      rta = true;
-    } else if (this.AuthService.user.mail == "rodriguez@gmail.com" &&
-      this.AuthService.user.password == "Rodriguez159"
-    ) {
-      rta = true;
-    } else if (this.AuthService.user.mail == "julian@gmail.com" &&
-      this.AuthService.user.password == "julian123"
-    ) {
-      rta = true;
-    } else if (this.AuthService.user.mail == "pedro@gmail.com" &&
-      this.AuthService.user.password == "Pedro159"
-    ) {
-      rta = true;
-    }
+    this.usersAccessLocal.map(usr => {
+      if (this.AuthService.user.mail == usr.email &&
+        this.AuthService.user.password == usr.password) {
+        rta = true;
+      }
+    });
 
     return rta;
   }
 
-  loginRapido(login: number) {
-    switch (login) {
-      case 1:
-        this.formLogin.get('mail')?.setValue("pedro@gmail.com");
-        this.formLogin.get('password')?.setValue("Pedro159");
-        break;
-      case 2:
-        this.formLogin.get('mail')?.setValue("manuel@gmail.com");
-        this.formLogin.get('password')?.setValue("Manuel159");
-        break;
-      case 3:
-        this.formLogin.get('mail')?.setValue("maria@gmail.com");
-        this.formLogin.get('password')?.setValue("maria123");
-        break;
-      case 4:
-        this.formLogin.get('mail')?.setValue("julian@gmail.com");
-        this.formLogin.get('password')?.setValue("julian123");
-        break;
-      case 5:
-        this.formLogin.get('mail')?.setValue("rodriguez@gmail.com");
-        this.formLogin.get('password')?.setValue("Rodriguez159");
-        break;
-      case 6:
-        this.formLogin.get('mail')?.setValue("gabriel@gmail.com");
-        this.formLogin.get('password')?.setValue("gabriel123");
-        break;
 
-    }
+  /**
+   * Setteo los campos de email y password del Formulario para Logearse
+   * @param email email de user
+   * @param password password de user
+   */
+  loginRapido(email: string, password: string) {
+    this.formLogin.get('mail')?.setValue(email);
+    this.formLogin.get('password')?.setValue(password);
   }
 
 }

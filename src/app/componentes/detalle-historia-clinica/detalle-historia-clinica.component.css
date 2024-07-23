@@ -1,25 +1,81 @@
-
-h1, h2, h3, h4{
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #008B81;
+hr {
+    border: 2px solid #008B81;
 }
 
+
+.box-info {
+    /* font-size: small; */
+}
+
+
+label {
+    font-size: small;
+    font-weight: 600;
+    color: #000000be;;
+}
+
+
+input {
+    background-color: #f5f5f5;
+    border: 1px solid #0000008c;
+    border-radius: 0.2rem;        
+}
+
+.box-info .row div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h3, h5{
+    color: #000000be;
+}
+
+p{
+    padding: 0.3rem 0rem;
+    margin: 0rem 0.3rem;
+}
+
+
+
+h6 a{
+    font-size: medium;
+}
 
 a{
-    font-weight: bold;
+    text-decoration: none;
+    color: black;
 }
 
-th{
-    width: 120px;
-}
-
-td{
-    font-weight: 600;
-    padding-right: 30px;
+.box-turno{
+    background-color: #b5f0ebd8;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
 }
 
 
-.datos-personales{
-    font-weight: 600;
+.box-observacion{
+    background-color: #abc1eeda;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+}
+
+.box-observacion p, .box-info-turno p{
+ font-size: small;
+}
+
+.btn-download{
+    cursor: pointer;
+    background-color: #008B81;
+    color: white;
+    font-size: medium;
+}
+
+.btn-load{
+    cursor: wait;
+}
+
+
+.btn-download:hover {
+    opacity: 85%;
 }

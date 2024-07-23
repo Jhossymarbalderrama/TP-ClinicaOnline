@@ -1,189 +1,147 @@
-<section>
-    <h2 style="padding-left: 15px;">Mi Perfil</h2>
-    <div class="container">       
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card mb-4">
-                    <div class="card-body text-center box-shadow">
-                        <ngb-carousel #carousel [interval]="10000" [pauseOnHover]="pauseOnHover"
-                            [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)" 
-                            *ngIf="this.AuthService.user.tipoUsuario =='PAC'">
-                            <ng-template ngbSlide *ngFor="let img of this.AuthService.user.foto; index as i">
-                                <div class="carousel-caption">
-                                </div>
-                                <a target="_blank" rel="nofollow noopener noreferrer">
-                                    <div class="picsum-img-wrapper">
-                                        <img [src]="img" class="d-block w-100"/>
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <!-- <h2 style="padding-left: 15px;">Mi Perfil</h2> -->
+                <div class="card mb-4 p-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card-img">
+                                <div class="card-body text-center">
+                                    <ngb-carousel #carousel [interval]="10000" [pauseOnHover]="pauseOnHover"
+                                        [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)"
+                                        *ngIf="this.AuthService.user.tipoUsuario =='PAC'">
+                                        <ng-template ngbSlide
+                                            *ngFor="let img of this.AuthService.user.foto; index as i">
+                                            <div class="carousel-caption">
+                                            </div>
+                                            <a target="_blank" rel="nofollow noopener noreferrer">
+                                                <div class="picsum-img-wrapper">
+                                                    <img [src]="img" class="d-block w-100" />
+                                                </div>
+                                            </a>
+                                        </ng-template>
+                                    </ngb-carousel>
+
+
+                                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel"
+                                        *ngIf="this.AuthService.user.tipoUsuario !='PAC'">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img class="d-block w-100" [src]='this.AuthService.user.foto'>
+                                            </div>
+                                        </div>
                                     </div>
-                                </a>
-                            </ng-template>                            
-                        </ngb-carousel>
 
-
-                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel"
-                            *ngIf="this.AuthService.user.tipoUsuario !='PAC'">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" [src]='this.AuthService.user.foto'>
+                                    <div class="my-2">
+                                        <h5 class="fw-bold">{{this.tipoUsuario}}</h5>
+                                        <h6 class="text-capitalize">{{this.AuthService.user.nombre +' '+
+                                            this.AuthService.user.apellido}}</h6>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-8">
+                            <h4 style="padding-left: 5px;">Datos Personales</h4>
+                            <div *ngIf="this.AuthService.user.tipoUsuario == 'PAC'">
+                                <button class="mt-2 btn btn-info" (click)="createPdf()">
+                                    <i class="fa-solid fa-print"></i>
+                                   Descargar mi historial clinico : {{this.especialidadSelect}}
+                                </button>
 
-                        <h5 class="my-3 text-class" style="text-transform: uppercase;">{{this.AuthService.user.nombre +
-                            ' '+
-                            this.AuthService.user.apellido}}</h5>
-                        <p class="text-muted mb-1 text-class">{{this.tipoUsuario}}</p>
-                        <!-- <p class="text-muted mb-4">Bay Area, San Francisco, CA</p> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-8">
-                <h3 style="padding-left: 5px;">Datos Personales</h3>
-                <div *ngIf="this.AuthService.user.tipoUsuario == 'PAC'">
-                    <button class="mt-2 btn btn-info" (click)="createPdf()" style="font-weight: bold;color: black;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                            class="bi bi-printer" viewBox="0 0 16 16">
-                            <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
-                            <path
-                                d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z" />
-                        </svg>
-                        Imprimir Historial Clinico : {{this.especialidadSelect}}
-                    </button>
+                                <div class="dropdown  btn-check-esp">
+                                    <button class="btn btn-check-esp btn-warning dropdown-toggle" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Seleccione Especialidad de Historial
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li style="cursor: pointer;">
+                                            <a class="dropdown-item" (click)="selectEspecialidad('Todas')">Todas</a>
+                                        </li>
+                                        <li style="cursor: pointer;" *ngFor="let nombre of this.especialidades">
+                                            <a class="dropdown-item" (click)="selectEspecialidad(nombre)">{{nombre}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0 text-class">Nombre:</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0 text-capitalize">{{this.AuthService.user.nombre}}</p>
+                                        </div>
+                                        <hr>
+                                    </div>
 
-                    <div class="dropdown">
-                        <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                        >
-                          Seleccione Especialidad de Historial
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li style="cursor: pointer;">
-                                <a class="dropdown-item" (click)="selectEspecialidad('Todas')">Todas</a>
-                            </li>
-                          <li style="cursor: pointer;" *ngFor="let nombre of this.especialidades">
-                              <a class="dropdown-item" (click)="selectEspecialidad(nombre)">{{nombre}}</a>
-                          </li>                          
-                        </ul>
-                    </div>
-                </div>
-                <div class="card mb-4 box-shadow">
-                    <div class="card-body">                        
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0 text-class">Nombre:</p>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0 text-class">Apellido:</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0 text-capitalize">{{this.AuthService.user.apellido}}</p>
+                                        </div>
+                                        <hr>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0 text-class">Edad:</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">{{this.AuthService.user.edad}}</p>
+                                        </div>
+                                        <hr>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0 text-class">DNI:</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">{{this.AuthService.user.dni}}</p>
+                                        </div>
+                                        <hr>
+                                    </div>
+
+                                    <div class="row" *ngIf="this.AuthService.user.tipoUsuario == 'PAC'">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0 text-class">Obra Social:</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">{{this.AuthService.user.obra_social}}</p>
+                                        </div>
+                                        <hr>
+                                    </div>
+
+                                    <div class="row" *ngIf="this.AuthService.user.tipoUsuario == 'ESP'">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0 text-class">Especialidad:</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">{{this.AuthService.user.especialidad}}</p>
+                                        </div>
+                                        <hr>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0 text-class">Email:</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">{{this.AuthService.user.mail}}</p>
+                                        </div>
+                                        <hr>
+                                    </div>
+
+                                </div>
                             </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{this.AuthService.user.nombre}}</p>
-                            </div>
-                            <hr>
                         </div>
-
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0 text-class">Apellido:</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{this.AuthService.user.apellido}}</p>
-                            </div>
-                            <hr>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0 text-class">Edad:</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{this.AuthService.user.edad}}</p>
-                            </div>
-                            <hr>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0 text-class">DNI:</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{this.AuthService.user.dni}}</p>
-                            </div>
-                            <hr>
-                        </div>
-
-                        <div class="row" *ngIf="this.AuthService.user.tipoUsuario == 'PAC'">
-                            <div class="col-sm-3">
-                                <p class="mb-0 text-class">Obra Social:</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{this.AuthService.user.obra_social}}</p>
-                            </div>
-                            <hr>
-                        </div>
-
-                        <div class="row" *ngIf="this.AuthService.user.tipoUsuario == 'ESP'">
-                            <div class="col-sm-3">
-                                <p class="mb-0 text-class">Especialidad:</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{this.AuthService.user.especialidad}}</p>
-                            </div>
-                            <hr>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0 text-class">Mail:</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{this.AuthService.user.mail}}</p>
-                            </div>
-                            <hr>
-                        </div>
-
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- 
-    <div id="htmlData">
-        <div style="width: 100%;font-weight: bold;" align="center">
-            <h1>Historia CLinica</h1>
-        </div>
-        <hr>
-        
-        <h3 style="font-weight: bold;">
-            Datos Personales:
-        </h3>
-        
-        
-        <div class="datos-personales">
-            <p><a>DNI:</a> {{this.paciente?.dni}}</p>
-            <p><a>Apellido:</a> {{this.paciente?.apellido}}</p>
-            <p><a>Nombre:</a> {{this.paciente?.nombre}}</p>
-            <p><a>Edad:</a> {{this.paciente?.edad}}</p>
-            <p><a>Mail:</a> {{this.paciente?.mail}}</p>
-            <p><a>Obra Social:</a> {{this.paciente?.obra_social}}</p>
-        </div>
-        
-        <hr>
-        
-        <div *ngFor="let datos of this.listTurnosRealizadosXpaciente">
-            <div>
-                <h3>Consulta: {{datos.especialidad}} </h3>
-                <h4>Fecha del turno: {{datos.fecha}}</h4>
-            </div>
-            <p><a>Altura: </a>{{datos.datosHC.altura}}</p>
-            <p><a>Peso: </a>{{datos.datosHC.peso}}</p>
-            <p><a>Temperatura: </a>{{datos.datosHC.temperatura}}</p>
-            <p><a>Presión: </a>{{datos.datosHC.presion}}</p>
-            
-            <p><a>Reseña del turno: </a> {{datos.resenea}}</p>
-        
-            <h4>Observaciones:</h4>
-            <p><a>{{datos.datosHC.datos_1[0]}}: </a>{{datos.datosHC.datos_1[1]}}</p>
-            <p><a>{{datos.datosHC.datos_2[0]}}: </a>{{datos.datosHC.datos_2[1]}}</p>
-            <p><a>{{datos.datosHC.datos_3[0]}}: </a>{{datos.datosHC.datos_3[1]}}</p>
-        
-            <hr>
-        </div>
-    </div> -->
+    </section>
+</body>

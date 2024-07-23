@@ -1,24 +1,27 @@
-<div class="menu">
-        <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <div style="text-align: start;width: 240px;" >
-                <a routerLink="/home" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none" style="margin-right: 2em;cursor: pointer;">      
-                    <!-- <img src="../../../favicon.ico" height="65px"> -->                    
-                    <img [src]="this.logo" height="65px" width="240px">
-                </a>
-            </div>
-        
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li>
-                    <a class="nav-link px-2 text-white item-menu" routerLink="/bienvenido">Home</a>
-                </li>       
-                
-                <li>
-                    <a class="nav-link px-2 text-white item-menu" routerLink="/login">Login</a>
-                </li>  
+<header id="header" class="w-100 c-header py-4">
+    <div class="container d-flex justify-content-between align-items-center py-1">
+        <div>
+            <a routerLink="/home" class="a-logo d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">                       
+                <img [src]="this.logo" class="img-fluid" height="65px" width="240px" alt="Logo">
+            </a>
+        </div>
+        <div class="d-lg-none">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse d-lg-flex justify-content-end align-items-center" id="navbarNav">
+            <nav class="d-flex justify-content-end align-items-center">
+                <ul class="nav gap-3">                           
+                    <li>
+                        <a class="nav-link px-2 item-menu fw-bold" routerLink="/login">Login</a>
+                    </li>  
+                    <li>
+                        <a class="nav-link px-2 item-menu fw-bold" routerLink="/registro">Registro</a>
+                    </li>                
+                </ul> 
+            </nav>
+        </div>
+    </div>
+</header>
 
-                <li>
-                    <a class="nav-link px-2 text-white item-menu" routerLink="/registro">Registro</a>
-                </li>                
-            </ul>     
-        </nav> 
-</div>

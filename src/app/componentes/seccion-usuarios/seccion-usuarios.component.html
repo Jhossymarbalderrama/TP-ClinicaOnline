@@ -1,68 +1,48 @@
 <section>
-
     <div *ngIf="!this.infoUsuarios && !this.registroUsuariosAdmin && !this.historiasClincias">
-
-        <div class="container-listados">
+        <div class="container-listados ">
             <div style="width: 100%;">
                 <div align="start">
-                    <h2>Informacion de Usuarios</h2>
+                    <h4>Informacion de Usuarios</h4>
                 </div>
                 <div align="end">
-
-                    <button class="mt-2 btn btn-outline-dark boton" (click)="exportexcel()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-file-earmark-spreadsheet" viewBox="0 0 16 16">
-                            <path
-                                d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5v2zM3 12v-2h2v2H3zm0 1h2v2H4a1 1 0 0 1-1-1v-1zm3 2v-2h3v2H6zm4 0v-2h3v1a1 1 0 0 1-1 1h-2zm3-3h-3v-2h3v2zm-7 0v-2h3v2H6z" />
-                        </svg>
-                        Exportar Listado de Usuarios
+                    <button class="mb-2 btn btn-outline-dark boton" (click)="exportexcel()">
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                        Descargar Lista de Usuarios
                     </button>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
 
                 <div class="col" (click)="listarUsuario('PAC')">
                     <div class="card shadow-sm paci-list">
-                        <svg class="bd-placeholder-img card-img-top card-img-bottom" width="100%" height="225"
-                            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pacientes: Thumbnail"
-                            preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Pacientes</title>
-                            <text x="33%" y="50%" fill="#1a1a1a">
+                        <div class="title-sections section-list pt-1" >
+                            <h5>
                                 Pacientes
-                            </text>
-                        </svg>
+                            </h5>
+                        </div>
                     </div>
                 </div>
-
 
                 <div class="col" (click)="listarUsuario('ESP')">
                     <div class="card shadow-sm espe-list" align="start">
-                        <svg class="bd-placeholder-img card-img-top card-img-bottom" width="100%" height="225"
-                            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Especialistas: Thumbnail"
-                            preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Especialistas</title>
-                            <text x="30%" y="50%" fill="#1a1a1a" dy=".3em">
+                        <div class="title-sections section-list pt-1" >
+                            <h5>
                                 Especialistas
-                            </text>
-                        </svg>
+                            </h5>
+                        </div>
                     </div>
                 </div>
-
 
                 <div class="col" (click)="listarUsuario('ADM')">
-                    <div class="card shadow-sm admin-list">
-                        <svg class="bd-placeholder-img card-img-top card-img-bottom" width="100%" height="225"
-                            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Administradores: Thumbnail"
-                            preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Administradores</title>
-                            <text x="23%" y="50%" fill="#1a1a1a" dy=".3em">
+                    <div class="card shadow-sm admin-list" >
+                        <div class="title-sections section-list pt-1" >
+                            <h5>
                                 Administradores
-                            </text>
-                        </svg>
+                            </h5>
+                        </div>
                     </div>
                 </div>
-
 
             </div>
         </div>
@@ -70,68 +50,57 @@
         <hr>
 
         <div class="container-listados">
-            <h2>Registro de Usuarios</h2>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <h4>Registro de Usuarios</h4>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
 
                 <div class="col" (click)="registroUsuario('PAC')">
                     <div class="card shadow-sm paci-reg">
-                        <svg class="bd-placeholder-img card-img-top card-img-bottom" width="100%" height="225"
-                            role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
-                            focusable="false">
-                            <title>Pacientes</title>
-                            <text x="33%" y="50%" fill="#1a1a1a">
+                        <div class="title-sections section-register pt-1" >
+                            <h5>
                                 Pacientes
-                            </text>
-                        </svg>
+                            </h5>
+                        </div>
                     </div>
                 </div>
 
 
                 <div class="col" (click)="registroUsuario('ESP')">
                     <div class="card shadow-sm espe-reg" align="start">
-                        <svg class="bd-placeholder-img card-img-top card-img-bottom" width="100%" height="225"
-                            role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
-                            focusable="false">
-                            <title>Especialistas</title>
-                            <text x="30%" y="50%" fill="#1a1a1a" dy=".3em">
+                        <div class="title-sections section-register pt-1" >
+                            <h5>
                                 Especialistas
-                            </text>
-                        </svg>
+                            </h5>
+                        </div>
                     </div>
                 </div>
 
 
                 <div class="col" (click)="registroUsuario('ADM')">
                     <div class="card shadow-sm admin-reg">
-                        <svg class="bd-placeholder-img card-img-top card-img-bottom" width="100%" height="225"
-                            role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
-                            focusable="false">
-                            <title>Administradores</title>
-                            <text x="23%" y="50%" fill="#1a1a1a" dy=".3em">
+                        <div class="title-sections section-register pt-1" >
+                            <h5>
                                 Administradores
-                            </text>
-                        </svg>
+                            </h5>
+                        </div>
                     </div>
                 </div>
-
 
             </div>
         </div>
 
+        <hr>
+
         <div class="container-listados">
-            <h2>Historias Clinicas</h2>
+            <h4>Historias Clinicas</h4>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
                 <div class="col" (click)="verHistoriasClinicas()" align="center">
                     <div class="card shadow-sm paci-reg">
-                        <svg class="bd-placeholder-img card-img-top card-img-bottom" width="100%" height="225"
-                            role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
-                            focusable="false">
-                            <title>Historias Clinicas</title>
-                            <text x="33%" y="50%" fill="#1a1a1a">
+                        <div class="title-sections section-list pt-1" >
+                            <h5>
                                 Pacientes
-                            </text>
-                        </svg>
+                            </h5>
+                        </div>
                     </div>
                 </div>
 
@@ -140,6 +109,7 @@
     </div>
 
 
+    <!-- ! Div necesario para creacion de Excel -->
     <div hidden>
         <table class="table table-striped  table-hover" id="excel-table">
             <thead class="thead-dark" align="start">

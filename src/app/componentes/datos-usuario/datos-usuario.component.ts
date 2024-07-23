@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Administrador } from 'src/app/clases/administrador';
-import { Especialista } from 'src/app/clases/especialista';
-import { Paciente } from 'src/app/clases/paciente';
+import { Administrador } from 'src/app/classes/administrador';
+import { Especialista } from 'src/app/classes/especialista';
+import { Paciente } from 'src/app/classes/paciente';
 
 @Component({
   selector: 'app-datos-usuario',

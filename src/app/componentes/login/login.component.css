@@ -1,4 +1,4 @@
-app-menu{
+app-menu {
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -6,149 +6,82 @@ app-menu{
 }
 
 
-
-@media only screen and (max-width:767px){
-	.box-access-fast-login{
-		align-content: center;
-		align-items: center;
-	
-		background-color: #008B81;
-		border-radius: 20px;
-		padding-right: 10px;
-		padding-left: 10px;
-		padding-top: 1px;
-		padding-bottom: 1px;
-		margin-bottom: 5px;	
-	}	
-}
-
-
-@media only screen and (min-width:767px) and (max-width: 1023px){
-	.box-access-fast-login{
-		align-content: center;
-		align-items: center;
-	
-		background-color: #008B81;
-		border-radius: 20px;
-		padding-right: 10px;
-		padding-left: 10px;
-		padding-top: 1px;
-		padding-bottom: 1px;
-		margin-bottom: 5px;	
-	}	
-}
-
-@media only screen and (min-width:1024px){
-	.box-access-fast-login{
-		align-content: center;
-		align-items: center;
-	
-		background-color: #008B81;
-		border-radius: 20px;
-		padding-right: 10px;
-		padding-left: 10px;
-		padding-top: 1px;
-		padding-bottom: 1px;
-		margin-bottom: 5px;	
-	}	
-}
-
-.box {
-	margin-top: 5em;
-	overflow: hidden;		
+.body {
 	width: 100%;
-	min-width: 100vh;
-	
-}
-
-.body{
-	width: 100%;
-	height: 100%;
-	
-	background: url("../../../assets/imagenes/background/pexels-evg-kowalievska-1170979.png")
-	 no-repeat center center fixed;
+	min-height: 100vh;
+	background: url("../../../assets/imagenes/background/background-home.webp") no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	background-size: cover;	
+	background-size: cover;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
-.body{  
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 100vh;	 
-}
 
-.box-login{	
+.box-login {
 	background-color: #fff;
 	border-radius: 10px;
-	box-shadow:
-		2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
-		6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
-		12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
-		22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
-		41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
-		100px 100px 80px rgba(0, 0, 0, 0.07)
-	;
-
-
+	box-shadow: 6px 6px 40px #000000c0;
 	position: relative;
 	overflow: hidden;
-
-	min-width: 900px;
-	min-height: 600px;
-
-	max-width: 100%;
+	min-width: 50rem;
+	min-height: 33rem;
+	margin-top: 1rem;
 }
 
 
 h1 {
-	text-shadow: white 1px 0 5px;	
-	font-weight: bold;
+	/* text-shadow: 1px 1px 5px white; */
 	margin: 0;
 }
 
-
-p {
-	font-size: 18px;
-	font-weight: 600;
-	line-height: 20px;
-	letter-spacing: 0.5px;
-	margin: 20px 0 30px;	
+.title-welcome {
+	/* letter-spacing: 5px; */
+	/* text-shadow: 3px 3px 8px white; */
 }
 
+p {
+	margin: 0;
+	padding: 3px 0px;
+}
 
-.btn{
-	background-color: #008B81 !important;	
+.btn {
+	background-color: #008B81 !important;
 	margin: 0em 0.5em 0em 0.5em;
 	width: 180px;
 }
 
-.btn:hover{
+.btn:hover {
 	transform: scale(1.05);
-	background-color: black !important;		
+	background-color: black !important;
 }
 
 
 form {
-	background-color: #FFFFFF;
 	display: flex;
-	align-items: center;
-	justify-content: center;
 	flex-direction: column;
 	padding: 0 50px;
 	height: 100%;
-	text-align: center;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
 }
 
-input {
-	background-color: rgb(211, 211, 211);
+
+
+hr {
+	width: 100%;
+	border: 3px solid #008b82be;
+}
+
+
+.input-form {
+	background-color: #c4c4c4;
 	border: none;
 	padding: 12px 15px;
 	margin: 8px 0;
 	width: 100%;
-	border-radius: 10px;
+	border-radius: 0.3rem;
 }
 
 
@@ -186,24 +119,23 @@ input {
 	width: 50%;
 	height: 100%;
 	overflow: hidden;
-	z-index: 100;	
+	z-index: 100;
 }
 
-.box-login.right-panel-active .overlay-container{
+.box-login.right-panel-active .overlay-container {
 	transform: translateX(-100%);
 }
 
 .overlay {
-	background: url("../../../assets/imagenes/img/img-4.png")
-	no-repeat center center fixed;
+	background: linear-gradient(to top, #1539825d, #1539823a, #15398221, #1539823a, #1539825d), url("/assets/imagenes/img/img-3.webp") no-repeat center center fixed;
+	/* background: linear-gradient(to top, #008b8256 , #008b823b , #008b8221 , #008b823b , #008b8256), url("/assets/imagenes/img/img-4.webp") no-repeat center center fixed; */
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	background-size:cover;
+	background-size: cover;	
 
-	
 	color: black;
-	
+
 	position: relative;
 	left: -100%;
 	height: 100%;
@@ -211,7 +143,7 @@ input {
 }
 
 .box-login.right-panel-active .overlay {
-  	transform: translateX(50%);
+	transform: translateX(50%);
 }
 
 .overlay-panel {
@@ -227,22 +159,31 @@ input {
 	width: 50%;
 }
 
+.box-access-fast-login {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 
+	background-color: #008b82be;
+	border-radius: 0.5rem;
 
-.box-access-fast-login > p{
+	padding: 1px 5px;
+
+	margin-bottom: 5px;
+	cursor: pointer;
+
+	overflow: hidden;
+	box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.664);
+}
+
+.box-access-fast-login>p {
 	font-weight: bold;
 }
 
-.box-access-fast-login{
-	color:black;
-	background-color: #008B81;
-	cursor: pointer;
+.box-access-fast-login:hover {
+	background-color: #153982da;
 }
-
-.box-access-fast-login:hover{
-	color:white;
-    background-color: #153A82;
-} 
 
 .box-access-fast-login:active {
 	transform: scale(0.95);
@@ -253,9 +194,9 @@ input {
 }
 
 
-.boton{    
+.boton {
 	width: 100%;
-	border-radius: 1em;
+	border-radius: 0.3rem;
 	border: 1px solid #008B81;
 	background-color: #008B81;
 	color: #FFFFFF;
@@ -267,12 +208,12 @@ input {
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
 
-	cursor: pointer;	
+	cursor: pointer;
 }
 
-.boton:enabled:hover{
-    background-color: #153A82;
-} 
+.boton:enabled:hover {
+	background-color: #153982da;
+}
 
 .boton:enabled:active {
 	transform: scale(0.95);
@@ -282,10 +223,38 @@ input {
 	outline: none;
 }
 
-.boton:disabled{
-    opacity: 85%;
+.boton:disabled {
+	opacity: 85%;
 }
 
 .invalid {
-    color: red;
-} 
+	color: red;
+}
+
+
+.icon-button {
+	width: 3.6rem;
+	height: 3rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #008b82;
+	color: white;
+	border: none;
+	border-radius: 0.3rem;
+	transition: background-color 0.3s;
+	font-size: 1.6rem;
+}
+
+.icon-button:hover {
+	background-color: #153982da;
+}
+
+
+
+@media only screen and (max-width:767px) {}
+
+
+@media only screen and (min-width:767px) and (max-width: 1023px) {}
+
+@media only screen and (min-width:1024px) {}

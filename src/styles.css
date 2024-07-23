@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    /* 008b82be green aqua*/
+    /* 153982da azul */
+
+    --color-primary: #008B81;
+    --color-secondary: #153A82; /*?Solid*/
+    --color-tertiary: #a70909e8;
+    --color-fourty: #153982da; /*?Hover*/
+    --color-fivety: #008b82d2;
+    --color-sixty: #2e5ab1c0; /*?Select*/
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 14px;
+}
+
+::-webkit-scrollbar-thumb {
+    /* background: #008B81; */
+    /* background: #153982;     */
+    background: white;
+}
+
+::-webkit-scrollbar-track {
+    background: #212529;
+}
+
+.bg-default {
+    background-color: var(--color-fivety);
+}
+
+.text-default {
+    color: var(--color-fivety);
+}
+

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FirestoreService } from 'src/app/servicios/firestore.service';
-import { Paciente } from 'src/app/clases/paciente';
-import { ExcelService } from 'src/app/servicios/excel.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import { Paciente } from 'src/app/classes/paciente';
+import { ExcelService } from 'src/app/services/excel.service';
 
 
 

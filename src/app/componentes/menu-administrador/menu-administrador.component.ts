@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/servicios/auth.service';
-import { FirestoreService } from 'src/app/servicios/firestore.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 
 @Component({
@@ -48,10 +48,10 @@ export class MenuAdministradorComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.usuario == 'ADM') {
-      this.seccionUsuariosActivate = true;
+      this.seccionUsuariosActivate = true;     
     } else if (this.usuario == 'ESP' || this.usuario == 'PAC') {
       this.resetValues();
-      this.miPerfilActivate = true;
+      this.miPerfilActivate = true; // ! Original      
     }
   }
 
@@ -125,5 +125,9 @@ export class MenuAdministradorComponent implements OnInit {
     this.historiaClinicaEspActivate = false;
     this.pagError404 = false;
     this.chartsActivate = false;
+  }
+
+  redirectToHome(){
+    this.Router.navigateByUrl("/home");
   }
 }

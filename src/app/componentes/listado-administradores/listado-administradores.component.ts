@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Administrador } from 'src/app/clases/administrador';
-import { FirestoreService } from 'src/app/servicios/firestore.service';
+import { Administrador } from 'src/app/classes/administrador';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-listado-administradores',

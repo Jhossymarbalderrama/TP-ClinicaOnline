@@ -1,13 +1,52 @@
-th{
-    width: 200px;
+body {
+    background-color: transparent !important;
 }
 
-label{
+thead tr th {
+    font-weight: 500;
+    cursor: default;
+    font-size: small;
+}
+
+tbody tr td {
+    font-size: small;
+}
+
+label {
+    font-size: small;
     font-weight: 600;
 }
 
-hr{
-    color: black;
+hr {
+    border: 2px solid #008B81;
+}
+
+th {
+    width: 200px;
+}
+
+input {
+    background-color: #41414138;
+    font-size: small;
+    border: 1px solid #0000004f;
+}
+
+tr:hover {
+    cursor: pointer;
+    background-color: #15398294;
+}
+
+tr:hover td {
+    color: white !important;
+}
+
+p {
+    font-weight: bold;
+}
+
+
+.container {
+    padding-top: 25px;
 }
 
 .background{
@@ -15,18 +54,19 @@ hr{
     padding-top: 25px;
 }
 
-.estados{
+.estados {
     width: 100%;
     color: black;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 10px;
     cursor: default;
 }
 
-.estados > a{
-    padding: 5px 5px 5px 5px;
-    margin-right: 10px;
-    border-radius: 6px;
+.estados > a {
+    padding: 5px;
+    border-radius: 0.3rem;
+    border: 1px solid #0000004f;
+    font-size: small;
 }
 
 button{
@@ -38,14 +78,79 @@ button:hover{
     background-color: #008B81 !important;
 }
 
-.pendiente{
-    color: rgb(255, 255, 61) !important;
+.pendiente {
+    border-left: 5px solid #ffff3d;
 }
 
-.cancelado{
-    color: rgb(250, 22, 22) !important;
+.cancelado {
+    border-left: 5px solid #fa1616;
+}
+
+.finalizado {
+    border-left: 5px solid #f75d25;
+}
+
+.aceptado {
+    border-left: 5px solid #02d002;
+}
+
+.rechazado {
+    border-left: 5px solid #a30da3;
+}
+
+.bg-pendiente {
+    background: #ffff3d !important;
+    color: black !important;
+}
+
+.bg-cancelado {
+    background: #fa1616 !important;
+    color: black !important;
+}
+
+.bg-realizado {
+    background: #f75d25 !important;
+    color: black !important;
+}
+
+.bg-aceptado {
+    background: #02d002 !important;
+    color: black !important;
+}
+
+.bg-rechazado {
+    background: #a30da3 !important;
+    color: black !important;
+}
+
+.estado-line {
+    padding-left: 15px;
 }
 
 ngb-rating{
     text-shadow: 1px 1px 2px black;
+}
+
+.btn-filter-clear {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.btn-filter-clear button {
+    font-size: small;
+}
+
+.btn-table {
+    color: white;
+    font-size: small;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+.card {
+    background-color: #ffffffd3;
+    border-radius: 0.3rem;
+    box-shadow: 1px 1px 10px #000000d7;
 }

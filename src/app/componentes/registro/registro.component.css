@@ -1,136 +1,124 @@
-app-menu{
-	position: fixed;
-	top: 0;
-	width: 100%;
-}
-
-
-.body{
+app-menu {
+    position: fixed;
+    top: 0;
     width: 100%;
-	height: 100%;		
-	background: url("../../../assets/imagenes/background/pexels-evg-kowalievska-1170979.png")
-	 no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover; 
-
 }
 
-.container{  
+
+.body {
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    background: url("../../../assets/imagenes/background/background-home.webp") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;	 	
+    min-height: 100vh;
 }
 
-.card{
-	color: white;
-	text-align: center;
-	padding-top: 50%;
-	border-radius: 50px;
-	background-color: #2f53b8;
-  
-	height: 400px;
-	width: 350px;
-	opacity: 75%;
-  }
-  
-  .card:hover{
-	cursor: pointer;  
-	transform: scale(1.03);
-  }
-  
-  .paciente{
-	border-radius: 20px;
-	height: 600px;
-	width: 500px;
-	transform: scale(1.03);
-	opacity: 100%;
+.row {
+    padding-top: 5rem;
+}
 
-	color: black;
-	text-shadow: white 1px 0 5px;
 
-	background: url("../../../assets/imagenes/img/img-5.png")
-	 no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover; 
-	margin-right: 100px;
+.title-esp {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    bottom: 0;
+}
 
-	box-shadow:
-		0.6px 0.7px 0.2px -5px rgba(0, 0, 0, 0.04),
-		1.4px 1.6px 0.4px -5px rgba(0, 0, 0, 0.059),
-		2.4px 2.8px 0.6px -5px rgba(0, 0, 0, 0.073),
-		3.6px 4.2px 1px -5px rgba(0, 0, 0, 0.084),
-		5.1px 6px 1.4px -5px rgba(0, 0, 0, 0.095),
-		7.3px 8.5px 1.9px -5px rgba(0, 0, 0, 0.106),
-		10.3px 12.1px 2.8px -5px rgba(0, 0, 0, 0.117),
-		15px 17.5px 4px -5px rgba(0, 0, 0, 0.131),
-		23.1px 27px 6.2px -5px rgba(0, 0, 0, 0.15),
-		41px 48px 11px -5px rgba(0, 0, 0, 0.19)
-	;
+.title-pac {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    bottom: 0;
+}
 
-  }
 
-  .especialista{
-	border-radius: 20px;
-	height: 600px;
-	width: 500px;
-	transform: scale(1.03);
-	opacity: 100%;
+.paciente {
+    border-radius: 0.3rem;
+    height: 24rem;
+    width: 30rem;
+    transform: scale(1);
+    color: black;
+    text-shadow: white 1px 0 5px;
+    background: linear-gradient(to top, #00000096, #00000010, #00000005, #00000010, #00000096), url("../../../assets/imagenes/img/img-7.webp") 40% / cover no-repeat;
+    box-shadow: 4px 4px 30px #000000ce;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 100px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
 
-	color: black;
-	text-shadow: white 1px 0 5px;
-
-	background: url("../../../assets/imagenes/img/img-2.png")
-	 no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover; 
-
-	box-shadow:
-		0.6px 0.7px 0.2px -5px rgba(0, 0, 0, 0.04),
-		1.4px 1.6px 0.4px -5px rgba(0, 0, 0, 0.059),
-		2.4px 2.8px 0.6px -5px rgba(0, 0, 0, 0.073),
-		3.6px 4.2px 1px -5px rgba(0, 0, 0, 0.084),
-		5.1px 6px 1.4px -5px rgba(0, 0, 0, 0.095),
-		7.3px 8.5px 1.9px -5px rgba(0, 0, 0, 0.106),
-		10.3px 12.1px 2.8px -5px rgba(0, 0, 0, 0.117),
-		15px 17.5px 4px -5px rgba(0, 0, 0, 0.131),
-		23.1px 27px 6.2px -5px rgba(0, 0, 0, 0.15),
-		41px 48px 11px -5px rgba(0, 0, 0, 0.19)
-	;	
-  }
-
-.paciente:hover{
-	cursor: pointer;
-	transform: scale(1.1);
-	opacity: 100%;
+.paciente:hover {
+    cursor: pointer;
+    background: linear-gradient(to top, #153982b0, #15398293, #15398270, #15398293, #153982b0), url("../../../assets/imagenes/img/img-7.webp") 40% / cover no-repeat;
+    transform: scale(1.1);
 }
 
 .paciente:active {
-	transform: scale(0.95);
+    transform: scale(0.95);
 }
 
 .paciente:focus {
-	outline: none;
+    outline: none;
 }
 
 
-.especialista:hover{
-	cursor: pointer;
-	transform: scale(1.1);
-	opacity: 100%;
+
+.especialista {
+    border-radius: 0.3rem;
+    height: 24rem;
+    width: 30rem;
+    transform: scale(1);
+    color: black;
+    text-shadow: white 1px 0 5px;
+    background: linear-gradient(to top, #00000096, #00000010, #00000005, #00000010, #00000096), url("../../../assets/imagenes/img/img-6.webp") 40% / cover no-repeat;
+    box-shadow: 4px 4px 30px #000000ce;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    margin-right: 100px;
+}
+
+.especialista:hover {
+    cursor: pointer;
+    background: linear-gradient(to top, #153982b0, #15398293, #15398270, #15398293, #153982b0), url("../../../assets/imagenes/img/img-6.webp") 40% / cover no-repeat;
+    transform: scale(1.1);
 }
 
 .especialista:active {
-	transform: scale(0.95);
+    transform: scale(0.95);
 }
 
 .especialista:focus {
-	outline: none;
+    outline: none;
 }
 
+.form-registro {
+    padding-top: 8rem;
+}
+
+@media (max-width: 768px) {
+    .especialista {
+        height: 50vh;
+        width: 38vw;
+        max-width: none;
+    }
+
+    .paciente {
+        height: 50vh;
+        width: 38vw;
+        max-width: none;
+    }
+}

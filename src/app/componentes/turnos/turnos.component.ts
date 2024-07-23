@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FirestoreService } from 'src/app/servicios/firestore.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -84,4 +84,9 @@ export class TurnosComponent implements OnInit {
 			return `with: ${reason}`;
 		}
 	}
+
+  
+  clearFilters(){
+    this.filtroNombreEspecialista = this.filtroEspecialidad = this.filtroApellidoEspecialista = "";    
+  }
 }

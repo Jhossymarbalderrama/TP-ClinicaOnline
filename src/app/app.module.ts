@@ -54,6 +54,7 @@ import { DetalleHistoriaClinicaComponent } from './componentes/detalle-historia-
 import { FiltroTurnosCualquierCampoPipe } from './pipes/filtro-turnos-cualquier-campo.pipe';
 import { ChartsAdministradorComponent } from './componentes/charts-administrador/charts-administrador.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     HistoriaClinicaComponent,
     DetalleHistoriaClinicaComponent,
     FiltroTurnosCualquierCampoPipe,
-    ChartsAdministradorComponent    
+    ChartsAdministradorComponent,
+    FooterComponent    
   ],
   imports: [
     BrowserModule,

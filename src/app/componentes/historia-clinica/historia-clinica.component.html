@@ -1,3 +1,4 @@
+<!--          
 <div class="header-form">
     <div class="btn-volver" (click)="volver()" *ngIf="this.AuthService.user.tipoUsuario == 'ADM'">
         <svg width="46" height="46" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -7,60 +8,72 @@
         </svg>
         <a style="margin-left: 10px;">volver</a>
     </div>
-</div>
+</div> -->
 
-<div class="container">
-    <h2 style="padding: 5px 0px 5px 0px;">Historias Clinicas de Pacientes</h2>
-    <div class="d-flex align-items-center" *ngIf="this.spinner" style="color: #153A82;">
-        <strong>Cargando lista...</strong>
-        <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
-    </div>
 
-    <div *ngIf="!this.spinner">
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card mb-4 p-4">
+                        <div>
+                            <h3 class="fw-bold">Historia Clinico</h3>
+                            <div style="width: 100%;">
+                                <h4>Seleccion de Paciente:</h4>
 
-        <div class="row row-cols-1 row-cols-md-5 g-4">
-            <div class="col" *ngFor='let paciente of this.listaPacienteAux'>
-              <div class="card">
-                <img src="{{paciente.foto}}" class="card-img-top" height="250px" width="autp">
-                <div class="card-body">
-                  <h5 class="card-title">Datos paciente</h5>
-                  <p class="card-text">
-                    <a>Nombre: {{paciente.apellido + " " + paciente.nombre}}</a>
-                    <br>
-                    <a>DNI: {{paciente.dni}}</a>
-                    <br>
-                    <a>Obra Social: {{paciente.obra_social}}</a>
-                    <br>
-                    <a>Mail: {{paciente.mail}}</a>
-                    <br>
-                    <button class="mt-2 btn btn-outline-dark" (click)='seleccionarPaciente(paciente)'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-file-earmark-medical" viewBox="0 0 16 16">
-                            <path
-                                d="M7.5 5.5a.5.5 0 0 0-1 0v.634l-.549-.317a.5.5 0 1 0-.5.866L6 7l-.549.317a.5.5 0 1 0 .5.866l.549-.317V8.5a.5.5 0 1 0 1 0v-.634l.549.317a.5.5 0 1 0 .5-.866L8 7l.549-.317a.5.5 0 1 0-.5-.866l-.549.317V5.5zm-2 4.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 2a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z" />
-                            <path
-                                d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
-                        </svg>
-                        Ver Historia Clinica</button>    
-                  </p>
+                                <div class="d-flex align-items-center" *ngIf="this.spinner" style="color: #153A82;">
+                                    <span>Cargando lista...</span>
+                                    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                                </div>
+
+
+                                <div *ngIf="!this.spinner">
+
+                                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-2">
+                                        <div class="col" *ngFor='let paciente of listaPacienteAux'>
+                                          <div class="card h-100">
+                                            <img src="{{paciente.foto}}" class="card-img-top" alt="Foto del paciente" style="height: 100px; width: 100%; object-fit: cover;">
+                                            <div class="card-body">
+                                              <h6 class="card-title fw-bold text-capitalize">
+                                                {{paciente.apellido + " " + paciente.nombre}}
+                                              </h6>
+                                              <div class="card-text">                                                
+                                                <p class="info-dni fw-bold">DNI: {{paciente.dni}}</p>  
+                                                <p class="fw-bold"><u>Email:</u> {{paciente.mail}}</p>
+                                              </div>                                              
+                                              <button class="mt-2 btn w-100 g-1" (click)='seleccionarPaciente(paciente)'>
+                                                <i class="fa-solid fa-file-waveform "></i>
+                                                Ver Historial
+                                              </button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      
+                                </div>
+
+
+                                <div>
+                                    <div class="d-flex align-items-center" *ngIf="this.spinnerHC"
+                                        style="color: #153A82;">
+                                        <span>Buscando historial clinico...</span>
+                                        <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                                    </div>
+
+                                    <div *ngIf="!this.spinnerHC">
+                                        <div style="padding: 5px 5px 5px 5px">
+                                            <app-detalle-historia-clinica [selectPaciente]='this.pacienteSeleccionado'>
+                                            </app-detalle-historia-clinica>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
         </div>
-    </div>
-
-
-    <div>
-        <div class="d-flex align-items-center" *ngIf="this.spinnerHC" style="color: #153A82;">
-            <strong>Buscando historial clinico...</strong>
-            <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
-        </div>
-
-        <div *ngIf="!this.spinnerHC">
-            <div style="padding: 5px 5px 5px 5px">
-                <app-detalle-historia-clinica [selectPaciente]='this.pacienteSeleccionado'>
-                </app-detalle-historia-clinica>
-            </div>
-        </div>
-
-    </div>
+    </section>
+</body>
