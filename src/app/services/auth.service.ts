@@ -6,47 +6,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class AuthService {
 
-  //Despues de tester dejar en ""
-  user: any = {};
-
-  // ! User Especialista
-  //   user: any = {
-  //     "apellido": "robles",
-  //     "horarioLV": [
-  //         "8:00 a 8:30",
-  //         "15:30 a 16:00"
-  //     ],
-  //     "edad": 36,
-  //     "tipoUsuario": "ESP",
-  //     "dni": 45445512,
-  //     "mail": "maria@gmail.com",
-  //     "id": "0D70irXQTzkiJJJQrrWG",
-  //     "password": "maria123",
-  //     "foto": "https://firebasestorage.googleapis.com/v0/b/tp-clinicaonline-ef480.appspot.com/o/Avatara.png?alt=media&token=47e28953-3fdb-4c1f-b64b-4bbba5c6010d",
-  //     "horarioS": [
-  //         "8:00 a 8:30",
-  //         "13:30 a 14:00"
-  //     ],
-  //     "nombre": "maria",
-  //     "habilitado": true,
-  //     "especialidad": [
-  //         "Cardiología"
-  //     ]
-  // };
-
-
-  // ! User ADMIN
-  //   {
-  //     "password": "Pedro159",
-  //     "nombre": "pedro",
-  //     "apellido": "lopez",
-  //     "tipoUsuario": "ADM",
-  //     "mail": "pedro@gmail.com",
-  //     "edad": 30,
-  //     "foto": "https://firebasestorage.googleapis.com/v0/b/tp-clinicaonline-ef480.appspot.com/o/B.png?alt=media&token=fe1aa44b-a3a4-46b6-8ae9-1e409aaf334d",
-  //     "dni": 54545554,
-  //     "id": "RPALQYrlwcGwc3KUjdyl"
-  // };
+  user: any = {}; // ! User Log
 
   userDateFirebase: any;
 
@@ -59,27 +19,40 @@ export class AuthService {
   }
 
 
+  /**
+   * Verificacion de Email por Firebase Users 
+   * @returns 
+   */
   async sendVerificationEmail(): Promise<void> {
     return (await this.afAuth.currentUser)?.sendEmailVerification();
   }
 
+
+  /**
+   * Login de usuarios
+   * @param email email del usuario
+   * @param password contraseña del usuario
+   * @returns 
+   */
   async login(email: string, password: string) {
     try {
       const result = await this.afAuth.signInWithEmailAndPassword(
         email,
         password
       );
-
+      localStorage.setItem("Login", JSON.stringify({email: email, password: password}))
       this.userDateFirebase = result;
-      //console.log(this.user);
       return result;
-
     } catch (error) {
-      //console.log(error);
       return error;
     }
   }
 
+  /**
+   * Registro de Usuario
+   * @param email email del usuario
+   * @param password contraseña del usuario
+   */
   async register(email: string, password: string) {
     try {
       const result = await this.afAuth.createUserWithEmailAndPassword(
@@ -89,15 +62,17 @@ export class AuthService {
 
       this.sendVerificationEmail();
     } catch (error) {
-      //console.log(error);
     }
   }
 
+  /**
+   * Logout de Usuario
+   */
   async logout() {
     try {
       await this.afAuth.signOut();
+      localStorage.removeItem("Login");
     } catch (error) {
-      //console.log(error);
     }
   }
 }

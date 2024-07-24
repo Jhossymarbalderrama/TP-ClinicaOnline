@@ -1,52 +1,26 @@
 <div class="container">
   <div class="d-flex align-items-center" *ngIf="this.spinner" style="color: #153A82;">
-    <strong>Cargando lista...</strong>
+    <span>Cargando lista...</span>
     <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
   </div>
 
   <div *ngIf="!this.spinner">
-    
-    <table class="table table-striped  table-hover" id="excel-table">
+
+    <table class="table table-striped table-bordered table-hover" id="excel-table">
       <tbody align="start">
         <tr *ngFor='let paciente of this.listadoPacientes'>
-          <td align="center" class="select-usuario">
-            <img src="{{paciente.foto}}" class="img-usuario" (click)="cargarTurnosXPaciente(paciente)">
-            <p style="font-weight: bold;">{{paciente?.nombre}}</p>            
+          <td class="select-usuario">
+            <img src="{{paciente.foto}}" class="img-usuario">
+            <span class="name-user text-capitalize">{{paciente?.nombre}}  {{paciente?.apellido}}</span>
           </td>
           <td align="center">
-            <button class="mt-2 btn btn-outline-dark" (click)='seleccionarPaciente(paciente)'>
+            <button class="btn " (click)='seleccionarPaciente(paciente)'>
               <p>
-                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-card-heading" viewBox="0 0 16 16">
-                  <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
-                  <path d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z"/>
-                </svg>  
-              </p>            
+                <i class="fa-solid fa-book-open"></i>
+              </p>
               <p>Ver informacion</p>
             </button>
           </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div hidden>
-    <table class="table table-striped  table-hover" id="excel-table-paciente">
-      <thead class="thead-dark" align="start">
-        <tr>
-          <th scope="col">Fecha Turno</th>
-          <th scope="col">Especialidad</th>
-          <th scope="col">Nombre Especialista</th>
-        </tr>
-      </thead>
-      <tbody align="start">
-        <tr *ngFor='let usuario of this.listaTurnosXpaciente'>
-          <td>{{usuario?.fecha}}</td>
-          <td>{{usuario?.especialidad}}</td>
-          <td>{{usuario?.especialista.apellido + " " + usuario?.especialista.nombre}}</td>
-        </tr>
-  
-        <tr *ngIf="this.listaTurnosXpaciente.length == 0">
-          <td>No se encontro turnos...</td>
         </tr>
       </tbody>
     </table>

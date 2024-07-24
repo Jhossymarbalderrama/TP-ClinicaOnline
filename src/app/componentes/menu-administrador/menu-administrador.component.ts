@@ -56,7 +56,7 @@ export class MenuAdministradorComponent implements OnInit {
   }
 
 
-  onSeccionUsuarios() {
+  onSeccionUsuarios() {    
     this.resetValues();
     this.seccionUsuariosActivate = true;
   }

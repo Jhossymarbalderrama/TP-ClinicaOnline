@@ -4,13 +4,6 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 import { Paciente } from 'src/app/classes/paciente';
 import { AuthService } from 'src/app/services/auth.service';
 
-// import pdfMake from 'pdfmake/build/pdfmake';
-// import pdfFonts from 'pdfmake/build/vfs_fonts';
-// pdfMake.vfs = pdfFonts.pdfMake.vfs;
-
-// import jsPDF from 'jspdf';
-// import html2canvas from 'html2canvas';
-
 @Component({
   selector: 'app-historia-clinica',
   templateUrl: './historia-clinica.component.html',
@@ -53,9 +46,6 @@ export class HistoriaClinicaComponent implements OnInit {
       this.cargarPacientes();
     });
 
-    // if(this.AuthService.user.tipoUsuario == 'ESP'){
-    //   this.buscarPacientesXespecialista();
-    // }
   }
 
   cargarPacientes(){
@@ -108,9 +98,6 @@ export class HistoriaClinicaComponent implements OnInit {
     }, 1000);
   }
   
-  // buscarPacientesXespecialista(){
-    
-  // }
   
   seleccionarPaciente(paciente: any) {
       this.spinnerHC = true;

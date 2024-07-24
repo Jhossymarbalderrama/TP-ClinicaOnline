@@ -53,7 +53,6 @@ export class MisTurnosComponent implements OnInit {
     setTimeout(() => {
       this.spinner = false;
     }, 1700);
-    //console.log(this.listTurnosCargados);
   }
 
   cargarTurnosPacientes() {
@@ -77,7 +76,6 @@ export class MisTurnosComponent implements OnInit {
   cancelarTurno(turno: any, content: any) {
     this.datosTurnoSeleccionado = turno;
     this.open(content);
-    // console.log(this.datosTurnoSeleccionado);
   }
 
   verResenea(turno: any, contentResenea: any) {
@@ -110,15 +108,6 @@ export class MisTurnosComponent implements OnInit {
     this.FirestoreService.modificarTurno(datosTurno, datosTurno.id);
   }
 
-
-  // referenciaFormAltaHistoriaClinica: any;
-
-  // finalizarTurno(turno: any, reseneaDiagnostico: any, altaHistoriaclinica: any){
-  //   this.datosTurnoSeleccionado = turno;
-  //   this.referenciaFormAltaHistoriaClinica = altaHistoriaclinica;  
-  //   this.openReseneaDiagnosticoEsp(reseneaDiagnostico);  
-  // }
-
   referenciaFormAltaHistoriaClinica: any;
   async finalizarTurno(turno: any, reseneaDiagnostico: any, altaHistoriaclinica: any) {
     this.datosTurnoSeleccionado = turno;
@@ -129,26 +118,17 @@ export class MisTurnosComponent implements OnInit {
 
 
   ngOnInit(): void {
-    //console.log(this.listTurnosCargados);
+
   }
 
-  // eliminarRepetidos(){
-  //   let result = [];
-
-  //   result = this.listTurnosCargados.filter((item:any,index:any) =>{
-  //     return this.listTurnosCargados(item) === index;
-  //   });
-
-  //   this.listTurnosCargados = result;
-  // }
 
   open(content: any) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
       (result) => {
         this.commentarioCancelacion = this.auxComentario;
         this.auxComentario = "";
-        //Cancelo el turno
-        this.datosTurnoSeleccionado.estado_turno = "Cancelado";
+        
+        this.datosTurnoSeleccionado.estado_turno = "Cancelado"; // ! Cancelo el turno
         this.datosTurnoSeleccionado.comentario_cancelacion = this.commentarioCancelacion;
 
         this.FirestoreService.modificarTurno(this.datosTurnoSeleccionado, this.datosTurnoSeleccionado.id);
@@ -166,8 +146,8 @@ export class MisTurnosComponent implements OnInit {
       (result) => {
         this.commentarioCancelacion = "Turno Rechazado por el especialista, motivos: " + this.comentarioRechazarTurno;
         this.comentarioRechazarTurno = "";
-        //Rechazo Turno
-        this.datosTurnoSeleccionado.estado_turno = "Rechazado";
+        
+        this.datosTurnoSeleccionado.estado_turno = "Rechazado"; // ! Rechazo Turno
         this.datosTurnoSeleccionado.comentario_cancelacion = this.commentarioCancelacion;
 
         this.FirestoreService.modificarTurno(this.datosTurnoSeleccionado, this.datosTurnoSeleccionado.id);
@@ -260,7 +240,7 @@ export class MisTurnosComponent implements OnInit {
   }
 
 
-  //Alta Historia CLinica
+  // ? Alta Historia CLinica
   altura: string = "";
   peso: string = "";
   temperatura: string = "";

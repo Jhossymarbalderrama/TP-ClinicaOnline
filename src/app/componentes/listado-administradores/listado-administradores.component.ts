@@ -29,7 +29,6 @@ export class ListadoAdministradoresComponent implements OnInit {
   }
 
   seleccionarPaciente(administrador: Administrador){
-    //console.log(administrador);
     this.usuarioEvent.emit(administrador);
   }
 

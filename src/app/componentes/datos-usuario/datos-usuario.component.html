@@ -17,38 +17,38 @@
                     <div class="row">
                         <div class="col-md-12 mb-3">
                             <label for="firstName">Nombre</label>
-                            <input type="text" class="form-control" value="{{this.paciente.nombre}}" readonly>
+                            <input type="text" class="form-control text-capitalize" value="{{this.paciente.nombre}}" disabled>
                         </div>
 
                         <div class="col-md-12 mb-3">
                             <label for="firstName">Apellido</label>
-                            <input type="text" class="form-control" value="{{this.paciente.apellido}}" readonly>
+                            <input type="text" class="form-control text-capitalize" value="{{this.paciente.apellido}}" disabled>
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="firstName">Edad</label>
-                            <input type="number" class="form-control" value="{{this.paciente.edad}}" readonly>
+                            <input type="number" class="form-control" value="{{this.paciente.edad}}" disabled>
                         </div>
 
                         <div class="col-md-12 mb-3">
                             <label for="firstName">DNI</label>
-                            <input type="text" class="form-control" value="{{this.paciente.dni}}" readonly>
+                            <input type="text" class="form-control" value="{{this.paciente.dni}}" disabled>
                         </div>
 
                         <div class="col-md-12 mb-3">
                             <label for="firstName">Obra Social</label>
-                            <input type="text" class="form-control" value="{{this.paciente.obra_social}}" readonly>
+                            <input type="text" class="form-control" value="{{this.paciente.obra_social}}" disabled>
                         </div>
 
                         <div class="col-md-12 mb-3">
                             <label for="firstName">Mail</label>
-                            <input type="text" class="form-control" value="{{this.paciente.mail}}" readonly>
+                            <input type="text" class="form-control" value="{{this.paciente.mail}}" disabled>
                         </div>
 
                         <div class="col-md-12 mb-3">
                             <label for="firstName">Fotos</label>
                             <div class="row">
                                 <div class="col" *ngFor='let url of this.paciente.foto'>
-                                    <img src="{{url}}" height="150px" width="auto">
+                                    <img src="{{url}}" height="100px" width="auto">
                                 </div>
                             </div>
                         </div>
@@ -60,38 +60,38 @@
                     <div class="row">
                         <div class="col-md-12 mb-3">
                             <label for="firstName">Nombre</label>
-                            <input type="text" class="form-control" value="{{this.especialista.nombre}}" readonly>
+                            <input type="text" class="form-control text-capitalize" value="{{this.especialista.nombre}}" disabled>
                         </div>
 
                         <div class="col-md-12 mb-3">
                             <label for="firstName">Apellido</label>
-                            <input type="text" class="form-control" value="{{this.especialista.apellido}}" readonly>
+                            <input type="text" class="form-control text-capitalize" value="{{this.especialista.apellido}}" disabled>
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="firstName">Edad</label>
-                            <input type="number" class="form-control" value="{{this.especialista.edad}}" readonly>
+                            <input type="number" class="form-control" value="{{this.especialista.edad}}" disabled>
                         </div>
 
                         <div class="col-md-12 mb-3">
                             <label for="firstName">DNI</label>
-                            <input type="text" class="form-control" value="{{this.especialista.dni}}" readonly>
+                            <input type="text" class="form-control" value="{{this.especialista.dni}}" disabled>
                         </div>
 
                         <div class="col-md-12 mb-3">
                             <label for="firstName">Especialidad</label>
-                            <input type="text" class="form-control" value="{{this.especialista.especialidad}}" readonly>
+                            <input type="text" class="form-control" value="{{this.especialista.especialidad}}" disabled>
                         </div>
 
                         <div class="col-md-12 mb-3">
                             <label for="firstName">Mail</label>
-                            <input type="text" class="form-control" value="{{this.especialista.mail}}" readonly>
+                            <input type="text" class="form-control" value="{{this.especialista.mail}}" disabled>
                         </div>
 
                         <div class="col-md-12 mb-3">
                             <label for="firstName">Foto</label>
                             <div class="row">
                                 <div class="col">
-                                    <img src="{{this.especialista.foto}}" height="150px" width="auto">
+                                    <img src="{{this.especialista.foto}}" height="100px" width="auto">
                                 </div>
                             </div>
                         </div>
@@ -103,33 +103,33 @@
                     <div class="row">
                         <div class="col-md-12 mb-3">
                             <label for="firstName">Nombre</label>
-                            <input type="text" class="form-control" value="{{this.administrador.nombre}}" readonly>
+                            <input type="text" class="form-control text-capitalize" value="{{this.administrador.nombre}}" disabled>
                         </div>
 
                         <div class="col-md-12 mb-3">
                             <label for="firstName">Apellido</label>
-                            <input type="text" class="form-control" value="{{this.administrador.apellido}}" readonly>
+                            <input type="text" class="form-control text-capitalize" value="{{this.administrador.apellido}}" disabled>
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="firstName">Edad</label>
-                            <input type="number" class="form-control" value="{{this.administrador.edad}}" readonly>
+                            <input type="number" class="form-control" value="{{this.administrador.edad}}" disabled>
                         </div>
 
                         <div class="col-md-12 mb-3">
                             <label for="firstName">DNI</label>
-                            <input type="text" class="form-control" value="{{this.administrador.dni}}" readonly>
+                            <input type="text" class="form-control" value="{{this.administrador.dni}}" disabled>
                         </div>
 
                         <div class="col-md-12 mb-3">
                             <label for="firstName">Mail</label>
-                            <input type="text" class="form-control" value="{{this.administrador.mail}}" readonly>
+                            <input type="text" class="form-control" value="{{this.administrador.mail}}" disabled>
                         </div>
 
                         <div class="col-md-12 mb-3">
                             <label for="firstName">Foto</label>
                             <div class="row">
                                 <div class="col">
-                                    <img src="{{this.administrador.foto}}" height="150px" width="auto">
+                                    <img src="{{this.administrador.foto}}" height="100px" width="auto">
                                 </div>
                             </div>
                         </div>

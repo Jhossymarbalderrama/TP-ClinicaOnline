@@ -39,7 +39,6 @@ export class DatosUsuarioComponent implements OnInit {
           this.isESP = false;
           this.isADM = false;
   
-          //console.log(this.paciente);
           break;
         case "ESP":
           this.especialista.nombre = value.nombre;
@@ -54,7 +53,6 @@ export class DatosUsuarioComponent implements OnInit {
           this.isPAC = false;
           this.isADM = false;
   
-          //console.log(this.especialista);
           break;
         case "ADM":
           this.administrador.nombre = value.nombre;
@@ -67,8 +65,6 @@ export class DatosUsuarioComponent implements OnInit {
           this.isADM = true;
           this.isPAC = false;
           this.isESP = false;
-  
-          //console.log(this.administrador);
           break;
       }
     }, 500);

@@ -16,7 +16,7 @@
 
                 <div class="col" (click)="listarUsuario('PAC')">
                     <div class="card shadow-sm paci-list">
-                        <div class="title-sections section-list pt-1" >
+                        <div class="title-sections section-list pt-1">
                             <h5>
                                 Pacientes
                             </h5>
@@ -26,7 +26,7 @@
 
                 <div class="col" (click)="listarUsuario('ESP')">
                     <div class="card shadow-sm espe-list" align="start">
-                        <div class="title-sections section-list pt-1" >
+                        <div class="title-sections section-list pt-1">
                             <h5>
                                 Especialistas
                             </h5>
@@ -35,8 +35,8 @@
                 </div>
 
                 <div class="col" (click)="listarUsuario('ADM')">
-                    <div class="card shadow-sm admin-list" >
-                        <div class="title-sections section-list pt-1" >
+                    <div class="card shadow-sm admin-list">
+                        <div class="title-sections section-list pt-1">
                             <h5>
                                 Administradores
                             </h5>
@@ -55,7 +55,7 @@
 
                 <div class="col" (click)="registroUsuario('PAC')">
                     <div class="card shadow-sm paci-reg">
-                        <div class="title-sections section-register pt-1" >
+                        <div class="title-sections section-register pt-1">
                             <h5>
                                 Pacientes
                             </h5>
@@ -66,7 +66,7 @@
 
                 <div class="col" (click)="registroUsuario('ESP')">
                     <div class="card shadow-sm espe-reg" align="start">
-                        <div class="title-sections section-register pt-1" >
+                        <div class="title-sections section-register pt-1">
                             <h5>
                                 Especialistas
                             </h5>
@@ -77,7 +77,7 @@
 
                 <div class="col" (click)="registroUsuario('ADM')">
                     <div class="card shadow-sm admin-reg">
-                        <div class="title-sections section-register pt-1" >
+                        <div class="title-sections section-register pt-1">
                             <h5>
                                 Administradores
                             </h5>
@@ -96,7 +96,7 @@
 
                 <div class="col" (click)="verHistoriasClinicas()" align="center">
                     <div class="card shadow-sm paci-reg">
-                        <div class="title-sections section-list pt-1" >
+                        <div class="title-sections section-list pt-1">
                             <h5>
                                 Pacientes
                             </h5>
@@ -107,7 +107,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- ! Div necesario para creacion de Excel -->
     <div hidden>
@@ -140,17 +139,17 @@
     </div>
 
 
-    <div *ngIf="this.infoUsuarios" class="slide-left ">
+    <div *ngIf="this.infoUsuarios" class="scale-up-center ">
         <app-info-usuarios (volverEvent)="estadoInfoUsuarios($event)" [tipoListado]='this.tipoListado'>
         </app-info-usuarios>
     </div>
 
-    <div *ngIf="this.registroUsuariosAdmin"  class="slide-top ">
+    <div *ngIf="this.registroUsuariosAdmin" class="scale-up-center">
         <app-registro-usuarios-administrador (volverEvent)="estadoRegistroUsuario($event)"
             [tipoRegistro]='this.tipoListado'></app-registro-usuarios-administrador>
     </div>
 
-    <div *ngIf="this.historiasClincias" class="slide-left ">
+    <div *ngIf="this.historiasClincias" class="scale-up-center ">
         <app-historia-clinica (volverEvent)="estadoHistoriasClinicas($event)"></app-historia-clinica>
     </div>
 

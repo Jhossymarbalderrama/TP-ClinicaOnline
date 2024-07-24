@@ -50,7 +50,6 @@ export class TurnosComponent implements OnInit {
   cancelarTurno(turno: any, content: any){
     this.datosTurnoSeleccionado = turno;
     this.open(content);
-    // console.log(this.datosTurnoSeleccionado);
   }
 
   open(content:any) {

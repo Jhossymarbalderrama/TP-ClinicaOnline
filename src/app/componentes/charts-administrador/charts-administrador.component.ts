@@ -83,637 +83,12 @@ export class ChartsAdministradorComponent implements OnInit {
   cambioPagination: boolean = false;
 
 
-  auxList: any =
-    [
-      {
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:20:10",
-        "mail": "pedro@gmail.com",
-        "id": "02C6lcOi075mmHsJ7wXB"
-      },
-      {
-        "fecha": "19/7/2024, 11:49:21",
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "id": "05SzjzzvnMWX0hR6A5Hl"
-      }, {
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:35:47",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "0MaE0OGFyiaTU1n1jSvt"
-      }, {
-        "mail": "pedro@gmail.com",
-        "fecha": "16/7/2024, 13:20:05",
-        "apellido": "lopez",
-        "nombre": "pedro",
-        "id": "0651GehP8cVbFIsRz3EG"
-      },
-      {
-        "fecha": "16/7/2024, 15:08:39",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07EaM2x2PO0y3nG9NBgi"
-      }, {
-        "fecha": "18/7/2024, 16:02:14",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07pVEdEovoE4IPhChvnB"
-      },
-      {
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:20:10",
-        "mail": "pedro@gmail.com",
-        "id": "02C6lcOi075mmHsJ7wXB"
-      },
-      {
-        "fecha": "19/7/2024, 11:49:21",
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "id": "05SzjzzvnMWX0hR6A5Hl"
-      }, {
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:35:47",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "0MaE0OGFyiaTU1n1jSvt"
-      }, {
-        "mail": "pedro@gmail.com",
-        "fecha": "16/7/2024, 13:20:05",
-        "apellido": "lopez",
-        "nombre": "pedro",
-        "id": "0651GehP8cVbFIsRz3EG"
-      },
-      {
-        "fecha": "16/7/2024, 15:08:39",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07EaM2x2PO0y3nG9NBgi"
-      }, {
-        "fecha": "18/7/2024, 16:02:14",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07pVEdEovoE4IPhChvnB"
-      },
-      {
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:20:10",
-        "mail": "pedro@gmail.com",
-        "id": "02C6lcOi075mmHsJ7wXB"
-      },
-      {
-        "fecha": "19/7/2024, 11:49:21",
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "id": "05SzjzzvnMWX0hR6A5Hl"
-      }, {
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:35:47",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "0MaE0OGFyiaTU1n1jSvt"
-      }, {
-        "mail": "pedro@gmail.com",
-        "fecha": "16/7/2024, 13:20:05",
-        "apellido": "lopez",
-        "nombre": "pedro",
-        "id": "0651GehP8cVbFIsRz3EG"
-      },
-      {
-        "fecha": "16/7/2024, 15:08:39",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07EaM2x2PO0y3nG9NBgi"
-      }, {
-        "fecha": "18/7/2024, 16:02:14",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07pVEdEovoE4IPhChvnB"
-      },
-      {
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:20:10",
-        "mail": "pedro@gmail.com",
-        "id": "02C6lcOi075mmHsJ7wXB"
-      },
-      {
-        "fecha": "19/7/2024, 11:49:21",
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "id": "05SzjzzvnMWX0hR6A5Hl"
-      }, {
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:35:47",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "0MaE0OGFyiaTU1n1jSvt"
-      }, {
-        "mail": "pedro@gmail.com",
-        "fecha": "16/7/2024, 13:20:05",
-        "apellido": "lopez",
-        "nombre": "pedro",
-        "id": "0651GehP8cVbFIsRz3EG"
-      },
-      {
-        "fecha": "16/7/2024, 15:08:39",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07EaM2x2PO0y3nG9NBgi"
-      }, {
-        "fecha": "18/7/2024, 16:02:14",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07pVEdEovoE4IPhChvnB"
-      }, {
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:20:10",
-        "mail": "pedro@gmail.com",
-        "id": "02C6lcOi075mmHsJ7wXB"
-      },
-      {
-        "fecha": "19/7/2024, 11:49:21",
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "id": "05SzjzzvnMWX0hR6A5Hl"
-      }, {
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:35:47",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "0MaE0OGFyiaTU1n1jSvt"
-      }, {
-        "mail": "pedro@gmail.com",
-        "fecha": "16/7/2024, 13:20:05",
-        "apellido": "lopez",
-        "nombre": "pedro",
-        "id": "0651GehP8cVbFIsRz3EG"
-      },
-      {
-        "fecha": "16/7/2024, 15:08:39",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07EaM2x2PO0y3nG9NBgi"
-      }, {
-        "fecha": "18/7/2024, 16:02:14",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07pVEdEovoE4IPhChvnB"
-      },
-      {
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:20:10",
-        "mail": "pedro@gmail.com",
-        "id": "02C6lcOi075mmHsJ7wXB"
-      },
-      {
-        "fecha": "19/7/2024, 11:49:21",
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "id": "05SzjzzvnMWX0hR6A5Hl"
-      }, {
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:35:47",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "0MaE0OGFyiaTU1n1jSvt"
-      }, {
-        "mail": "pedro@gmail.com",
-        "fecha": "16/7/2024, 13:20:05",
-        "apellido": "lopez",
-        "nombre": "pedro",
-        "id": "0651GehP8cVbFIsRz3EG"
-      },
-      {
-        "fecha": "16/7/2024, 15:08:39",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07EaM2x2PO0y3nG9NBgi"
-      }, {
-        "fecha": "18/7/2024, 16:02:14",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07pVEdEovoE4IPhChvnB"
-      }, {
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:20:10",
-        "mail": "pedro@gmail.com",
-        "id": "02C6lcOi075mmHsJ7wXB"
-      },
-      {
-        "fecha": "19/7/2024, 11:49:21",
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "id": "05SzjzzvnMWX0hR6A5Hl"
-      }, {
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:35:47",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "0MaE0OGFyiaTU1n1jSvt"
-      }, {
-        "mail": "pedro@gmail.com",
-        "fecha": "16/7/2024, 13:20:05",
-        "apellido": "lopez",
-        "nombre": "pedro",
-        "id": "0651GehP8cVbFIsRz3EG"
-      },
-      {
-        "fecha": "16/7/2024, 15:08:39",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07EaM2x2PO0y3nG9NBgi"
-      }, {
-        "fecha": "18/7/2024, 16:02:14",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07pVEdEovoE4IPhChvnB"
-      },
-      {
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:20:10",
-        "mail": "pedro@gmail.com",
-        "id": "02C6lcOi075mmHsJ7wXB"
-      },
-      {
-        "fecha": "19/7/2024, 11:49:21",
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "id": "05SzjzzvnMWX0hR6A5Hl"
-      }, {
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:35:47",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "0MaE0OGFyiaTU1n1jSvt"
-      }, {
-        "mail": "pedro@gmail.com",
-        "fecha": "16/7/2024, 13:20:05",
-        "apellido": "lopez",
-        "nombre": "pedro",
-        "id": "0651GehP8cVbFIsRz3EG"
-      },
-      {
-        "fecha": "16/7/2024, 15:08:39",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07EaM2x2PO0y3nG9NBgi"
-      }, {
-        "fecha": "18/7/2024, 16:02:14",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07pVEdEovoE4IPhChvnB"
-      }, {
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:20:10",
-        "mail": "pedro@gmail.com",
-        "id": "02C6lcOi075mmHsJ7wXB"
-      },
-      {
-        "fecha": "19/7/2024, 11:49:21",
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "id": "05SzjzzvnMWX0hR6A5Hl"
-      }, {
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:35:47",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "0MaE0OGFyiaTU1n1jSvt"
-      }, {
-        "mail": "pedro@gmail.com",
-        "fecha": "16/7/2024, 13:20:05",
-        "apellido": "lopez",
-        "nombre": "pedro",
-        "id": "0651GehP8cVbFIsRz3EG"
-      },
-      {
-        "fecha": "16/7/2024, 15:08:39",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07EaM2x2PO0y3nG9NBgi"
-      }, {
-        "fecha": "18/7/2024, 16:02:14",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07pVEdEovoE4IPhChvnB"
-      },
-      {
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:20:10",
-        "mail": "pedro@gmail.com",
-        "id": "02C6lcOi075mmHsJ7wXB"
-      },
-      {
-        "fecha": "19/7/2024, 11:49:21",
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "id": "05SzjzzvnMWX0hR6A5Hl"
-      }, {
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:35:47",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "0MaE0OGFyiaTU1n1jSvt"
-      }, {
-        "mail": "pedro@gmail.com",
-        "fecha": "16/7/2024, 13:20:05",
-        "apellido": "lopez",
-        "nombre": "pedro",
-        "id": "0651GehP8cVbFIsRz3EG"
-      },
-      {
-        "fecha": "16/7/2024, 15:08:39",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07EaM2x2PO0y3nG9NBgi"
-      }, {
-        "fecha": "18/7/2024, 16:02:14",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07pVEdEovoE4IPhChvnB"
-      }, {
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:20:10",
-        "mail": "pedro@gmail.com",
-        "id": "02C6lcOi075mmHsJ7wXB"
-      },
-      {
-        "fecha": "19/7/2024, 11:49:21",
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "id": "05SzjzzvnMWX0hR6A5Hl"
-      }, {
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:35:47",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "0MaE0OGFyiaTU1n1jSvt"
-      }, {
-        "mail": "pedro@gmail.com",
-        "fecha": "16/7/2024, 13:20:05",
-        "apellido": "lopez",
-        "nombre": "pedro",
-        "id": "0651GehP8cVbFIsRz3EG"
-      },
-      {
-        "fecha": "16/7/2024, 15:08:39",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07EaM2x2PO0y3nG9NBgi"
-      }, {
-        "fecha": "18/7/2024, 16:02:14",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07pVEdEovoE4IPhChvnB"
-      },
-      {
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:20:10",
-        "mail": "pedro@gmail.com",
-        "id": "02C6lcOi075mmHsJ7wXB"
-      },
-      {
-        "fecha": "19/7/2024, 11:49:21",
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "id": "05SzjzzvnMWX0hR6A5Hl"
-      }, {
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:35:47",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "0MaE0OGFyiaTU1n1jSvt"
-      }, {
-        "mail": "pedro@gmail.com",
-        "fecha": "16/7/2024, 13:20:05",
-        "apellido": "lopez",
-        "nombre": "pedro",
-        "id": "0651GehP8cVbFIsRz3EG"
-      },
-      {
-        "fecha": "16/7/2024, 15:08:39",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07EaM2x2PO0y3nG9NBgi"
-      }, {
-        "fecha": "18/7/2024, 16:02:14",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07pVEdEovoE4IPhChvnB"
-      }, {
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:20:10",
-        "mail": "pedro@gmail.com",
-        "id": "02C6lcOi075mmHsJ7wXB"
-      },
-      {
-        "fecha": "19/7/2024, 11:49:21",
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "id": "05SzjzzvnMWX0hR6A5Hl"
-      }, {
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:35:47",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "0MaE0OGFyiaTU1n1jSvt"
-      }, {
-        "mail": "pedro@gmail.com",
-        "fecha": "16/7/2024, 13:20:05",
-        "apellido": "lopez",
-        "nombre": "pedro",
-        "id": "0651GehP8cVbFIsRz3EG"
-      },
-      {
-        "fecha": "16/7/2024, 15:08:39",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07EaM2x2PO0y3nG9NBgi"
-      }, {
-        "fecha": "18/7/2024, 16:02:14",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07pVEdEovoE4IPhChvnB"
-      },
-      {
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:20:10",
-        "mail": "pedro@gmail.com",
-        "id": "02C6lcOi075mmHsJ7wXB"
-      },
-      {
-        "fecha": "19/7/2024, 11:49:21",
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "id": "05SzjzzvnMWX0hR6A5Hl"
-      }, {
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:35:47",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "0MaE0OGFyiaTU1n1jSvt"
-      }, {
-        "mail": "pedro@gmail.com",
-        "fecha": "16/7/2024, 13:20:05",
-        "apellido": "lopez",
-        "nombre": "pedro",
-        "id": "0651GehP8cVbFIsRz3EG"
-      },
-      {
-        "fecha": "16/7/2024, 15:08:39",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07EaM2x2PO0y3nG9NBgi"
-      }, {
-        "fecha": "18/7/2024, 16:02:14",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07pVEdEovoE4IPhChvnB"
-      }, {
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:20:10",
-        "mail": "pedro@gmail.com",
-        "id": "02C6lcOi075mmHsJ7wXB"
-      },
-      {
-        "fecha": "19/7/2024, 11:49:21",
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "id": "05SzjzzvnMWX0hR6A5Hl"
-      }, {
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:35:47",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "0MaE0OGFyiaTU1n1jSvt"
-      }, {
-        "mail": "pedro@gmail.com",
-        "fecha": "16/7/2024, 13:20:05",
-        "apellido": "lopez",
-        "nombre": "pedro",
-        "id": "0651GehP8cVbFIsRz3EG"
-      },
-      {
-        "fecha": "16/7/2024, 15:08:39",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07EaM2x2PO0y3nG9NBgi"
-      }, {
-        "fecha": "18/7/2024, 16:02:14",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07pVEdEovoE4IPhChvnB"
-      },
-      {
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:20:10",
-        "mail": "pedro@gmail.com",
-        "id": "02C6lcOi075mmHsJ7wXB"
-      },
-      {
-        "fecha": "19/7/2024, 11:49:21",
-        "nombre": "pedro",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "id": "05SzjzzvnMWX0hR6A5Hl"
-      }, {
-        "apellido": "lopez",
-        "fecha": "18/7/2024, 15:35:47",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "0MaE0OGFyiaTU1n1jSvt"
-      }, {
-        "mail": "pedro@gmail.com",
-        "fecha": "16/7/2024, 13:20:05",
-        "apellido": "lopez",
-        "nombre": "pedro",
-        "id": "0651GehP8cVbFIsRz3EG"
-      },
-      {
-        "fecha": "16/7/2024, 15:08:39",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07EaM2x2PO0y3nG9NBgi"
-      }, {
-        "fecha": "18/7/2024, 16:02:14",
-        "apellido": "lopez",
-        "mail": "pedro@gmail.com",
-        "nombre": "pedro",
-        "id": "07pVEdEovoE4IPhChvnB"
-      }
-
-    ]
-
-
   constructor(
     private FirestoreService: FirestoreService
   ) {
-    this.listaLogUsuarios = this.auxList;
-    // this.FirestoreService.listaLogUsuarios().subscribe(log => {
-    //   this.listaLogUsuarios = log;
-    // });
+    this.FirestoreService.listaLogUsuarios().subscribe(log => {
+      this.listaLogUsuarios = log;
+    });
 
     this.FirestoreService.listaTurnos().subscribe(turnos => {
       this.listaTurnos = turnos;
@@ -723,7 +98,6 @@ export class ChartsAdministradorComponent implements OnInit {
       this.listaEspecialistas = especialistas;
       this.cargarEspecialidades();
     });
-
   }
 
 
@@ -823,7 +197,6 @@ export class ChartsAdministradorComponent implements OnInit {
     this.modificarChartSolicitadosXmedico();
   }
 
-
   cargarEspecialidades() {
     this.listaEspecialidades = [];
     this.listMedicos = [];
@@ -845,8 +218,6 @@ export class ChartsAdministradorComponent implements OnInit {
     });
     this.listMedicos = auxMedico;
 
-
-
     setTimeout(() => {
       this.cantTurnoXDia = [0, 0, 0, 0, 0, 0];
 
@@ -859,7 +230,6 @@ export class ChartsAdministradorComponent implements OnInit {
           }
         });
       }
-
 
       this.listaTurnos.forEach(turno => {
         switch (turno.fecha[1]) {
@@ -885,15 +255,12 @@ export class ChartsAdministradorComponent implements OnInit {
       });
 
 
-
-
       for (let i = 0; i < this.listMedicos.length; i++) {
         let contPendiente = 0;
         let contFinalizado = 0;
 
         this.listaTurnos.forEach(turno => {
 
-          //Solicitado
           if (this.listMedicos[i] == (turno.especialista.apellido + ' ' + turno.especialista.nombre) && turno.estado_turno == 'Pendiente') {
             contPendiente++;
             this.cantTurnosPendientesXmedico[i] = contPendiente;
@@ -916,8 +283,6 @@ export class ChartsAdministradorComponent implements OnInit {
 
       this.cargarChartTurnosXespecialidad();
       this.cargarCharBarCantTurnosXdia();
-      //this.cantTurnosSolicitadosXMedico();
-      //this.cantTurnosFinalizadosXMedico();  
       this.modificarChartSolicitadosXmedico();
       this.modificarChartFinalizadosXmedico();
     }, 1000);
@@ -1042,7 +407,6 @@ export class ChartsAdministradorComponent implements OnInit {
       }
     };
 
-
     let charExiste = Chart.getChart('CantTurnosSolicitadoPorMedico');
     if (charExiste != undefined) {
       charExiste.destroy();
@@ -1051,9 +415,7 @@ export class ChartsAdministradorComponent implements OnInit {
     this.chartLine = new Chart("CantTurnosSolicitadoPorMedico",
       this.configChartLine
     );
-
   }
-
 
   cantTurnosFinalizadosXMedico() {
     this.dataChartBarY = {
@@ -1109,8 +471,6 @@ export class ChartsAdministradorComponent implements OnInit {
       this.configChartBarY
     );
 
-    //console.log(this.chartBarY);
-
   }
 
 
@@ -1150,7 +510,6 @@ export class ChartsAdministradorComponent implements OnInit {
 
           if (horaNumber >= horaSelectDesde2 && horaNumber <= horaSelectHasta2) {
             contFinalizado++;
-            //console.log("a");
             this.cantTurnosFinalizadoXmedico[i] = contFinalizado;
           }
         } else if (this.listMedicos[i] != (turno.especialista.apellido + ' ' + turno.especialista.nombre) &&
@@ -1162,7 +521,6 @@ export class ChartsAdministradorComponent implements OnInit {
 
     this.cantTurnosFinalizadosXMedico();
   }
-
 
 
   modificarChartSolicitadosXmedico() {
@@ -1190,10 +548,6 @@ export class ChartsAdministradorComponent implements OnInit {
     horaSelectDesde2 = parseInt(horaSelectDesde2[0] + horaSelectDesde2[1]);
     horaSelectHasta2 = parseInt(horaSelectHasta2[0] + horaSelectHasta2[1]);
 
-    // console.log(horaSelectDesde2);
-    // console.log(horaSelectHasta2);
-
-
     for (let i = 0; i < this.listMedicos.length; i++) {
       let contFinalizado = 0;
       this.listaTurnos.forEach(turno => {
@@ -1206,7 +560,6 @@ export class ChartsAdministradorComponent implements OnInit {
 
           if (horaNumber >= horaSelectDesde2 && horaNumber <= horaSelectHasta2) {
             contFinalizado++;
-            //console.log("a");
             this.cantTurnosPendientesXmedico[i] = contFinalizado;
           }
         } else if (this.listMedicos[i] != (turno.especialista.apellido + ' ' + turno.especialista.nombre) &&
@@ -1215,7 +568,6 @@ export class ChartsAdministradorComponent implements OnInit {
         }
       });
     }
-
     this.cantTurnosSolicitadosXMedico();
   }
 
@@ -1231,17 +583,13 @@ export class ChartsAdministradorComponent implements OnInit {
     };
 
     html2canvas(DATA, options).then((canvas) => {
-
       const img = canvas.toDataURL('image/PNG');
 
-      // Add image Canvas to PDF
       const bufferX = 15;
       const bufferY = 15;
       const imgProps = (doc as any).getImageProperties(img);
       const pdfWidth = doc.internal.pageSize.getWidth();
       const pdfHeight = doc.internal.pageSize.getHeight();
-
-
 
       doc.addImage(img, 'PNG', bufferX, bufferY, pdfWidth, pdfHeight);
       return doc;

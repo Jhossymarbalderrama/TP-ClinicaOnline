@@ -1,40 +1,56 @@
-.header-form{
-    background-color: #008B81;
-    padding-left: 15px;
-    padding-top: 15px;
-    padding-bottom: 15px;
 
-    font-weight: 600;
-    font-size: 20px;
+h3{
 
-    width: 100%;
 }
 
-.header-form > .btn-volver{
-    padding-top: 5px;
-    padding-left: 30px;
-    padding-bottom: 5px;
+body {
+    background-color: transparent !important;
+}
 
-    border-radius: 16px;
+.container {
+    padding-top: 25px;
+}
 
-    background-color: #153A82;
-    width: 180px;
+.card {
+    background-color: #ffffffd3;
+    border-radius: 0.3rem;
+    box-shadow: 1px 1px 10px #000000d7;
+}
+
+.header-form {
+    background-color: #008b82bb;
+    padding: 2% 5%;
+    font-weight: 600;
+    font-size: x-large;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+}
+
+.header-form > .btn-volver {
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    background-color: var(--color-secondary);
+    max-width: 10rem;    
     color: white;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.header-form > .btn-volver:hover {
+    transform: scale(1.05);
+    background-color: #153982da;
     cursor: pointer;
 }
 
-.header-form > .btn-volver:hover{  
-    transform: scale(1.05);
-    background-color: black;    
+.header-form > .btn-volver:active {
+    transform: scale(0.95);
 }
 
-.header-form > .btn-volver:active{  
-    transform: scale(0.90);  
+.header-form > .btn-volver:focus {
+    outline: none;
 }
 
-
-h3{
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #008B81;
+.btn-volver{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

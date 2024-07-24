@@ -1,20 +1,18 @@
-.container{
-    background-color:  #e2e2e2;
-	border-radius: 10px;
-	box-shadow:
-        0.6px 0.7px 0.2px -5px rgba(0, 0, 0, 0.017),
-        1.4px 1.6px 0.4px -5px rgba(0, 0, 0, 0.025),
-        2.4px 2.8px 0.6px -5px rgba(0, 0, 0, 0.031),
-        3.6px 4.2px 1px -5px rgba(0, 0, 0, 0.035),
-        5.1px 6px 1.4px -5px rgba(0, 0, 0, 0.04),
-        7.3px 8.5px 1.9px -5px rgba(0, 0, 0, 0.045),
-        10.3px 12.1px 2.8px -5px rgba(0, 0, 0, 0.049),
-        15px 17.5px 4px -5px rgba(0, 0, 0, 0.055),
-        23.1px 27px 6.2px -5px rgba(0, 0, 0, 0.063),
-        41px 48px 11px -5px rgba(0, 0, 0, 0.08)
-    ;
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input, label{
+    font-size: small;
 }
 
 label{
     font-weight: 600;
 }
+
+hr {
+    border: 3px solid var(--color-primary);
+}
+

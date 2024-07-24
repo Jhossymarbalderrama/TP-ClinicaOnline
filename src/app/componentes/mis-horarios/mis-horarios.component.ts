@@ -35,22 +35,22 @@ export class MisHorariosComponent implements OnInit {
     "13:00", "13:30", "14:00"
   ];
 
-  // Desde LUNES A VIERNES
+  // ! Desde LUNES A VIERNES
   horaDesdeSelect: boolean = false; 
   horaDesdeLV: string = "";
   indiceDesdeLV: any;
 
-  // Hasta LUNES A VIERNES
+  // ! Hasta LUNES A VIERNES
   horaHastaSelect: boolean = false; 
   horaHastaLV: string = "";
   indiceHastaLV: any;
 
-  // Desde SABADO
+  // ! Desde SABADO
   horaDesdeSelectS: boolean = false; 
   horaDesdeS: string = "";
   indiceDesdeS: any;
 
-  // Hasta SABADO
+  // ! Hasta SABADO
   horaHastaSelectS: boolean = false; 
   horaHastaS: string = "";
   indiceHastaS: any;
@@ -98,12 +98,8 @@ export class MisHorariosComponent implements OnInit {
       if(this.AuthService.user.horarioLV.length != 0 && 
          this.AuthService.user.horarioS.length != 0
          ){
-           //console.log("asdasdas");
-     
   
           this.horaDesdeView = this.AuthService.user.horarioLV[0].split("a",2)[0].trim();
-          //console.log(this.horaDesdeLV);
-          // this.horaDesdeLV = this.AuthService.user.horarioLV[0];
           this.horaHastaView = this.AuthService.user.horarioLV[1].split("a",2)[1].trim();
   
           this.horaDesdeViewS = this.AuthService.user.horarioS[0].split("a",2)[0].trim();
@@ -120,7 +116,6 @@ export class MisHorariosComponent implements OnInit {
           this.horaHastaSelectS = true;  
       }
     }
-    //console.log(this.nombreEspecialidadSelect);
   }
 
   selectHoraDesdeLV(hora: any,indice: any){
@@ -135,13 +130,11 @@ export class MisHorariosComponent implements OnInit {
 
     if(minuto == 0){
       let horaAux = this.horaDesdeLV + " a " + horaDespues+ ":"+aux30;
-      //console.log(horaAux);
       this.horaDesdeLV = horaAux;
     }else{
       let horaD = parseInt(this.horaDesdeLV.split(":",2)[0]);
       horaD++;
       let horaAux = horaDespues + ":" + aux30 + " a " + horaD+":"+"00";
-      //console.log(horaAux);
       this.horaDesdeLV = horaAux;
     }
 
@@ -169,19 +162,16 @@ export class MisHorariosComponent implements OnInit {
       if(minuto == 0){
         horaDespues--;
         let horaAux = horaDespues+ ":"+aux30 + " a " + this.horaHastaLV;
-         //console.log(horaAux);
         this.horaHastaLV = horaAux;
       }else{
         let horaD = parseInt(this.horaHastaLV.split(":",2)[0]);
         horaD == horaD-1;
         let horaAux = horaD+":"+"00" + " a " + horaDespues + ":" + aux30;
-         //console.log(horaAux);
         this.horaHastaLV = horaAux;
       }
     }else{
       let horaAux = "18:30 a 19:00";
       this.horaHastaLV = horaAux;
-       //console.log(horaAux);
     }
 
   }
@@ -199,14 +189,12 @@ export class MisHorariosComponent implements OnInit {
     let aux30: number = 30;
 
     if(minuto == 0){
-      let horaAux = this.horaDesdeS + " a " + horaDespues+ ":"+aux30;
-      // console.log(horaAux);
+      let horaAux = this.horaDesdeS + " a " + horaDespues+ ":"+aux30;    
       this.horaDesdeS = horaAux;
     }else{
       let horaD = parseInt(this.horaDesdeS.split(":",2)[0]);
       horaD++;
-      let horaAux = horaDespues + ":" + aux30 + " a " + horaD+":"+"00";
-      // console.log(horaAux);
+      let horaAux = horaDespues + ":" + aux30 + " a " + horaD+":"+"00";    
       this.horaDesdeS = horaAux;
     }
 
@@ -232,20 +220,17 @@ export class MisHorariosComponent implements OnInit {
     if(horaDespues != 19){
       if(minuto == 0){
         horaDespues--;
-        let horaAux = horaDespues+ ":"+aux30 + " a " + this.horaHastaS;
-        //  console.log(horaAux);
+        let horaAux = horaDespues+ ":"+aux30 + " a " + this.horaHastaS;        
         this.horaHastaS = horaAux;
       }else{
         let horaD = parseInt(this.horaHastaS.split(":",2)[0]);
         horaD == horaD-1;
-        let horaAux = horaD+":"+"00" + " a " + horaDespues + ":" + aux30;
-        //  console.log(horaAux);
+        let horaAux = horaD+":"+"00" + " a " + horaDespues + ":" + aux30;        
         this.horaHastaS = horaAux;
       }
     }else{
       let horaAux = "13:30 a 14:00";
       this.horaHastaS = horaAux;
-       //console.log(horaAux);
     }
   }
 
@@ -273,8 +258,6 @@ export class MisHorariosComponent implements OnInit {
     especialista.horarioS = [this.horaDesdeS, this.horaHastaS];
 
     
-    // console.log(especialista.horarioLV);
-    // console.log(especialista.horarioS);
     this.FirestoreService.modificarEspecialista(especialista,especialista.id);
     this.msjTurnoSuccess();
   }

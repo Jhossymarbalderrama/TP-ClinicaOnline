@@ -39,27 +39,8 @@ export class ListadoPacientesComponent implements OnInit {
     }, 1000);
   }
 
-  cargarTurnosXPaciente(pacienteSelect: any){
-    let paciente: any;
-    this.listaTurnosXpaciente = [];
-    
-    this.listTurno.forEach(data => {
-      if(data.paciente?.id == pacienteSelect?.id &&
-        data.estado_turno != 'Pendiente'){
-        this.listaTurnosXpaciente.push(data);
-        paciente = data.paciente;
-      }
-    });
-
-    //console.log(this.listaTurnosXpaciente);
-
-    setTimeout(() => {
-      this.ExcelService.exportexcel("Datos_Turnos_Paciente_"+paciente?.id+"_", "excel-table-paciente");
-    }, 1000);
-  }
 
   seleccionarPaciente(paciente: Paciente){
-    //console.log(paciente);
     this.usuarioEvent.emit(paciente);
   }
 }

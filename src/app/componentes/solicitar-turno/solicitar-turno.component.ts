@@ -230,7 +230,6 @@ export class SolicitarTurnoComponent implements OnInit {
     this.horasEspecialistaLV = especialista.horarioLV;
     this.horasEspecialistaS = especialista.horarioS;
 
-    // this.turno.especialista = especialista.nombre + " " + especialista.apellido;
     this.turno.especialista = datosEspecialista;
     this.verificacionFechasHabilitadas();
   }
@@ -247,9 +246,7 @@ export class SolicitarTurnoComponent implements OnInit {
     this.nombreEspecialidadSelect = especialidad;
     this.turno.especialidad = especialidad;
 
-    this.filtroXEspecialidad = especialidad;
-
-    //this.verificacionFechasHabilitadas();    
+    this.filtroXEspecialidad = especialidad; 
   }
  
   
@@ -264,7 +261,6 @@ export class SolicitarTurnoComponent implements OnInit {
     let fechaConHora: any = [this.fechasola[0], this.fechasola[1], hora]
     this.fechaSeleccionada = fechaConHora;
     this.turno.fecha = fechaConHora;
-    //console.log(this.turno.fecha);
   }
 
 
@@ -322,7 +318,6 @@ export class SolicitarTurnoComponent implements OnInit {
 
       this.FirestoreService.altaTurno(datosTurno);
       this.msjTurnoSuccess();
-      //console.log(this.turno);
     }
     else {
       this.errorFormularioTurno = true;

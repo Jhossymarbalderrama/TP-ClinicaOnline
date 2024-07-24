@@ -8,7 +8,6 @@ import { CaptchaService } from 'src/app/services/captcha.service';
 
 import { FirestoreService } from 'src/app/services/firestore.service';
 import Swal from 'sweetalert2';
-// import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-registro',
@@ -116,7 +115,6 @@ export class FormRegistroComponent implements OnInit {
     }
 
     this.captcha = this.Captcha.generarPalabra();
-    //console.log(this.captcha);
   }
 
   altaRegistro() {

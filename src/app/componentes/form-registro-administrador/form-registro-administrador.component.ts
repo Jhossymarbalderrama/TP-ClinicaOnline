@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
 })
 export class FormRegistroAdministradorComponent implements OnInit {
 
-  //Formulario General
+  // ? Formulario General
   formularioRegistro !: FormGroup;
 
   administrador: Administrador = new Administrador("","",99,99999999,"","","");
@@ -81,8 +81,6 @@ export class FormRegistroAdministradorComponent implements OnInit {
   
       this.administrador.foto = this.fotoAdministradorFB;
   
-      //console.log(this.administrador);
-  
       this.FirestoreService.altaAdministradores(this.administrador);
       this.AuthService.user = this.administrador;
       this.AuthService.register(this.administrador.mail,this.administrador.password);
@@ -101,14 +99,10 @@ export class FormRegistroAdministradorComponent implements OnInit {
           confirmButtonText: 'Aceptar'          
         }).then((result) =>{
           this.formularioRegistro.reset();
-          // if(result.value){
-          //   this.Router.navigateByUrl('/login');
-          // }
     });
   }
 
   subirFoto($event:any){
-    //console.log($event?.target.files[0]);
     this.fotoAdministradorFB = $event?.target.files[0]; 
   }
 
